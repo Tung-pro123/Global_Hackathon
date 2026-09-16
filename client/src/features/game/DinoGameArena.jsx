@@ -306,8 +306,9 @@ export default function DinoGameArena({ activeSkin, onPlayerUpdate, playerData, 
               {[t('game.pills.coins'), t('game.pills.quizzes'), t('game.pills.birds'), t('game.pills.jump')].map(pill => (
                 <span key={pill} style={{
                   padding:'4px 12px', borderRadius:'999px', fontSize:'0.76rem',
-                  background:'rgba(56,189,248,0.08)', border:'1px solid rgba(56,189,248,0.2)',
-                  color:'var(--text-secondary)', fontFamily:'var(--font-heading)'
+                  background:'rgba(56,189,248,0.12)', border:'1px solid rgba(56,189,248,0.35)',
+                  color:'#ffffff', fontFamily:'var(--font-heading)', fontWeight:'500',
+                  boxShadow:'0 0 10px rgba(56,189,248,0.1)'
                 }}>{pill}</span>
               ))}
             </div>
@@ -373,7 +374,7 @@ export default function DinoGameArena({ activeSkin, onPlayerUpdate, playerData, 
 
             {/* Difficulty picker */}
             <div style={{ width:'100%', maxWidth:'380px' }}>
-              <p style={{ fontFamily:'var(--font-arcade)', fontSize:'0.65rem', color:'var(--text-muted)', textAlign:'center', marginBottom:'10px', letterSpacing:'0.1em' }}>
+              <p style={{ fontFamily:'var(--font-arcade)', fontSize:'0.65rem', color:'#94a3b8', textAlign:'center', marginBottom:'10px', letterSpacing:'0.1em' }}>
                 {t('game.selectDifficulty')}
               </p>
               <div style={{ display:'flex', gap:'8px' }}>
@@ -385,7 +386,7 @@ export default function DinoGameArena({ activeSkin, onPlayerUpdate, playerData, 
                       flex:1, padding:'10px 8px', borderRadius:'12px', cursor:'pointer',
                       background: difficulty === key ? cfg.colorBg : 'rgba(13,20,36,0.7)',
                       border: `1.5px solid ${difficulty === key ? cfg.color : 'rgba(255,255,255,0.06)'}`,
-                      color: difficulty === key ? cfg.color : 'var(--text-muted)',
+                      color: difficulty === key ? cfg.color : '#94a3b8',
                       fontFamily:'var(--font-heading)', fontWeight:'600', fontSize:'0.82rem',
                       display:'flex', flexDirection:'column', alignItems:'center', gap:'4px',
                       transition:'all 0.25s ease',
@@ -393,7 +394,7 @@ export default function DinoGameArena({ activeSkin, onPlayerUpdate, playerData, 
                     }}
                   >
                     <span style={{ fontSize:'1.1rem' }}>{t(`game.difficulty.${key}.label`)}</span>
-                    <span style={{ fontSize:'0.62rem', opacity:0.7, fontWeight:'400', textAlign:'center', lineHeight:1.3 }}>
+                    <span style={{ fontSize:'0.62rem', opacity:0.8, fontWeight:'400', textAlign:'center', lineHeight:1.3, color: difficulty === key ? cfg.color : '#cbd5e1' }}>
                       {t(`game.difficulty.${key}.desc`)}
                     </span>
                     {difficulty === key && (
@@ -422,7 +423,7 @@ export default function DinoGameArena({ activeSkin, onPlayerUpdate, playerData, 
               }}
             >{t('game.startBtn')}</button>
 
-            <p style={{ fontSize:'0.65rem', color:'var(--text-muted)', fontFamily:'var(--font-arcade)', letterSpacing:'0.05em' }}>
+            <p style={{ fontSize:'0.65rem', color:'#94a3b8', fontFamily:'var(--font-arcade)', letterSpacing:'0.05em' }}>
               {t('game.controlsHint')}
             </p>
           </div>
