@@ -1,0 +1,17 @@
+{
+  "name": "cultursync-slangarena",
+  "version": "2.0.0",
+  "description": "CultureSync SlangArena — Global Hackathon 2026, Team 14",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\" --names \"SERVER,CLIENT\" --prefix-colors \"cyan,magenta\"",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm run dev",
+    "build": "npm --prefix client install && npm --prefix client run build && npm --prefix server install",
+    "install:all": "cd server && npm install && cd ../client && npm install",
+    "start": "npm --prefix server start"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

@@ -1,0 +1,1286 @@
+{
+  "slangs": [
+    {
+      "id": "01b62841-30b7-46b7-9cf8-8cec11258f05",
+      "term": "Chope",
+      "culture": "SG",
+      "phonetic": "/tʃoʊp/",
+      "literal_translation": "Reserve / Claim",
+      "cultural_meaning": "To reserve a seat or spot by placing a personal item (usually a tissue packet) on it. A uniquely Singaporean hawker centre etiquette.",
+      "whatsapp_example": "Eh bro, I already chope the seats at the corner la. Come faster!",
+      "category": "social",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1567521464027-f127ff144326?w=400",
+      "visual_caption": "🧻 A tissue packet placed on a plastic chair at a hawker centre",
+      "created_at": "2026-09-16T10:50:45.995Z"
+    },
+    {
+      "id": "31d9096c-e16d-4751-8c7b-267b6225a4aa",
+      "term": "Kiasu",
+      "culture": "SG",
+      "phonetic": "/kiːəsuː/",
+      "literal_translation": "Afraid to lose (Hokkien)",
+      "cultural_meaning": "The extreme fear of missing out or losing to others, leading to overly competitive or selfish behaviour. A core part of Singapore identity.",
+      "whatsapp_example": "She queue 2 hours for that bubble tea sia. So kiasu lor.",
+      "category": "personality",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400",
+      "visual_caption": "😰 A student raising hand aggressively to answer first in class",
+      "created_at": "2026-09-16T10:50:45.997Z"
+    },
+    {
+      "id": "d297f50c-2e35-4893-af6d-dfd7c13eba32",
+      "term": "Arrow",
+      "culture": "SG",
+      "phonetic": "/ˈærəʊ/",
+      "literal_translation": "To point / assign",
+      "cultural_meaning": "To be assigned an unwanted task by your superior without proper discussion. The \"victim\" is said to have been \"arrowed\".",
+      "whatsapp_example": "Siao leh, boss arrow me to do the whole presentation alone again!",
+      "category": "work",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
+      "visual_caption": "🏹 Arrow pointing directly at one stressed person among a group",
+      "created_at": "2026-09-16T10:50:45.998Z"
+    },
+    {
+      "id": "c0c4d7bc-18d1-42ab-9b1f-678ca1852917",
+      "term": "Shiok",
+      "culture": "SG",
+      "phonetic": "/ʃiːɒk/",
+      "literal_translation": "Extremely pleasing (Hokkien)",
+      "cultural_meaning": "Expressing extreme pleasure, satisfaction, or delight. Used for food, experiences, or any great moment.",
+      "whatsapp_example": "Wah this chicken rice damn shiok sia! Where you buy from?",
+      "category": "expression",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1555126634-323283e090fa?w=400",
+      "visual_caption": "😍 Person taking first bite of incredible food with eyes rolling back in pleasure",
+      "created_at": "2026-09-16T10:50:45.999Z"
+    },
+    {
+      "id": "8ae7c3fe-6660-4eba-8980-e0482ad93405",
+      "term": "Bao Ka Liao",
+      "culture": "SG",
+      "phonetic": "/baʊ kɑː liːaʊ/",
+      "literal_translation": "Wrapped up everything (Hokkien)",
+      "cultural_meaning": "All-inclusive, covers everything. Used to describe someone who does it all or a solution that handles every situation.",
+      "whatsapp_example": "Don't worry, my uncle bao ka liao - he can drive, cook, and fix the problem.",
+      "category": "expression",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1484807352052-23338990c6c6?w=400",
+      "visual_caption": "🎁 A single gift box with everything packed inside perfectly",
+      "created_at": "2026-09-16T10:50:46.000Z"
+    },
+    {
+      "id": "b6c9776a-c813-4be3-a3e2-687ebe007d39",
+      "term": "Gánh Team",
+      "culture": "VN",
+      "phonetic": "/ɡan tiːm/",
+      "literal_translation": "Carry the team (gaming origin)",
+      "cultural_meaning": "To single-handedly carry the entire team's performance. Used in gaming, group projects, and sports.",
+      "whatsapp_example": "Ông gánh team cả trận lại á, không có mày tụi mình thua rồi!",
+      "category": "gaming",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400",
+      "visual_caption": "🏋️ One superhero figure carrying 4 other people on their shoulders",
+      "created_at": "2026-09-16T10:50:46.001Z"
+    },
+    {
+      "id": "82b416fd-3c56-4faa-94ea-3d5fa7cc66d8",
+      "term": "Chạy Deadline",
+      "culture": "VN",
+      "phonetic": "/tʃai ˈdɛdlaɪn/",
+      "literal_translation": "Run to/from deadline",
+      "cultural_meaning": "The frantic rush to complete work just before the deadline. The universal student survival mode.",
+      "whatsapp_example": "Thôi xong tao đang chạy deadline báo cáo, 2 giờ sáng nộp mà chưa làm gì hết!",
+      "category": "academic",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400",
+      "visual_caption": "⏰ Student sprinting with laptop at 2AM with clock ticking behind them",
+      "created_at": "2026-09-16T10:50:46.002Z"
+    },
+    {
+      "id": "34df3bba-da2d-41ed-ae5a-24321c36bd91",
+      "term": "Out-trình",
+      "culture": "VN",
+      "phonetic": "/aʊt tʃɪn/",
+      "literal_translation": "Out-class / Out-perform",
+      "cultural_meaning": "When someone's skill level completely surpasses everyone else. A compliment for exceptional competence.",
+      "whatsapp_example": "Con bé đó thuyết trình out-trình cả lớp luôn, slides đẹp mà nói hay nữa!",
+      "category": "compliment",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400",
+      "visual_caption": "🚀 One person's bar chart shooting way above everyone else's",
+      "created_at": "2026-09-16T10:50:46.003Z"
+    },
+    {
+      "id": "4c1e1be1-fc91-4b1c-aa50-4d9b289e2f4f",
+      "term": "Xu Cà Na",
+      "culture": "VN",
+      "phonetic": "/suː kɑː nɑː/",
+      "literal_translation": "Broke / penniless",
+      "cultural_meaning": "Having absolutely no money. The broke student anthem. Often used humorously to describe end-of-month financial reality.",
+      "whatsapp_example": "Bro ơi cho tao mượn 50k được không, tao đang xu cà na chờ ba chuyển tiền.",
+      "category": "finance",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=400",
+      "visual_caption": "💸 Empty wallet with dust and a single lonely coin falling out",
+      "created_at": "2026-09-16T10:50:46.004Z"
+    },
+    {
+      "id": "015b6ba4-78a0-4cd1-b214-31be8ed78cf7",
+      "term": "Bán Than",
+      "culture": "VN",
+      "phonetic": "/ban tan/",
+      "literal_translation": "Sell coal / Sell suffering",
+      "cultural_meaning": "To over-dramatize your problems or hardships for sympathy, usually humorously. The art of performative suffering on social media.",
+      "whatsapp_example": "Thôi đừng có bán than nữa, ai cũng biết mày học giỏi mà còn than thi khó!",
+      "category": "social",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400",
+      "visual_caption": "😭 Person dramatically crying while holding up a tiny problem, crowd unmoved",
+      "created_at": "2026-09-16T10:50:46.005Z"
+    },
+    {
+      "id": "sg_sian",
+      "term": "Sian",
+      "culture": "SG",
+      "phonetic": "/siːæn/",
+      "literal_translation": "Tired / Bored / Weary",
+      "cultural_meaning": "A profound feeling of weariness, boredom, apathy, or frustration with everyday grind and never-ending work.",
+      "whatsapp_example": "Sian 1/2 sia, tomorrow 8am lecture still have quiz.",
+      "category": "campus",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1517849845537-4d257902454a?w=400",
+      "visual_caption": "😴 Sleepy puppy slumped flat on study desk completely exhausted",
+      "created_at": "2026-09-16T13:18:30.660Z"
+    },
+    {
+      "id": "sg_steady",
+      "term": "Steady",
+      "culture": "SG",
+      "phonetic": "/ˈstɛdi/",
+      "literal_translation": "Reliable / Agreed",
+      "cultural_meaning": "A versatile compliment meaning awesome, dependable, capable, or an enthusiastic agreement to plans.",
+      "whatsapp_example": "You submitted the PR before midnight? Steady lah bro, MVP for sure!",
+      "category": "social",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400",
+      "visual_caption": "🤝 Solid handshake between two smiling collaborative teammates",
+      "created_at": "2026-09-16T13:18:30.663Z"
+    },
+    {
+      "id": "sg_lobang",
+      "term": "Lobang",
+      "culture": "SG",
+      "phonetic": "/loʊbɑːŋ/",
+      "literal_translation": "Hole / Opening (Malay)",
+      "cultural_meaning": "An insider tip, opportunity, hot lead, or lucrative contact (e.g., paid internship opportunity, cheap food promo).",
+      "whatsapp_example": "Eh who got lobang for Google summer internship? Share please!",
+      "category": "career",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400",
+      "visual_caption": "🔑 Golden key opening a mysterious door of bright opportunities",
+      "created_at": "2026-09-16T13:18:30.664Z"
+    },
+    {
+      "id": "sg_jio",
+      "term": "Jio",
+      "culture": "SG",
+      "phonetic": "/dʒiːoʊ/",
+      "literal_translation": "Invite (Hokkien)",
+      "cultural_meaning": "To invite or ask someone along to an outing, meal, gaming session, or study hangout.",
+      "whatsapp_example": "Tonight late night coding at Starbucks, I jio you, want to come?",
+      "category": "social",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400",
+      "visual_caption": "👋 Person waving happily inviting friends over to join their table",
+      "created_at": "2026-09-16T13:18:30.665Z"
+    },
+    {
+      "id": "sg_bo_jio",
+      "term": "Bo Jio",
+      "culture": "SG",
+      "phonetic": "/boʊ dʒiːoʊ/",
+      "literal_translation": "Never invite (Hokkien)",
+      "cultural_meaning": "A mock-accusation or playful expression of FOMO when someone hangs out or eats good food without inviting you.",
+      "whatsapp_example": "Wah go supper without me! Bo jio sia, hurts my feelings!",
+      "category": "social",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=400",
+      "visual_caption": "🥺 Pouting person looking through window at friends having a pizza party",
+      "created_at": "2026-09-16T13:18:30.666Z"
+    },
+    {
+      "id": "sg_zai",
+      "term": "Zai",
+      "culture": "SG",
+      "phonetic": "/zaɪ/",
+      "literal_translation": "Master / Skilled (Hokkien)",
+      "cultural_meaning": "Calling someone an absolute genius, pro, or master in a specific skill (e.g., algorithms, gaming, public speaking).",
+      "whatsapp_example": "Alex so zai at machine learning, he wrote the neural net in 2 hours.",
+      "category": "gaming",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=400",
+      "visual_caption": "🎮 Esports player wearing gaming headset holding shiny championship trophy",
+      "created_at": "2026-09-16T13:18:30.668Z"
+    },
+    {
+      "id": "sg_chop_chop",
+      "term": "Chop-Chop",
+      "culture": "SG",
+      "phonetic": "/tʃɒp tʃɒp/",
+      "literal_translation": "Fast / Quickly (Pidgin English)",
+      "cultural_meaning": "An urgent call to hurry up and get things done rapidly without dilly-dallying.",
+      "whatsapp_example": "Chop-chop finish this slide deck, client presentation starting in 10 mins!",
+      "category": "campus",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=400",
+      "visual_caption": "⚡ Person running at lightning speed with stopwatch clicking",
+      "created_at": "2026-09-16T13:18:30.669Z"
+    },
+    {
+      "id": "sg_can_lah",
+      "term": "Can Lah",
+      "culture": "SG",
+      "phonetic": "/kæn lɑː/",
+      "literal_translation": "Yes, certainly possible",
+      "cultural_meaning": "The ultimate Singaporean reassurance expressing confidence, willingness, and positive problem-solving.",
+      "whatsapp_example": "Can we deploy to production before the demo? Can lah, tested already!",
+      "category": "expression",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400",
+      "visual_caption": "👍 Smiling person giving enthusiastic double thumbs-up in approval",
+      "created_at": "2026-09-16T13:18:30.670Z"
+    },
+    {
+      "id": "sg_lepak",
+      "term": "Lepak",
+      "culture": "SG",
+      "phonetic": "/lɛpɑːk/",
+      "literal_translation": "Loiter / Chill (Malay)",
+      "cultural_meaning": "To hang out leisurely without any specific agenda; simply relaxing in good company.",
+      "whatsapp_example": "After the hackathon finals, let us just lepak at Marina Bay and relax.",
+      "category": "social",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=400",
+      "visual_caption": "🏖️ Friends lounging peacefully on beach hammocks watching sunset",
+      "created_at": "2026-09-16T13:18:30.672Z"
+    },
+    {
+      "id": "sg_makan",
+      "term": "Makan",
+      "culture": "SG",
+      "phonetic": "/mɑːkɑːn/",
+      "literal_translation": "Eat (Malay)",
+      "cultural_meaning": "The universal call for food, bonding over meals, and hawker feasts with friends.",
+      "whatsapp_example": "12pm already, time to makan! Craving laksa and chicken rice.",
+      "category": "food",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400",
+      "visual_caption": "🍜 Steaming bowl of delicious noodles surrounded by appetizing dishes",
+      "created_at": "2026-09-16T13:18:30.677Z"
+    },
+    {
+      "id": "sg_paiseh",
+      "term": "Paiseh",
+      "culture": "SG",
+      "phonetic": "/paɪseɪ/",
+      "literal_translation": "Shy / Embarrassed (Hokkien)",
+      "cultural_meaning": "Feeling embarrassed, shy, or apologetic for bothering someone or causing inconvenience.",
+      "whatsapp_example": "Paiseh ah, can you explain that equation one more time? I missed it.",
+      "category": "social",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?w=400",
+      "visual_caption": "🙈 Person sheepishly covering eyes blushing with polite smile",
+      "created_at": "2026-09-16T13:18:30.678Z"
+    },
+    {
+      "id": "sg_ponteng",
+      "term": "Ponteng",
+      "culture": "SG",
+      "phonetic": "/pɒntɛŋ/",
+      "literal_translation": "Skip / Truant (Malay)",
+      "cultural_meaning": "To skip a class, lecture, or compulsory session without a valid medical excuse.",
+      "whatsapp_example": "Prof just reading slides again, feel like ponteng and code in library.",
+      "category": "campus",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400",
+      "visual_caption": "🏫 Empty classroom seat with lone notebook left unattended",
+      "created_at": "2026-09-16T13:18:30.680Z"
+    },
+    {
+      "id": "sg_gabra",
+      "term": "Gabra",
+      "culture": "SG",
+      "phonetic": "/ɡɑːbrɑː/",
+      "literal_translation": "Panic / Fluster (Hindustani/Malay)",
+      "cultural_meaning": "To panic, lose composure, or become thoroughly disoriented under sudden high pressure.",
+      "whatsapp_example": "When the projector died, I totally gabra on stage and forgot my lines!",
+      "category": "personality",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400",
+      "visual_caption": "💥 Cartoonish head spinning in dizziness with question marks popping",
+      "created_at": "2026-09-16T13:18:30.682Z"
+    },
+    {
+      "id": "sg_chiong",
+      "term": "Chiong",
+      "culture": "SG",
+      "phonetic": "/tʃiːɒŋ/",
+      "literal_translation": "Charge forward (Hokkien)",
+      "cultural_meaning": "To rush with fierce intensity, especially pulling an all-nighter or sprinting towards a project deadline.",
+      "whatsapp_example": "Hackathon demo is tomorrow morning, we must chiong all the way tonight!",
+      "category": "campus",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400",
+      "visual_caption": "🏃 Sprinter bursting out of starting blocks at maximum speed",
+      "created_at": "2026-09-16T13:18:30.683Z"
+    },
+    {
+      "id": "sg_blur_sotong",
+      "term": "Blur like Sotong",
+      "culture": "SG",
+      "phonetic": "/blɜːr laɪk soʊtɒŋ/",
+      "literal_translation": "Confused like a squid",
+      "cultural_meaning": "Completely clueless, confused, or oblivious to what is going on, akin to a squid inking its own water.",
+      "whatsapp_example": "He did not read the project brief at all, during meeting blur like sotong.",
+      "category": "personality",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400",
+      "visual_caption": "🦑 Squid in deep ocean releasing ink cloud looking utterly puzzled",
+      "created_at": "2026-09-16T13:18:30.684Z"
+    },
+    {
+      "id": "vn_bao_viec",
+      "term": "Bào Việc",
+      "culture": "VN",
+      "phonetic": "/baʊ viːɛk/",
+      "literal_translation": "Grind through workload tirelessly",
+      "cultural_meaning": "Working relentlessly through massive tasks or long hours like a machine to meet project milestones.",
+      "whatsapp_example": "Tuần này team mình bào việc từ sáng đến đêm để kịp ra mắt sản phẩm MVP!",
+      "category": "career",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400",
+      "visual_caption": "💻 Office glowing late at night with focused programmer sipping coffee",
+      "created_at": "2026-09-16T13:18:30.686Z"
+    },
+    {
+      "id": "vn_flex",
+      "term": "Flex",
+      "culture": "VN",
+      "phonetic": "/flɛks/",
+      "literal_translation": "Show off / Flaunt",
+      "cultural_meaning": "Cleverly or playfully showing off achievements, certificates, GPA, or stylish possessions on social networks.",
+      "whatsapp_example": "Không có ý flex đâu nhưng team mình vừa ẵm giải Nhất hackathon rồi nhé!",
+      "category": "social",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=400",
+      "visual_caption": "✨ Sparkling shiny gold medals and trophies lined up proudly",
+      "created_at": "2026-09-16T13:18:30.687Z"
+    },
+    {
+      "id": "vn_pressing",
+      "term": "Pressing",
+      "culture": "VN",
+      "phonetic": "/ˈprɛsɪŋ/",
+      "literal_translation": "High-intensity tactical pressure (football origin)",
+      "cultural_meaning": "Applying relentless logical or verbal pressure on someone during presentations, Q&A debates, or playful banter.",
+      "whatsapp_example": "Giám khảo pressing câu hỏi kỹ thuật dồn dập nhưng nhóm mình phản biện cực mượt!",
+      "category": "campus",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=400",
+      "visual_caption": "⚽ Football midfielders surrounding opponent applying intense tactical squeeze",
+      "created_at": "2026-09-16T13:18:30.689Z"
+    },
+    {
+      "id": "vn_u_la_troi",
+      "term": "U Là Trời",
+      "culture": "VN",
+      "phonetic": "/uː lɑː tʃɔɪ/",
+      "literal_translation": "Oh my God (OMG)",
+      "cultural_meaning": "An exclamation of sheer astonishment, pleasant surprise, or comic disbelief at unexpected events.",
+      "whatsapp_example": "U là trời, cái game Dino này đồ họa pixel đỉnh cao vậy luôn á hả!",
+      "category": "expression",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400",
+      "visual_caption": "😲 Person holding cheeks in wide-eyed joyous wonder and surprise",
+      "created_at": "2026-09-16T13:18:30.692Z"
+    },
+    {
+      "id": "vn_keo_li",
+      "term": "Keo Lì",
+      "culture": "VN",
+      "phonetic": "/kɛoʊ liː/",
+      "literal_translation": "Flawless / Gorgeous / Slaying",
+      "cultural_meaning": "A glowing Gen Z compliment for something looking stunning, neat, aesthetic, or exceptionally well executed.",
+      "whatsapp_example": "Slide thuyết trình của bạn nhìn keo lì tái tê luôn, 10 điểm không có nhưng!",
+      "category": "social",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=400",
+      "visual_caption": "💎 Brilliant multifaceted diamond sparkling with rainbow reflections",
+      "created_at": "2026-09-16T13:18:30.693Z"
+    },
+    {
+      "id": "vn_tram_cam",
+      "term": "Trầm Cảm",
+      "culture": "VN",
+      "phonetic": "/tʃam kam/",
+      "literal_translation": "Hyperbolic exam despair",
+      "cultural_meaning": "A humorous Gen Z exaggeration for feeling utterly overwhelmed by a difficult math problem, bug, or tight schedule.",
+      "whatsapp_example": "Nhìn quả bug CSS này tao trầm cảm thực sự, sửa 3 tiếng vẫn lệch!",
+      "category": "campus",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1517849845537-4d257902454a?w=400",
+      "visual_caption": "📉 Humorous dramatic face-palm at a messy tangle of cables",
+      "created_at": "2026-09-16T13:18:30.694Z"
+    },
+    {
+      "id": "vn_gay_som",
+      "term": "Gáy Sớm",
+      "culture": "VN",
+      "phonetic": "/ɡaɪ sɔːm/",
+      "literal_translation": "Crow like a rooster too early",
+      "cultural_meaning": "To boast or celebrate victory too early before the final whistle or exam grades, often leading to comic karma.",
+      "whatsapp_example": "Đừng có gáy sớm ăn tiền, trận đấu còn 5 phút nữa mới biết ai thắng!",
+      "category": "gaming",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=400",
+      "visual_caption": "🐓 Rooster standing on fence crowing loudly at dawn before sunrise",
+      "created_at": "2026-09-16T13:18:30.695Z"
+    },
+    {
+      "id": "vn_nau_xeng",
+      "term": "Nấu Xèng",
+      "culture": "VN",
+      "phonetic": "/naʊ sɛŋ/",
+      "literal_translation": "Cooking up coins / Making bank",
+      "cultural_meaning": "Winning big prizes, monetizing skills, or securing high-value awards through hackathons or smart work.",
+      "whatsapp_example": "Thắng giải Nhất đợt này là team mình nấu xèng ấm no cả học kỳ!",
+      "category": "career",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=400",
+      "visual_caption": "💰 Treasure chest overflowing with sparkling gold coins and gems",
+      "created_at": "2026-09-16T13:18:30.697Z"
+    },
+    {
+      "id": "vn_ca_khia",
+      "term": "Cà Khịa",
+      "culture": "VN",
+      "phonetic": "/kɑː xiːə/",
+      "literal_translation": "Witty roasting / Friendly banter",
+      "cultural_meaning": "Playfully teasing or making witty, sarcastic jabs at close friends to create humor and camaraderie.",
+      "whatsapp_example": "Bạn thân là phải cà khịa nhau mỗi ngày tình cảm mới bền chặt được!",
+      "category": "social",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400",
+      "visual_caption": "😜 Two close friends laughing out loud sharing funny jokes together",
+      "created_at": "2026-09-16T13:18:30.698Z"
+    },
+    {
+      "id": "vn_boc_hoi",
+      "term": "Bốc Hơi",
+      "culture": "VN",
+      "phonetic": "/bɒk həːɪ/",
+      "literal_translation": "Evaporate / Ghost the team",
+      "cultural_meaning": "When an irresponsible group member completely vanishes and stops replying right before an important deadline.",
+      "whatsapp_example": "Giao phần slide xong ông đó bốc hơi luôn, gọi điện không bắt máy!",
+      "category": "campus",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1509114397022-ed747cca3f65?w=400",
+      "visual_caption": "💨 Cloud of white smoke vanishing into thin air leaving behind an empty chair",
+      "created_at": "2026-09-16T13:18:30.700Z"
+    },
+    {
+      "id": "vn_phong_bat",
+      "term": "Phông Bạt",
+      "culture": "VN",
+      "phonetic": "/fɒŋ bat/",
+      "literal_translation": "Canvas backdrop / Illusion of wealth",
+      "cultural_meaning": "Pretending to have vast wealth, skill, or importance purely for social media clout while lacking true substance.",
+      "whatsapp_example": "Làm việc thực chất đi, đừng sống phông bạt chỉ để chụp ảnh đăng mạng.",
+      "category": "social",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400",
+      "visual_caption": "🎭 Grand Hollywood movie set backdrop revealing bare scaffoldings behind",
+      "created_at": "2026-09-16T13:18:30.701Z"
+    },
+    {
+      "id": "vn_check_var",
+      "term": "Check Var",
+      "culture": "VN",
+      "phonetic": "/tʃɛk vɑːr/",
+      "literal_translation": "Check Video Assistant Referee proof",
+      "cultural_meaning": "Checking receipts, logs, or chat evidence to prove who is telling the truth in an argument or task dispute.",
+      "whatsapp_example": "Mày bảo nộp bài rồi hả? Để tao mở Git log ra check var liền!",
+      "category": "campus",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=400",
+      "visual_caption": "📺 Football referee reviewing high-definition slow-motion video monitors",
+      "created_at": "2026-09-16T13:18:30.704Z"
+    },
+    {
+      "id": "vn_thao_tung_tam_ly",
+      "term": "Thao Túng Tâm Lý",
+      "culture": "VN",
+      "phonetic": "/tʰaʊ tuŋ tam li/",
+      "literal_translation": "Gaslighting / Persuasive psychology",
+      "cultural_meaning": "Playfully manipulating or sweet-talking someone into taking on chores or going out for milk tea.",
+      "whatsapp_example": "Nó lại vừa thao túng tâm lý bảo trà sữa hôm nay giảm giá để rủ mình đi!",
+      "category": "social",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400",
+      "visual_caption": "🧠 Puppet strings playfully guiding a cheerful wooden chess piece",
+      "created_at": "2026-09-16T13:18:30.706Z"
+    },
+    {
+      "id": "vn_dinh_noc",
+      "term": "Đỉnh Nóc Kịch Trần",
+      "culture": "VN",
+      "phonetic": "/dɪn nɔk kɪk tʃan/",
+      "literal_translation": "Peak of the roof, hit the ceiling",
+      "cultural_meaning": "The ultimate viral catchphrase representing unmatched perfection, peak excitement, and absolute top performance.",
+      "whatsapp_example": "Dự án AI của tụi mình hôm nay demo đỉnh nóc kịch trần bay phấp phới luôn!",
+      "category": "career",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400",
+      "visual_caption": "🏔️ High snowy mountain peak reaching up into golden sunlight clouds",
+      "created_at": "2026-09-16T13:18:30.708Z"
+    },
+    {
+      "id": "vn_xit_keo",
+      "term": "Xịt Keo",
+      "culture": "VN",
+      "phonetic": "/sit kɛoʊ/",
+      "literal_translation": "Glued frozen / Speechless shock",
+      "cultural_meaning": "Being struck utterly speechless, frozen in shock or awkward silence by unexpected plot twists or comments.",
+      "whatsapp_example": "Đang thuyết trình ngon ơ thì thầy hỏi một câu khiến cả nhóm xịt keo cứng đờ!",
+      "category": "expression",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400",
+      "visual_caption": "🧊 Ice statue of a person frozen in mid-sentence with jaw dropped",
+      "created_at": "2026-09-16T13:18:30.709Z"
+    }
+  ],
+  "challenges": [
+    {
+      "id": "43fbadc2-f4ae-40d5-ae7f-e76f5d20f67b",
+      "slang_id": "01b62841-30b7-46b7-9cf8-8cec11258f05",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this image: \"🧻 A tissue packet placed on a plastic chair at a hawker centre\"\n\nWhat campus slang does this image represent?",
+      "options": [
+        "Shiok",
+        "Bao Ka Liao",
+        "Gánh Team",
+        "Chope"
+      ],
+      "options_json": "[\"Shiok\",\"Bao Ka Liao\",\"Gánh Team\",\"Chope\"]",
+      "correct_index": 3,
+      "cultural_explanation": "To reserve a seat or spot by placing a personal item (usually a tissue packet) on it. A uniquely Singaporean hawker centre etiquette.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T10:50:45.997Z"
+    },
+    {
+      "id": "0c55f267-a221-4931-9d4c-39182443fe5e",
+      "slang_id": "31d9096c-e16d-4751-8c7b-267b6225a4aa",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this image: \"😰 A student raising hand aggressively to answer first in class\"\n\nWhat campus slang does this image represent?",
+      "options": [
+        "Kiasu",
+        "Bán Than",
+        "Chope",
+        "Arrow"
+      ],
+      "options_json": "[\"Kiasu\",\"Bán Than\",\"Chope\",\"Arrow\"]",
+      "correct_index": 0,
+      "cultural_explanation": "The extreme fear of missing out or losing to others, leading to overly competitive or selfish behaviour. A core part of Singapore identity.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T10:50:45.998Z"
+    },
+    {
+      "id": "bfbab4da-7828-447b-9b05-804403e19189",
+      "slang_id": "d297f50c-2e35-4893-af6d-dfd7c13eba32",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this image: \"🏹 Arrow pointing directly at one stressed person among a group\"\n\nWhat campus slang does this image represent?",
+      "options": [
+        "Xu Cà Na",
+        "Chạy Deadline",
+        "Chope",
+        "Arrow"
+      ],
+      "options_json": "[\"Xu Cà Na\",\"Chạy Deadline\",\"Chope\",\"Arrow\"]",
+      "correct_index": 3,
+      "cultural_explanation": "To be assigned an unwanted task by your superior without proper discussion. The \"victim\" is said to have been \"arrowed\".",
+      "stage_level": 1,
+      "created_at": "2026-09-16T10:50:45.999Z"
+    },
+    {
+      "id": "a7b4727c-e6e0-4bb6-9df4-0a5112fd7344",
+      "slang_id": "c0c4d7bc-18d1-42ab-9b1f-678ca1852917",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this image: \"😍 Person taking first bite of incredible food with eyes rolling back in pleasure\"\n\nWhat campus slang does this image represent?",
+      "options": [
+        "Chope",
+        "Chạy Deadline",
+        "Out-trình",
+        "Shiok"
+      ],
+      "options_json": "[\"Chope\",\"Chạy Deadline\",\"Out-trình\",\"Shiok\"]",
+      "correct_index": 3,
+      "cultural_explanation": "Expressing extreme pleasure, satisfaction, or delight. Used for food, experiences, or any great moment.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T10:50:46.000Z"
+    },
+    {
+      "id": "49523c8b-f4b6-465f-b02e-63c01594ef3a",
+      "slang_id": "8ae7c3fe-6660-4eba-8980-e0482ad93405",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this image: \"🎁 A single gift box with everything packed inside perfectly\"\n\nWhat campus slang does this image represent?",
+      "options": [
+        "Out-trình",
+        "Bao Ka Liao",
+        "Shiok",
+        "Arrow"
+      ],
+      "options_json": "[\"Out-trình\",\"Bao Ka Liao\",\"Shiok\",\"Arrow\"]",
+      "correct_index": 1,
+      "cultural_explanation": "All-inclusive, covers everything. Used to describe someone who does it all or a solution that handles every situation.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T10:50:46.001Z"
+    },
+    {
+      "id": "9e18428e-775b-454d-addc-012dcac2da00",
+      "slang_id": "b6c9776a-c813-4be3-a3e2-687ebe007d39",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this image: \"🏋️ One superhero figure carrying 4 other people on their shoulders\"\n\nWhat campus slang does this image represent?",
+      "options": [
+        "Kiasu",
+        "Out-trình",
+        "Chope",
+        "Gánh Team"
+      ],
+      "options_json": "[\"Kiasu\",\"Out-trình\",\"Chope\",\"Gánh Team\"]",
+      "correct_index": 3,
+      "cultural_explanation": "To single-handedly carry the entire team's performance. Used in gaming, group projects, and sports.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T10:50:46.002Z"
+    },
+    {
+      "id": "a0ca4b69-70ea-4231-b718-539302ff3834",
+      "slang_id": "82b416fd-3c56-4faa-94ea-3d5fa7cc66d8",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this image: \"⏰ Student sprinting with laptop at 2AM with clock ticking behind them\"\n\nWhat campus slang does this image represent?",
+      "options": [
+        "Gánh Team",
+        "Arrow",
+        "Xu Cà Na",
+        "Chạy Deadline"
+      ],
+      "options_json": "[\"Gánh Team\",\"Arrow\",\"Xu Cà Na\",\"Chạy Deadline\"]",
+      "correct_index": 3,
+      "cultural_explanation": "The frantic rush to complete work just before the deadline. The universal student survival mode.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T10:50:46.003Z"
+    },
+    {
+      "id": "3f7895e9-0a79-4deb-9de5-ac993d1b34f9",
+      "slang_id": "34df3bba-da2d-41ed-ae5a-24321c36bd91",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this image: \"🚀 One person's bar chart shooting way above everyone else's\"\n\nWhat campus slang does this image represent?",
+      "options": [
+        "Shiok",
+        "Bao Ka Liao",
+        "Out-trình",
+        "Gánh Team"
+      ],
+      "options_json": "[\"Shiok\",\"Bao Ka Liao\",\"Out-trình\",\"Gánh Team\"]",
+      "correct_index": 2,
+      "cultural_explanation": "When someone's skill level completely surpasses everyone else. A compliment for exceptional competence.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T10:50:46.004Z"
+    },
+    {
+      "id": "3cae1888-29e1-47f1-9c89-07b45983ecd7",
+      "slang_id": "4c1e1be1-fc91-4b1c-aa50-4d9b289e2f4f",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this image: \"💸 Empty wallet with dust and a single lonely coin falling out\"\n\nWhat campus slang does this image represent?",
+      "options": [
+        "Bán Than",
+        "Xu Cà Na",
+        "Arrow",
+        "Shiok"
+      ],
+      "options_json": "[\"Bán Than\",\"Xu Cà Na\",\"Arrow\",\"Shiok\"]",
+      "correct_index": 1,
+      "cultural_explanation": "Having absolutely no money. The broke student anthem. Often used humorously to describe end-of-month financial reality.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T10:50:46.005Z"
+    },
+    {
+      "id": "39e02f53-f2f3-43de-ab45-a1a21bdee169",
+      "slang_id": "015b6ba4-78a0-4cd1-b214-31be8ed78cf7",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this image: \"😭 Person dramatically crying while holding up a tiny problem, crowd unmoved\"\n\nWhat campus slang does this image represent?",
+      "options": [
+        "Chạy Deadline",
+        "Out-trình",
+        "Shiok",
+        "Bán Than"
+      ],
+      "options_json": "[\"Chạy Deadline\",\"Out-trình\",\"Shiok\",\"Bán Than\"]",
+      "correct_index": 3,
+      "cultural_explanation": "To over-dramatize your problems or hardships for sympathy, usually humorously. The art of performative suffering on social media.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T10:50:46.006Z"
+    },
+    {
+      "id": "challenge_sg_sian",
+      "slang_id": "sg_sian",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"😴 Sleepy puppy slumped flat on study desk completely exhausted\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Sian",
+        "Bo Jio",
+        "Chope",
+        "Gabra"
+      ],
+      "options_json": "[\"Sian\",\"Bo Jio\",\"Chope\",\"Gabra\"]",
+      "correct_index": 0,
+      "cultural_explanation": "A profound feeling of weariness, boredom, apathy, or frustration with everyday grind and never-ending work.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.662Z"
+    },
+    {
+      "id": "challenge_sg_steady",
+      "slang_id": "sg_steady",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"🤝 Solid handshake between two smiling collaborative teammates\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Steady",
+        "Jio",
+        "Bo Jio",
+        "Chope"
+      ],
+      "options_json": "[\"Steady\",\"Jio\",\"Bo Jio\",\"Chope\"]",
+      "correct_index": 0,
+      "cultural_explanation": "A versatile compliment meaning awesome, dependable, capable, or an enthusiastic agreement to plans.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.663Z"
+    },
+    {
+      "id": "challenge_sg_lobang",
+      "slang_id": "sg_lobang",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"🔑 Golden key opening a mysterious door of bright opportunities\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Lobang",
+        "Kiasu",
+        "Sian",
+        "Bo Jio"
+      ],
+      "options_json": "[\"Lobang\",\"Kiasu\",\"Sian\",\"Bo Jio\"]",
+      "correct_index": 0,
+      "cultural_explanation": "An insider tip, opportunity, hot lead, or lucrative contact (e.g., paid internship opportunity, cheap food promo).",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.664Z"
+    },
+    {
+      "id": "challenge_sg_jio",
+      "slang_id": "sg_jio",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"👋 Person waving happily inviting friends over to join their table\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Can Lah",
+        "Chope",
+        "Jio",
+        "Kiasu"
+      ],
+      "options_json": "[\"Can Lah\",\"Chope\",\"Jio\",\"Kiasu\"]",
+      "correct_index": 2,
+      "cultural_explanation": "To invite or ask someone along to an outing, meal, gaming session, or study hangout.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.665Z"
+    },
+    {
+      "id": "challenge_sg_bo_jio",
+      "slang_id": "sg_bo_jio",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"🥺 Pouting person looking through window at friends having a pizza party\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Bo Jio",
+        "Ponteng",
+        "Sian",
+        "Arrow"
+      ],
+      "options_json": "[\"Bo Jio\",\"Ponteng\",\"Sian\",\"Arrow\"]",
+      "correct_index": 0,
+      "cultural_explanation": "A mock-accusation or playful expression of FOMO when someone hangs out or eats good food without inviting you.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.667Z"
+    },
+    {
+      "id": "challenge_sg_zai",
+      "slang_id": "sg_zai",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"🎮 Esports player wearing gaming headset holding shiny championship trophy\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Zai",
+        "Makan",
+        "Shiok",
+        "Lobang"
+      ],
+      "options_json": "[\"Zai\",\"Makan\",\"Shiok\",\"Lobang\"]",
+      "correct_index": 0,
+      "cultural_explanation": "Calling someone an absolute genius, pro, or master in a specific skill (e.g., algorithms, gaming, public speaking).",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.669Z"
+    },
+    {
+      "id": "challenge_sg_chop_chop",
+      "slang_id": "sg_chop_chop",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"⚡ Person running at lightning speed with stopwatch clicking\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Lobang",
+        "Chope",
+        "Paiseh",
+        "Chop-Chop"
+      ],
+      "options_json": "[\"Lobang\",\"Chope\",\"Paiseh\",\"Chop-Chop\"]",
+      "correct_index": 3,
+      "cultural_explanation": "An urgent call to hurry up and get things done rapidly without dilly-dallying.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.670Z"
+    },
+    {
+      "id": "challenge_sg_can_lah",
+      "slang_id": "sg_can_lah",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"👍 Smiling person giving enthusiastic double thumbs-up in approval\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Can Lah",
+        "Chiong",
+        "Makan",
+        "Gabra"
+      ],
+      "options_json": "[\"Can Lah\",\"Chiong\",\"Makan\",\"Gabra\"]",
+      "correct_index": 0,
+      "cultural_explanation": "The ultimate Singaporean reassurance expressing confidence, willingness, and positive problem-solving.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.671Z"
+    },
+    {
+      "id": "challenge_sg_lepak",
+      "slang_id": "sg_lepak",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"🏖️ Friends lounging peacefully on beach hammocks watching sunset\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Bo Jio",
+        "Bao Ka Liao",
+        "Lepak",
+        "Makan"
+      ],
+      "options_json": "[\"Bo Jio\",\"Bao Ka Liao\",\"Lepak\",\"Makan\"]",
+      "correct_index": 2,
+      "cultural_explanation": "To hang out leisurely without any specific agenda; simply relaxing in good company.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.672Z"
+    },
+    {
+      "id": "challenge_sg_makan",
+      "slang_id": "sg_makan",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"🍜 Steaming bowl of delicious noodles surrounded by appetizing dishes\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Makan",
+        "Kiasu",
+        "Can Lah",
+        "Shiok"
+      ],
+      "options_json": "[\"Makan\",\"Kiasu\",\"Can Lah\",\"Shiok\"]",
+      "correct_index": 0,
+      "cultural_explanation": "The universal call for food, bonding over meals, and hawker feasts with friends.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.677Z"
+    },
+    {
+      "id": "challenge_sg_paiseh",
+      "slang_id": "sg_paiseh",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"🙈 Person sheepishly covering eyes blushing with polite smile\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Chope",
+        "Paiseh",
+        "Chop-Chop",
+        "Gabra"
+      ],
+      "options_json": "[\"Chope\",\"Paiseh\",\"Chop-Chop\",\"Gabra\"]",
+      "correct_index": 1,
+      "cultural_explanation": "Feeling embarrassed, shy, or apologetic for bothering someone or causing inconvenience.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.679Z"
+    },
+    {
+      "id": "challenge_sg_ponteng",
+      "slang_id": "sg_ponteng",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"🏫 Empty classroom seat with lone notebook left unattended\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Ponteng",
+        "Zai",
+        "Paiseh",
+        "Bo Jio"
+      ],
+      "options_json": "[\"Ponteng\",\"Zai\",\"Paiseh\",\"Bo Jio\"]",
+      "correct_index": 0,
+      "cultural_explanation": "To skip a class, lecture, or compulsory session without a valid medical excuse.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.681Z"
+    },
+    {
+      "id": "challenge_sg_gabra",
+      "slang_id": "sg_gabra",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"💥 Cartoonish head spinning in dizziness with question marks popping\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Blur like Sotong",
+        "Bo Jio",
+        "Gabra",
+        "Lobang"
+      ],
+      "options_json": "[\"Blur like Sotong\",\"Bo Jio\",\"Gabra\",\"Lobang\"]",
+      "correct_index": 2,
+      "cultural_explanation": "To panic, lose composure, or become thoroughly disoriented under sudden high pressure.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.683Z"
+    },
+    {
+      "id": "challenge_sg_chiong",
+      "slang_id": "sg_chiong",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"🏃 Sprinter bursting out of starting blocks at maximum speed\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Steady",
+        "Gabra",
+        "Shiok",
+        "Chiong"
+      ],
+      "options_json": "[\"Steady\",\"Gabra\",\"Shiok\",\"Chiong\"]",
+      "correct_index": 3,
+      "cultural_explanation": "To rush with fierce intensity, especially pulling an all-nighter or sprinting towards a project deadline.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.683Z"
+    },
+    {
+      "id": "challenge_sg_blur_sotong",
+      "slang_id": "sg_blur_sotong",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"🦑 Squid in deep ocean releasing ink cloud looking utterly puzzled\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Blur like Sotong",
+        "Kiasu",
+        "Lobang",
+        "Chope"
+      ],
+      "options_json": "[\"Blur like Sotong\",\"Kiasu\",\"Lobang\",\"Chope\"]",
+      "correct_index": 0,
+      "cultural_explanation": "Completely clueless, confused, or oblivious to what is going on, akin to a squid inking its own water.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.685Z"
+    },
+    {
+      "id": "challenge_vn_bao_viec",
+      "slang_id": "vn_bao_viec",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"💻 Office glowing late at night with focused programmer sipping coffee\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Bào Việc",
+        "Trầm Cảm",
+        "Chạy Deadline",
+        "Flex"
+      ],
+      "options_json": "[\"Bào Việc\",\"Trầm Cảm\",\"Chạy Deadline\",\"Flex\"]",
+      "correct_index": 0,
+      "cultural_explanation": "Working relentlessly through massive tasks or long hours like a machine to meet project milestones.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.687Z"
+    },
+    {
+      "id": "challenge_vn_flex",
+      "slang_id": "vn_flex",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"✨ Sparkling shiny gold medals and trophies lined up proudly\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Flex",
+        "Pressing",
+        "Xịt Keo",
+        "Cà Khịa"
+      ],
+      "options_json": "[\"Flex\",\"Pressing\",\"Xịt Keo\",\"Cà Khịa\"]",
+      "correct_index": 0,
+      "cultural_explanation": "Cleverly or playfully showing off achievements, certificates, GPA, or stylish possessions on social networks.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.688Z"
+    },
+    {
+      "id": "challenge_vn_pressing",
+      "slang_id": "vn_pressing",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"⚽ Football midfielders surrounding opponent applying intense tactical squeeze\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Cà Khịa",
+        "Gánh Team",
+        "Trầm Cảm",
+        "Pressing"
+      ],
+      "options_json": "[\"Cà Khịa\",\"Gánh Team\",\"Trầm Cảm\",\"Pressing\"]",
+      "correct_index": 3,
+      "cultural_explanation": "Applying relentless logical or verbal pressure on someone during presentations, Q&A debates, or playful banter.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.690Z"
+    },
+    {
+      "id": "challenge_vn_u_la_troi",
+      "slang_id": "vn_u_la_troi",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"😲 Person holding cheeks in wide-eyed joyous wonder and surprise\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Bào Việc",
+        "Gáy Sớm",
+        "U Là Trời",
+        "Pressing"
+      ],
+      "options_json": "[\"Bào Việc\",\"Gáy Sớm\",\"U Là Trời\",\"Pressing\"]",
+      "correct_index": 2,
+      "cultural_explanation": "An exclamation of sheer astonishment, pleasant surprise, or comic disbelief at unexpected events.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.692Z"
+    },
+    {
+      "id": "challenge_vn_keo_li",
+      "slang_id": "vn_keo_li",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"💎 Brilliant multifaceted diamond sparkling with rainbow reflections\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Keo Lì",
+        "Bào Việc",
+        "Xu Cà Na",
+        "Out-trình"
+      ],
+      "options_json": "[\"Keo Lì\",\"Bào Việc\",\"Xu Cà Na\",\"Out-trình\"]",
+      "correct_index": 0,
+      "cultural_explanation": "A glowing Gen Z compliment for something looking stunning, neat, aesthetic, or exceptionally well executed.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.694Z"
+    },
+    {
+      "id": "challenge_vn_tram_cam",
+      "slang_id": "vn_tram_cam",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"📉 Humorous dramatic face-palm at a messy tangle of cables\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Gáy Sớm",
+        "Xu Cà Na",
+        "Gánh Team",
+        "Trầm Cảm"
+      ],
+      "options_json": "[\"Gáy Sớm\",\"Xu Cà Na\",\"Gánh Team\",\"Trầm Cảm\"]",
+      "correct_index": 3,
+      "cultural_explanation": "A humorous Gen Z exaggeration for feeling utterly overwhelmed by a difficult math problem, bug, or tight schedule.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.695Z"
+    },
+    {
+      "id": "challenge_vn_gay_som",
+      "slang_id": "vn_gay_som",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"🐓 Rooster standing on fence crowing loudly at dawn before sunrise\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Gáy Sớm",
+        "Check Var",
+        "Keo Lì",
+        "Xu Cà Na"
+      ],
+      "options_json": "[\"Gáy Sớm\",\"Check Var\",\"Keo Lì\",\"Xu Cà Na\"]",
+      "correct_index": 0,
+      "cultural_explanation": "To boast or celebrate victory too early before the final whistle or exam grades, often leading to comic karma.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.696Z"
+    },
+    {
+      "id": "challenge_vn_nau_xeng",
+      "slang_id": "vn_nau_xeng",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"💰 Treasure chest overflowing with sparkling gold coins and gems\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Gánh Team",
+        "Bốc Hơi",
+        "Check Var",
+        "Nấu Xèng"
+      ],
+      "options_json": "[\"Gánh Team\",\"Bốc Hơi\",\"Check Var\",\"Nấu Xèng\"]",
+      "correct_index": 3,
+      "cultural_explanation": "Winning big prizes, monetizing skills, or securing high-value awards through hackathons or smart work.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.697Z"
+    },
+    {
+      "id": "challenge_vn_ca_khia",
+      "slang_id": "vn_ca_khia",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"😜 Two close friends laughing out loud sharing funny jokes together\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Xu Cà Na",
+        "Check Var",
+        "Gánh Team",
+        "Cà Khịa"
+      ],
+      "options_json": "[\"Xu Cà Na\",\"Check Var\",\"Gánh Team\",\"Cà Khịa\"]",
+      "correct_index": 3,
+      "cultural_explanation": "Playfully teasing or making witty, sarcastic jabs at close friends to create humor and camaraderie.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.699Z"
+    },
+    {
+      "id": "challenge_vn_boc_hoi",
+      "slang_id": "vn_boc_hoi",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"💨 Cloud of white smoke vanishing into thin air leaving behind an empty chair\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Bốc Hơi",
+        "Trầm Cảm",
+        "Xu Cà Na",
+        "Chạy Deadline"
+      ],
+      "options_json": "[\"Bốc Hơi\",\"Trầm Cảm\",\"Xu Cà Na\",\"Chạy Deadline\"]",
+      "correct_index": 0,
+      "cultural_explanation": "When an irresponsible group member completely vanishes and stops replying right before an important deadline.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.701Z"
+    },
+    {
+      "id": "challenge_vn_phong_bat",
+      "slang_id": "vn_phong_bat",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"🎭 Grand Hollywood movie set backdrop revealing bare scaffoldings behind\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Out-trình",
+        "Bán Than",
+        "Xu Cà Na",
+        "Phông Bạt"
+      ],
+      "options_json": "[\"Out-trình\",\"Bán Than\",\"Xu Cà Na\",\"Phông Bạt\"]",
+      "correct_index": 3,
+      "cultural_explanation": "Pretending to have vast wealth, skill, or importance purely for social media clout while lacking true substance.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.702Z"
+    },
+    {
+      "id": "challenge_vn_check_var",
+      "slang_id": "vn_check_var",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"📺 Football referee reviewing high-definition slow-motion video monitors\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Check Var",
+        "Trầm Cảm",
+        "Chạy Deadline",
+        "Pressing"
+      ],
+      "options_json": "[\"Check Var\",\"Trầm Cảm\",\"Chạy Deadline\",\"Pressing\"]",
+      "correct_index": 0,
+      "cultural_explanation": "Checking receipts, logs, or chat evidence to prove who is telling the truth in an argument or task dispute.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.705Z"
+    },
+    {
+      "id": "challenge_vn_thao_tung_tam_ly",
+      "slang_id": "vn_thao_tung_tam_ly",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"🧠 Puppet strings playfully guiding a cheerful wooden chess piece\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Thao Túng Tâm Lý",
+        "Đỉnh Nóc Kịch Trần",
+        "Pressing",
+        "Gánh Team"
+      ],
+      "options_json": "[\"Thao Túng Tâm Lý\",\"Đỉnh Nóc Kịch Trần\",\"Pressing\",\"Gánh Team\"]",
+      "correct_index": 0,
+      "cultural_explanation": "Playfully manipulating or sweet-talking someone into taking on chores or going out for milk tea.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.707Z"
+    },
+    {
+      "id": "challenge_vn_dinh_noc",
+      "slang_id": "vn_dinh_noc",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"🏔️ High snowy mountain peak reaching up into golden sunlight clouds\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Thao Túng Tâm Lý",
+        "Xu Cà Na",
+        "Đỉnh Nóc Kịch Trần",
+        "Keo Lì"
+      ],
+      "options_json": "[\"Thao Túng Tâm Lý\",\"Xu Cà Na\",\"Đỉnh Nóc Kịch Trần\",\"Keo Lì\"]",
+      "correct_index": 2,
+      "cultural_explanation": "The ultimate viral catchphrase representing unmatched perfection, peak excitement, and absolute top performance.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.708Z"
+    },
+    {
+      "id": "challenge_vn_xit_keo",
+      "slang_id": "vn_xit_keo",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"🧊 Ice statue of a person frozen in mid-sentence with jaw dropped\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Đỉnh Nóc Kịch Trần",
+        "Gánh Team",
+        "Gáy Sớm",
+        "Xịt Keo"
+      ],
+      "options_json": "[\"Đỉnh Nóc Kịch Trần\",\"Gánh Team\",\"Gáy Sớm\",\"Xịt Keo\"]",
+      "correct_index": 3,
+      "cultural_explanation": "Being struck utterly speechless, frozen in shock or awkward silence by unexpected plot twists or comments.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T13:18:30.710Z"
+    }
+  ],
+  "players": [
+    {
+      "id": "default_player",
+      "player_id": "default_player",
+      "coins": 1420,
+      "diamonds": 11,
+      "xp": 690,
+      "streak_days": 3,
+      "active_skin": "classic",
+      "owned_skins": [
+        "classic"
+      ],
+      "created_at": "2026-09-16T10:50:46.006Z",
+      "updated_at": "2026-09-16T13:16:18.517Z"
+    }
+  ],
+  "users": [
+    {
+      "id": "user_1789563463423_lsjj",
+      "player_id": "user_1789563463423_lsjj",
+      "username": "Tungl5541",
+      "password": "Tungl55",
+      "english_level": "beginner",
+      "interests": [
+        "campus",
+        "gaming"
+      ],
+      "target_culture": "SG",
+      "coins": 300,
+      "diamonds": 6,
+      "xp": 150,
+      "streak_days": 1,
+      "active_skin": "classic",
+      "owned_skins": [
+        "classic"
+      ],
+      "created_at": "2026-09-16T12:57:43.424Z",
+      "updated_at": "2026-09-16T13:04:53.837Z"
+    }
+  ]
+}

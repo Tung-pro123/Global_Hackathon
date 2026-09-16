@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Góc Ban Công — Thẻ chăm cây tại chậu</title>
+<style>
+  :root{
+    --paper:#F3EAD3;
+    --paper-deep:#EADFC0;
+    --paper-line:#D9CBA3;
+    --ink:#20301E;
+    --ink-soft:#4A5A3F;
+    --forest:#2E4327;
+    --forest-deep:#1B2A17;
+    --clay:#BC5A2C;
+    --clay-deep:#8E3E1C;
+    --sage:#7C8A63;
+    --gold:#B98A34;
+    --paper-dark:#EFE3C4;
+    --shadow-surround:#241C14;
+
+    --font-display: 'Times New Roman', Georgia, 'Liberation Serif', serif;
+    --font-body: 'Palatino Linotype', Georgia, 'Book Antiqua', 'Liberation Serif', serif;
+    --font-mono: 'Courier New', 'Liberation Mono', Consolas, monospace;
+  }
+
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; background:var(--shadow-surround); font-family:var(--font-body); color:var(--ink); }
+
+  .deck{ display:flex; flex-direction:column; align-items:center; gap:56px; padding:72px 20px; }
+
+  .slide{
+    width:100%; max-width:1280px; aspect-ratio:16/9;
+    position:relative; overflow:hidden;
+    background:var(--paper);
+    container-type:size;
+    box-shadow:0 40px 90px rgba(0,0,0,.55), 0 4px 0 rgba(0,0,0,.1);
+    border:1px solid rgba(32,48,30,.08);
+  }
+
+  /* ---------- texture layers ---------- */
+  .grain::before{
+    content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
+    background-image:
+      radial-gradient(rgba(32,48,30,.05) 1px, transparent 1px);
+    background-size:6px 6px;
+    mix-blend-mode:multiply; opacity:.55;
+  }
+  .ruled::after{
+    content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
+    background-image: repeating-linear-gradient( to bottom, transparent, transparent calc(7.2cqh - 1px), var(--paper-line) calc(7.2cqh) );
+    opacity:.5;
+  }
+
+  .frame{
+    position:absolute; inset:3.2cqh; z-index:1; pointer-events:none;
+    border:1.5px dashed rgba(32,48,30,.32);
+  }
+  .frame::before, .frame::after{
+    content:''; position:absolute; width:1.4cqh; height:1.4cqh; border-radius:50%;
+    background:var(--paper); border:1.5px dashed rgba(32,48,30,.32);
+  }
+
+  .content{ position:relative; z-index:2; width:100%; height:100%; }
+
+  /* ---------- typography ---------- */
+  .eyebrow{
+    font-family:var(--font-mono); font-size:1.55cqh; letter-spacing:.32em; text-transform:uppercase;
+    color:var(--clay-deep); font-weight:700;
+  }
+  .hero{
+    font-family:var(--font-display); font-weight:700; letter-spacing:.01em;
+    font-size:12.5cqh; line-height:1.0; color:var(--forest-deep); margin:0;
+  }
+  .h1{ font-family:var(--font-display); font-weight:700; font-size:6.4cqh; line-height:1.08; color:var(--forest-deep); margin:0; }
+  .h1 em{ font-style:normal; color:var(--clay); }
+  .h2{ font-family:var(--font-display); font-weight:700; font-size:4cqh; line-height:1.15; color:var(--forest-deep); margin:0; }
+  .lede{ font-family:var(--font-body); font-size:2.5cqh; line-height:1.5; color:var(--ink-soft); margin:0; }
+  .body{ font-family:var(--font-body); font-size:2.15cqh; line-height:1.6; color:var(--ink-soft); margin:0; }
+  .label{ font-family:var(--font-mono); font-size:1.4cqh; letter-spacing:.22em; text-transform:uppercase; color:var(--forest); }
+  .stat{ font-family:var(--font-display); font-weight:700; font-size:5.4cqh; color:var(--clay-deep); line-height:1; }
+  .rule{ height:1.5px; background:var(--forest); opacity:.35; width:100%; }
+  .tick{ color:var(--sage); }
+
+  .tag-num{ font-family:var(--font-mono); font-size:1.5cqh; color:var(--sage); letter-spacing:.1em; }
+
+  .icon{ width:3.4cqh; height:3.4cqh; stroke:var(--forest); fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+  .icon.clay{ stroke:var(--clay); }
+  .icon.small{ width:2.4cqh; height:2.4cqh; }
+
+  .stamp{
+    position:absolute; width:13cqh; height:13cqh; border-radius:50%;
+    border:1.4px dashed var(--clay); display:flex; align-items:center; justify-content:center;
+    transform:rotate(-11deg);
+  }
+  .stamp span{
+    font-family:var(--font-mono); font-size:1.15cqh; letter-spacing:.28em; text-transform:uppercase;
+    color:var(--clay-deep); text-align:center; line-height:1.9;
+  }
+
+  .credit{
+    position:absolute; left:5cqh; bottom:2.6cqh; z-index:3;
+    font-family:var(--font-mono); font-size:1.25cqh; letter-spacing:.14em; color:var(--ink-soft); opacity:.6;
+  }
+  .pageno{
+    position:absolute; right:5cqh; bottom:2.6cqh; z-index:3;
+    font-family:var(--font-mono); font-size:1.25cqh; letter-spacing:.14em; color:var(--ink-soft); opacity:.6;
+  }
+
+  /* ---------- motion ---------- */
+  @keyframes fadeUp{ from{opacity:0; transform:translateY(1.6cqh);} to{opacity:1; transform:none;} }
+  .rise{ opacity:0; animation:fadeUp .7s cubic-bezier(.2,.7,.2,1) forwards; }
+  .stagger > *{ opacity:0; animation:fadeUp .6s cubic-bezier(.2,.7,.2,1) forwards; }
+  .stagger > *:nth-child(1){ animation-delay:.08s; }
+  .stagger > *:nth-child(2){ animation-delay:.20s; }
+  .stagger > *:nth-child(3){ animation-delay:.32s; }
+  .stagger > *:nth-child(4){ animation-delay:.44s; }
+  .stagger > *:nth-child(5){ animation-delay:.56s; }
+  .stagger > *:nth-child(6){ animation-delay:.68s; }
+
+  @media (prefers-reduced-motion: reduce){
+    .rise, .stagger > *{ opacity:1 !important; animation:none !important; transform:none !important; }
+  }
+
+  /* ---------- print ---------- */
+  @page{ size:1280px 720px; margin:0; }
+  @media print{
+    body{ background:var(--paper); }
+    .deck{ padding:0; gap:0; }
+    .slide{
+      width:1280px; height:720px; max-width:none; aspect-ratio:auto;
+      box-shadow:none; border:none; margin:0;
+      break-after:page; page-break-after:always;
+    }
+    .slide:last-child{ break-after:auto; page-break-after:auto; }
+    .rise, .stagger > *{ opacity:1 !important; animation:none !important; transform:none !important; }
+  }
+
+  /* ---------- layout helpers ---------- */
+  .pad{ padding:9cqh 8cqh; height:100%; display:flex; flex-direction:column; }
+  .row{ display:flex; }
+  .col{ display:flex; flex-direction:column; }
+  .grid-2{ display:grid; grid-template-columns:1fr 1fr; }
+  .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); }
+  .grid-4{ display:grid; grid-template-columns:repeat(4,1fr); }
+  .gap-lg{ gap:5cqh; }
+  .gap-md{ gap:3cqh; }
+  .gap-sm{ gap:1.6cqh; }
+  .center{ align-items:center; justify-content:center; }
+  .between{ justify-content:space-between; }
+  .grow{ flex:1; }
+</style>
+</head>
+<body>
+
+<!-- icon sprite -->
+<svg width="0" height="0" style="position:absolute">
+<defs>
+  <symbol id="i-leaf" viewBox="0 0 48 48">
+    <path d="M24 42C10 42 6 28 6 14 20 14 24 8 24 8s4 6 18 6c0 14-4 28-18 28Z"/>
+    <path d="M24 8v34"/>
+  </symbol>
+  <symbol id="i-drop" viewBox="0 0 48 48">
+    <path d="M24 6C24 6 10 24 10 32a14 14 0 0 0 28 0C38 24 24 6 24 6Z"/>
+  </symbol>
+  <symbol id="i-drop-x" viewBox="0 0 48 48">
+    <path d="M24 6C24 6 10 24 10 32a14 14 0 0 0 28 0C38 24 24 6 24 6Z"/>
+    <path d="M17 25l14 14M31 25l-14 14"/>
+  </symbol>
+  <symbol id="i-drop-plus" viewBox="0 0 48 48">
+    <path d="M24 6C24 6 10 24 10 32a14 14 0 0 0 28 0C38 24 24 6 24 6Z"/>
+    <path d="M24 25v14M17 32h14"/>
+  </symbol>
+  <symbol id="i-sun" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="9"/>
+    <path d="M24 4v6M24 38v6M4 24h6M38 24h6M9 9l4 4M35 35l4 4M39 9l-4 4M13 35l-4 4"/>
+  </symbol>
+  <symbol id="i-tag" viewBox="0 0 48 48">
+    <path d="M6 6h20l16 16-20 20L6 22V6Z"/>
+    <circle cx="14" cy="14" r="2.4" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="i-seed" viewBox="0 0 48 48">
+    <path d="M24 44V26"/>
+    <path d="M24 26C24 26 6 24 6 8c16 0 18 12 18 18Z"/>
+    <path d="M24 26c0-8 2-16 12-18 4 10-4 18-12 18Z"/>
+  </symbol>
+  <symbol id="i-battery-off" viewBox="0 0 48 48">
+    <rect x="6" y="16" width="30" height="16" rx="2"/>
+    <path d="M36 20v8M40 22v4"/>
+    <path d="M9 13l30 22"/>
+  </symbol>
+  <symbol id="i-plug-off" viewBox="0 0 48 48">
+    <path d="M16 6v10M32 6v10M12 16h24v8a12 12 0 0 1-24 0v-8Z"/>
+    <path d="M24 34v8"/>
+    <path d="M8 8l32 32"/>
+  </symbol>
+  <symbol id="i-check" viewBox="0 0 48 48">
+    <path d="M8 25l11 11L40 12"/>
+  </symbol>
+</defs>
+</svg>
+
+<div class="deck">
+
+  <!-- 1 : COVER -->
+  <section class="slide grain" data-slide>
+    <div class="frame"></div>
+    <div class="content pad">
+      <div class="row between" style="align-items:flex-start;">
+        <div class="col gap-sm stagger">
+          <div class="eyebrow">Bộ thẻ chăm cây cắm tại chậu</div>
+        </div>
+        <svg class="icon" style="width:4cqh;height:4cqh;color:var(--forest);"><use href="#i-leaf"/></svg>
+      </div>
+
+      <div class="grow row center" style="flex-direction:column; gap:2cqh; text-align:center;">
+        <h1 class="hero rise" style="animation-delay:.15s;">Góc Ban Công</h1>
+        <p class="lede rise" style="animation-delay:.4s; font-size:2.8cqh; max-width:70cqh;">
+          Cắm một tấm thẻ vào chậu, thay vì cắm một cái tên loài.
+        </p>
+      </div>
+
+      <div class="row between" style="align-items:flex-end;">
+        <div class="label">SỐ 01 — 12 THẺ CHỦ ĐỀ</div>
+        <div class="label">DÙNG NGOÀI TRỜI · KHÔNG ĐIỆN · KHÔNG PIN</div>
+      </div>
+    </div>
+    <div class="stamp" style="right:6cqh; top:6cqh;"><span>ĐỌC<br>CÂY<br>TẠI CHỖ</span></div>
+  </section>
+
+  <!-- 2 : PROBLEM -->
+  <section class="slide grain" data-slide>
+    <div class="content pad">
+      <div class="eyebrow rise">Vì sao cây hay chết trên ban công thuê trọ</div>
+      <div class="grow row gap-lg" style="align-items:center; margin-top:2cqh;">
+        <div class="col gap-md" style="flex:1.1;">
+          <h2 class="h1 rise" style="animation-delay:.12s; font-size:5.6cqh;">
+            Một chậu cây chết là một lần người ta<br> tin rằng <em>mình không trồng được cây.</em>
+          </h2>
+          <p class="body rise" style="animation-delay:.3s; max-width:56cqh;">
+            Không phải vì họ lười. Mỗi loài cây cần một nhịp chăm khác nhau,
+            còn thứ dán trên chậu khi mua về chỉ là một cái tên. Cái tên không nói
+            hôm nay có phải ngày tưới hay không — nên người trồng phải đoán.
+          </p>
+        </div>
+        <div class="col gap-sm" style="flex:1;">
+          <div class="row gap-md">
+            <div class="col grow gap-sm" style="background:var(--paper-deep); border:1px solid var(--paper-line); padding:3cqh; opacity:.75;">
+              <div class="label" style="color:var(--ink-soft);">Nhãn thường thấy</div>
+              <div class="rule" style="opacity:.2; margin:1cqh 0;"></div>
+              <div style="font-family:var(--font-mono); font-size:2.4cqh; color:var(--ink-soft);">Monstera deliciosa</div>
+              <div class="body" style="font-size:1.7cqh; font-style:italic; opacity:.6;">— hết. Không còn gì khác.</div>
+            </div>
+            <div class="col grow gap-sm" style="background:var(--paper); border:1.4px dashed var(--clay); padding:3cqh;">
+              <div class="label" style="color:var(--clay-deep);">Thẻ Góc Ban Công</div>
+              <div class="rule" style="background:var(--clay); opacity:.35; margin:1cqh 0;"></div>
+              <div class="row gap-sm" style="align-items:center;"><svg class="icon small clay"><use href="#i-drop"/></svg><span class="body" style="font-size:1.7cqh;">Tưới 2 lần / tuần</span></div>
+              <div class="row gap-sm" style="align-items:center;"><svg class="icon small clay"><use href="#i-leaf"/></svg><span class="body" style="font-size:1.7cqh;">Lá cụp mép = thiếu nước</span></div>
+              <div class="row gap-sm" style="align-items:center;"><svg class="icon small clay"><use href="#i-sun"/></svg><span class="body" style="font-size:1.7cqh;">Nắng chiều, tránh gắt trưa</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="credit">GÓC BAN CÔNG</div>
+    <div class="pageno">02</div>
+  </section>
+
+  <!-- 3 : SCENE / TIMELINE -->
+  <section class="slide grain ruled" data-slide>
+    <div class="content pad">
+      <div class="eyebrow rise">Một tình huống quen thuộc</div>
+      <h2 class="h2 rise" style="margin-top:1.4cqh; animation-delay:.1s;">Không ai chăm cây tệ đi cố ý.</h2>
+
+      <div class="grow row gap-sm stagger" style="align-items:stretch; margin-top:4cqh;">
+        <div class="col grow gap-sm" style="border-left:2px solid var(--sage); padding-left:2.4cqh;">
+          <div class="tag-num">TUẦN 01</div>
+          <svg class="icon"><use href="#i-drop"/></svg>
+          <div class="body" style="font-size:1.9cqh;">Mang cây về, đặt ngoài ban công. Tưới đều, ngày nào cũng ngó qua.</div>
+        </div>
+        <div class="col grow gap-sm" style="border-left:2px solid var(--sage); padding-left:2.4cqh;">
+          <div class="tag-num">TUẦN 02</div>
+          <svg class="icon"><use href="#i-leaf"/></svg>
+          <div class="body" style="font-size:1.9cqh;">Công việc bận lên. Lịch tưới trôi vào khoảng nhớ mang máng.</div>
+        </div>
+        <div class="col grow gap-sm" style="border-left:2px solid var(--clay); padding-left:2.4cqh;">
+          <div class="tag-num">DẤU HIỆU</div>
+          <svg class="icon clay"><use href="#i-drop-x"/></svg>
+          <div class="body" style="font-size:1.9cqh;">Lá rụng. Thiếu nước hay úng nước? Không nhãn nào trả lời được.</div>
+        </div>
+        <div class="col grow gap-sm" style="border-left:2px solid var(--clay-deep); padding-left:2.4cqh;">
+          <div class="tag-num">PHẢN XẠ</div>
+          <svg class="icon" style="stroke:var(--clay-deep);"><use href="#i-drop-plus"/></svg>
+          <div class="body" style="font-size:1.9cqh;">Tưới thêm cho chắc ăn. Cây úng rễ, chết nhanh hơn cả lúc thiếu nước.</div>
+        </div>
+      </div>
+      <p class="body rise" style="margin-top:3cqh; max-width:80cqh; opacity:.8;">
+        Minh hoạ cho một kiểu sai lầm lặp lại — không phải số liệu ghi nhận từ một người trồng cụ thể.
+      </p>
+    </div>
+    <div class="credit">GÓC BAN CÔNG</div>
+    <div class="pageno">03</div>
+  </section>
+
+  <!-- 4 : INSIGHT / FULL BLEED -->
+  <section class="slide" data-slide style="background:var(--forest-deep);">
+    <div class="frame" style="border-color:rgba(243,234,211,.25);"></div>
+    <div class="content pad center" style="text-align:center;">
+      <div class="col gap-lg stagger" style="max-width:90cqh;">
+        <div class="eyebrow" style="color:var(--gold);">Điểm mấu chốt</div>
+        <h2 class="h1" style="color:var(--paper); font-size:6.8cqh;">
+          Vấn đề không phải là <em style="color:var(--gold);">quên tưới.</em><br>
+          Vấn đề là không đọc được cây.
+        </h2>
+        <p class="lede" style="color:#C9D3BE; font-size:2.6cqh;">
+          Một lời nhắc vẫn buộc người ta đoán. Một dấu hiệu nhìn thấy được thì không.
+        </p>
+      </div>
+    </div>
+    <div class="credit" style="color:#C9D3BE;">GÓC BAN CÔNG</div>
+    <div class="pageno" style="color:#C9D3BE;">04</div>
+  </section>
+
+  <!-- 5 : SOLUTION -->
+  <section class="slide grain" data-slide>
+    <div class="content pad">
+      <div class="eyebrow rise">Giải pháp</div>
+      <div class="grow row gap-lg" style="align-items:center; margin-top:1.6cqh;">
+        <div class="col gap-md" style="flex:1;">
+          <h2 class="h1 rise" style="animation-delay:.1s;">Một tấm thẻ,<br>cắm ngay tại gốc.</h2>
+          <p class="body rise" style="animation-delay:.28s; max-width:52cqh;">
+            Thẻ cứng, chống ẩm, cắm thẳng vào đất từng chậu. Mỗi loài một thẻ, ghi
+            nhịp tưới riêng và những dấu hiệu nhìn thấy được của cây đang thiếu
+            hay đang thừa nước — viết bằng ngôn ngữ của người chưa từng trồng cây,
+            không phải ngôn ngữ của nhà vườn.
+          </p>
+          <div class="row gap-md rise" style="animation-delay:.44s; margin-top:1cqh;">
+            <div class="row gap-sm" style="align-items:center;"><svg class="icon small"><use href="#i-plug-off"/></svg><span class="label" style="color:var(--ink-soft);">Không cần điện</span></div>
+            <div class="row gap-sm" style="align-items:center;"><svg class="icon small"><use href="#i-battery-off"/></svg><span class="label" style="color:var(--ink-soft);">Không cần pin</span></div>
+          </div>
+        </div>
+
+        <!-- card mockup -->
+        <div class="col rise" style="animation-delay:.2s; flex:.85; align-items:center;">
+          <div class="col" style="width:34cqh; background:var(--paper-dark); border:1.6px solid var(--forest); position:relative; padding:3cqh 2.6cqh;">
+            <div style="position:absolute; top:-1.4cqh; left:50%; transform:translateX(-50%); width:2.6cqh; height:2.6cqh; border-radius:50%; background:var(--paper); border:1.6px solid var(--forest);"></div>
+            <div class="label" style="color:var(--clay-deep);">Cây trầu bà</div>
+            <div class="rule" style="margin:1.2cqh 0;"></div>
+            <div class="col gap-sm">
+              <div class="row gap-sm" style="align-items:center;"><svg class="icon small"><use href="#i-drop"/></svg><span style="font-family:var(--font-mono); font-size:1.7cqh;">2 lần / tuần, đất khô mới tưới</span></div>
+              <div class="row gap-sm" style="align-items:center;"><svg class="icon small" style="stroke:var(--sage);"><use href="#i-drop-x"/></svg><span style="font-family:var(--font-mono); font-size:1.7cqh;">Lá vàng gốc = thừa nước</span></div>
+              <div class="row gap-sm" style="align-items:center;"><svg class="icon small" style="stroke:var(--clay);"><use href="#i-drop-plus"/></svg><span style="font-family:var(--font-mono); font-size:1.7cqh;">Lá cụp rũ = thiếu nước</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="credit">GÓC BAN CÔNG</div>
+    <div class="pageno">05</div>
+  </section>
+
+  <!-- 6 : ANATOMY GRID -->
+  <section class="slide grain" data-slide>
+    <div class="content pad">
+      <div class="eyebrow rise">Trên mỗi tấm thẻ</div>
+      <h2 class="h2 rise" style="margin-top:1.2cqh; animation-delay:.1s;">Bốn điều cần biết, không hơn.</h2>
+
+      <div class="grid-4 gap-md stagger grow" style="margin-top:4cqh;">
+        <div class="col gap-sm" style="border-top:2px solid var(--forest); padding-top:2cqh;">
+          <div class="tag-num">01</div>
+          <svg class="icon"><use href="#i-tag"/></svg>
+          <div class="h2" style="font-size:2.4cqh;">Tên quen gọi</div>
+          <div class="body" style="font-size:1.8cqh;">Tên tiếng Việt thường dùng, không phải danh pháp khoa học khó nhớ.</div>
+        </div>
+        <div class="col gap-sm" style="border-top:2px solid var(--forest); padding-top:2cqh;">
+          <div class="tag-num">02</div>
+          <svg class="icon"><use href="#i-drop"/></svg>
+          <div class="h2" style="font-size:2.4cqh;">Nhịp tưới</div>
+          <div class="body" style="font-size:1.8cqh;">Số lần mỗi tuần, tính riêng theo từng loài — không dùng chung một con số.</div>
+        </div>
+        <div class="col gap-sm" style="border-top:2px solid var(--clay); padding-top:2cqh;">
+          <div class="tag-num">03</div>
+          <svg class="icon clay"><use href="#i-drop-plus"/></svg>
+          <div class="h2" style="font-size:2.4cqh;">Dấu hiệu khát</div>
+          <div class="body" style="font-size:1.8cqh;">Hình dạng chiếc lá khi cây đang thiếu nước — nhìn là nhận ra ngay.</div>
+        </div>
+        <div class="col gap-sm" style="border-top:2px solid var(--clay-deep); padding-top:2cqh;">
+          <div class="tag-num">04</div>
+          <svg class="icon" style="stroke:var(--clay-deep);"><use href="#i-drop-x"/></svg>
+          <div class="h2" style="font-size:2.4cqh;">Dấu hiệu úng</div>
+          <div class="body" style="font-size:1.8cqh;">Hình dạng chiếc lá khi cây đang thừa nước — để không tưới thêm nhầm lúc.</div>
+        </div>
+      </div>
+    </div>
+    <div class="credit">GÓC BAN CÔNG</div>
+    <div class="pageno">06</div>
+  </section>
+
+  <!-- 7 : WHY PAPER, NOT ELECTRONICS -->
+  <section class="slide grain" data-slide>
+    <div class="content pad">
+      <div class="eyebrow rise">Vì sao là một tấm thẻ, không phải một thiết bị</div>
+      <h2 class="h2 rise" style="margin-top:1.2cqh; animation-delay:.1s; max-width:70cqh;">
+        Trước khi chọn hướng này, chúng tôi đã thử vẽ ra cảm biến, ứng dụng và cả chậu tự tưới.
+      </h2>
+
+      <div class="grow col" style="margin-top:3.2cqh;">
+        <div class="row gap-sm" style="font-family:var(--font-mono); font-size:1.5cqh; letter-spacing:.1em; color:var(--ink-soft); padding-bottom:1.2cqh; border-bottom:1.5px solid var(--forest);">
+          <div style="flex:1.3;">HƯỚNG ĐÃ CÂN NHẮC</div>
+          <div style="flex:1;">CẦN GÌ THÊM</div>
+          <div style="flex:1;">TRẢ LỜI ĐƯỢC "HÔM NAY CÓ TƯỚI"?</div>
+        </div>
+        <div class="col stagger">
+          <div class="row gap-sm" style="padding:1.6cqh 0; border-bottom:1px solid var(--paper-line); align-items:center;">
+            <div class="body" style="flex:1.3; font-size:1.9cqh;">Cảm biến độ ẩm báo điện thoại</div>
+            <div class="body" style="flex:1; font-size:1.9cqh; color:var(--ink-soft);">Pin, một que mỗi chậu</div>
+            <div class="body" style="flex:1; font-size:1.9cqh;">Đo được độ ẩm — không dạy cách đọc lá</div>
+          </div>
+          <div class="row gap-sm" style="padding:1.6cqh 0; border-bottom:1px solid var(--paper-line); align-items:center;">
+            <div class="body" style="flex:1.3; font-size:1.9cqh;">Ứng dụng nhắc lịch tưới</div>
+            <div class="body" style="flex:1; font-size:1.9cqh; color:var(--ink-soft);">Mở điện thoại mỗi lần</div>
+            <div class="body" style="flex:1; font-size:1.9cqh;">Reo đúng giờ — người trồng vẫn phải đoán</div>
+          </div>
+          <div class="row gap-sm" style="padding:1.6cqh 0; border-bottom:1px solid var(--paper-line); align-items:center;">
+            <div class="body" style="flex:1.3; font-size:1.9cqh;">Chậu tự tưới, bình ngầm</div>
+            <div class="body" style="flex:1; font-size:1.9cqh; color:var(--ink-soft);">Đổi hết chậu đang có</div>
+            <div class="body" style="flex:1; font-size:1.9cqh;">Bỏ luôn việc tưới — cũng bỏ luôn việc học</div>
+          </div>
+          <div class="row gap-sm" style="padding:1.6cqh 0; align-items:center; background:rgba(188,90,44,.08);">
+            <div class="h2" style="flex:1.3; font-size:2.1cqh; color:var(--clay-deep);">Thẻ Góc Ban Công</div>
+            <div class="body" style="flex:1; font-size:1.9cqh; color:var(--ink-soft);">Một chỗ cắm trong chậu</div>
+            <div class="body" style="flex:1; font-size:1.9cqh; display:flex; align-items:center; gap:.8cqh;"><svg class="icon small clay"><use href="#i-check"/></svg>Có, ngay tại nơi người trồng đang đứng</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="credit">GÓC BAN CÔNG</div>
+    <div class="pageno">07</div>
+  </section>
+
+  <!-- 8 : PHILOSOPHY / FULL BLEED -->
+  <section class="slide" data-slide style="background:var(--forest-deep);">
+    <div class="frame" style="border-color:rgba(243,234,211,.25);"></div>
+    <div class="content pad center" style="text-align:center;">
+      <div class="col gap-lg stagger" style="max-width:88cqh;">
+        <div class="eyebrow" style="color:var(--gold);">Mục tiêu cuối cùng</div>
+        <h2 class="h1" style="color:var(--paper); font-size:6.2cqh;">
+          Một mùa dùng thẻ. Sau đó,<br><em style="color:var(--gold);">nhìn lá là biết.</em>
+        </h2>
+        <p class="lede" style="color:#C9D3BE; font-size:2.5cqh; max-width:70cqh; margin:0 auto;">
+          Chúng tôi không cố nhắc đúng lúc — chúng tôi dạy người trồng đọc được
+          cái cây đang đứng trước mặt. Khi tấm thẻ trở nên thừa, đó là lúc nó đã
+          hoàn thành việc của mình.
+        </p>
+      </div>
+    </div>
+    <div class="credit" style="color:#C9D3BE;">GÓC BAN CÔNG</div>
+    <div class="pageno" style="color:#C9D3BE;">08</div>
+  </section>
+
+  <!-- 9 : CRAFT DETAILS -->
+  <section class="slide grain" data-slide>
+    <div class="content pad">
+      <div class="eyebrow rise">Những chi tiết chúng tôi giữ kỹ</div>
+      <h2 class="h2 rise" style="margin-top:1.2cqh; animation-delay:.1s;">Một tấm thẻ chỉ có tác dụng nếu nó còn ở đó.</h2>
+
+      <div class="grid-3 gap-md stagger grow" style="margin-top:4cqh;">
+        <div class="col gap-sm" style="background:var(--paper-deep); padding:3cqh; border:1px solid var(--paper-line);">
+          <svg class="icon"><use href="#i-seed"/></svg>
+          <div class="h2" style="font-size:2.3cqh;">Không phải tờ rơi</div>
+          <div class="body" style="font-size:1.85cqh;">Chất liệu cứng, chống ẩm, chịu được nước tưới hằng ngày — không mủn, không bị vứt đi cùng vỏ chậu.</div>
+        </div>
+        <div class="col gap-sm" style="background:var(--paper-deep); padding:3cqh; border:1px solid var(--paper-line);">
+          <svg class="icon"><use href="#i-sun"/></svg>
+          <div class="h2" style="font-size:2.3cqh;">Đúng hướng ban công</div>
+          <div class="body" style="font-size:1.85cqh;">Chọn hướng nắng khi mua — tây gắt, nam dịu hay bắc thiếu sáng đều có nhịp tưới riêng, không dùng chung một con số.</div>
+        </div>
+        <div class="col gap-sm" style="background:var(--paper-deep); padding:3cqh; border:1px solid var(--paper-line);">
+          <svg class="icon"><use href="#i-tag"/></svg>
+          <div class="h2" style="font-size:2.3cqh;">Ở lại giữa mùa</div>
+          <div class="body" style="font-size:1.85cqh;">Cắm cố định tại gốc để nhìn lại bất cứ lúc nào — không phải thứ đọc một lần rồi quên, đúng vào lúc cây bắt đầu có vấn đề.</div>
+        </div>
+      </div>
+    </div>
+    <div class="credit">GÓC BAN CÔNG</div>
+    <div class="pageno">09</div>
+  </section>
+
+  <!-- 10 : NEXT -->
+  <section class="slide grain" data-slide>
+    <div class="content pad">
+      <div class="grow grid-2 gap-lg" style="align-items:center;">
+        <div class="col gap-md stagger">
+          <div class="eyebrow">Cho người muốn thêm một con số</div>
+          <h2 class="h1" style="font-size:5cqh;">Thẻ đọc bằng mắt.<br>Que đo bằng số.</h2>
+          <p class="body" style="max-width:48cqh;">
+            Với ai muốn chắc chắn hơn nữa, chúng tôi đang hoàn thiện một que cảm
+            biến độ ẩm cắm cùng chậu — đi kèm thẻ, không thay thế thẻ. Con số
+            xác nhận điều mắt đã thấy, thay vì phải tin một mình nó.
+          </p>
+        </div>
+        <div class="col gap-sm" style="align-items:center;">
+          <div style="width:5cqh; height:22cqh; border:1.6px solid var(--forest); border-radius:2.6cqh; position:relative; background:var(--paper-dark);">
+            <div style="position:absolute; bottom:0; left:0; right:0; height:55%; background:var(--sage); opacity:.55; border-radius:0 0 2.4cqh 2.4cqh;"></div>
+          </div>
+          <div class="label" style="margin-top:1.4cqh;">SẮP RA MẮT</div>
+        </div>
+      </div>
+    </div>
+    <div class="credit">GÓC BAN CÔNG</div>
+    <div class="pageno">10</div>
+  </section>
+
+  <!-- 11 : PROMISE ROW -->
+  <section class="slide grain" data-slide>
+    <div class="content pad">
+      <div class="eyebrow rise">Điều chúng tôi muốn thấy, mỗi mùa</div>
+      <h2 class="h2 rise" style="margin-top:1.2cqh; animation-delay:.1s;">Thành công không phải là bán được thẻ.</h2>
+
+      <div class="grid-3 gap-lg stagger grow" style="margin-top:4.5cqh; align-items:start;">
+        <div class="col gap-sm">
+          <div class="stat">1 mùa</div>
+          <div class="body" style="font-size:1.95cqh;">Cây sống qua trọn một mùa đầu tiên trong tay người mới trồng.</div>
+        </div>
+        <div class="col gap-sm">
+          <div class="stat">Chậu 2</div>
+          <div class="body" style="font-size:1.95cqh;">Người trồng quay lại mua thêm một chậu nữa — dấu hiệu của niềm tin, không phải của may mắn.</div>
+        </div>
+        <div class="col gap-sm">
+          <div class="stat">Không thẻ</div>
+          <div class="body" style="font-size:1.95cqh;">Người trồng tự nhận ra dấu hiệu thiếu nước mà không cần cúi xuống đọc thẻ nữa.</div>
+        </div>
+      </div>
+    </div>
+    <div class="credit">GÓC BAN CÔNG</div>
+    <div class="pageno">11</div>
+  </section>
+
+  <!-- 12 : CLOSE -->
+  <section class="slide grain" data-slide>
+    <div class="frame"></div>
+    <div class="content pad center" style="text-align:center;">
+      <div class="col gap-lg stagger" style="max-width:80cqh; align-items:center;">
+        <svg class="icon" style="width:6cqh;height:6cqh;"><use href="#i-leaf"/></svg>
+        <h2 class="h1" style="font-size:6.4cqh;">Góc ban công của bạn,<br>xanh lâu hơn một mùa.</h2>
+        <p class="lede" style="font-size:2.4cqh;">Có mặt cùng mỗi chậu cây tại các vườn ươm và cửa hàng cây cảnh hợp tác.</p>
+      </div>
+    </div>
+    <div class="credit">Thực hiện cùng Claude</div>
+    <div class="pageno">12 / 12</div>
+  </section>
+
+</div>
+</body>
+</html>
