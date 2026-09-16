@@ -1,26 +1,12 @@
 import React, { useState } from 'react';
+import { useLanguage } from '../../context/LanguageContext.jsx';
 
-const INTEREST_OPTIONS = [
-  { id: 'gaming', label: '🎮 Gaming & Esports' },
-  { id: 'campus', label: '📚 Campus & Deadline' },
-  { id: 'food', label: '☕ Food & Canteen' },
-  { id: 'social', label: '💬 Social & Dating' },
-  { id: 'career', label: '💼 Career & Internship' }
-];
-
-const LEVEL_OPTIONS = [
-  { id: 'beginner', label: '🟢 Explorer', desc: 'Mới bắt đầu — từ vựng ngắn, trực quan' },
-  { id: 'intermediate', label: '🔵 Connector', desc: 'Khá — tình huống hội thoại thực tế' },
-  { id: 'advanced', label: '🟣 Insider', desc: 'Chuyên sâu — bẫy ngữ dụng & ngữ cảnh sâu' }
-];
-
-const CULTURE_OPTIONS = [
-  { id: 'ALL', label: '🌏 Cả hai (Cross-Cultural)' },
-  { id: 'SG', label: '🇸🇬 Singlish (Singapore)' },
-  { id: 'VN', label: '🇻🇳 Tiếng Lóng Việt Nam' }
-];
+const INTEREST_IDS = ['gaming', 'campus', 'food', 'social', 'career'];
+const LEVEL_IDS = ['beginner', 'intermediate', 'advanced'];
+const CULTURE_IDS = ['ALL', 'SG', 'VN'];
 
 export default function ProfileEditModal({ user, onUpdate, onClose, onLogout }) {
+  const { t } = useLanguage();
   const [englishLevel, setEnglishLevel] = useState(user.english_level || 'intermediate');
   const [selectedInterests, setSelectedInterests] = useState(user.interests || ['campus']);
   const [targetCulture, setTargetCulture] = useState(user.target_culture || 'ALL');
@@ -64,7 +50,7 @@ export default function ProfileEditModal({ user, onUpdate, onClose, onLogout }) 
     localStorage.setItem('cultursync_user', JSON.stringify(updatedUser));
     onUpdate(updatedUser);
     setSaving(false);
-    setSavedMsg('✅ Đã lưu hồ sơ thành công!');
+    setSavedMsg(t('profile.savedSuccess'));
     setTimeout(() => {
       setSavedMsg('');
       onClose();
@@ -101,10 +87,10 @@ export default function ProfileEditModal({ user, onUpdate, onClose, onLogout }) 
             <span style={{ fontSize: '1.8rem' }}>⚙️</span>
             <div>
               <h2 style={{ fontFamily: 'var(--font-arcade)', fontSize: '0.95rem', color: 'var(--neon-cyan)' }}>
-                HỒ SƠ CÁ NHÂN HÓA
+                {t('profile.title')}
               </h2>
               <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
-                Học viên: <strong style={{ color: 'var(--text-primary)' }}>{user.username}</strong>
+                {t('profile.studentLabel')} <strong style={{ color: 'var(--text-primary)' }}>{user.username}</strong>
               </p>
             </div>
           </div>
@@ -133,23 +119,23 @@ export default function ProfileEditModal({ user, onUpdate, onClose, onLogout }) 
           {/* Level */}
           <div>
             <label style={{ display: 'block', fontSize: '0.72rem', fontFamily: 'var(--font-arcade)', color: 'var(--neon-cyan)', marginBottom: '6px' }}>
-              🎯 TRÌNH ĐỘ TIẾNG ANH (AI MAY ĐO ĐỘ KHÓ)
+              {t('profile.levelLabel')}
             </label>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '6px' }}>
-              {LEVEL_OPTIONS.map(lvl => (
+              {LEVEL_IDS.map(lvlId => (
                 <button
                   type="button"
-                  key={lvl.id}
-                  onClick={() => setEnglishLevel(lvl.id)}
+                  key={lvlId}
+                  onClick={() => setEnglishLevel(lvlId)}
                   style={{
-                    padding: '8px 4px', borderRadius: '8px', border: 'none', cursor: 'pointer',
-                    background: englishLevel === lvl.id ? 'rgba(56,189,248,0.2)' : 'var(--input-bg)',
-                    border: `1.5px solid ${englishLevel === lvl.id ? 'var(--neon-cyan)' : 'var(--border-subtle)'}`,
-                    color: englishLevel === lvl.id ? 'var(--neon-cyan)' : 'var(--text-secondary)',
+                    padding: '8px 4px', borderRadius: '8px', cursor: 'pointer',
+                    background: englishLevel === lvlId ? 'rgba(56,189,248,0.2)' : 'var(--input-bg)',
+                    border: `1.5px solid ${englishLevel === lvlId ? 'var(--neon-cyan)' : 'var(--border-subtle)'}`,
+                    color: englishLevel === lvlId ? 'var(--neon-cyan)' : 'var(--text-secondary)',
                     fontFamily: 'var(--font-heading)', fontSize: '0.75rem', fontWeight: '600'
                   }}
                 >
-                  {lvl.label}
+                  {t(`auth.levels.${lvlId}.label`)}
                 </button>
               ))}
             </div>
@@ -158,23 +144,23 @@ export default function ProfileEditModal({ user, onUpdate, onClose, onLogout }) 
           {/* Culture */}
           <div>
             <label style={{ display: 'block', fontSize: '0.72rem', fontFamily: 'var(--font-arcade)', color: 'var(--neon-gold)', marginBottom: '6px' }}>
-              🌏 MỤC TIÊU VĂN HÓA
+              {t('profile.cultureLabel')}
             </label>
             <div style={{ display: 'flex', gap: '6px' }}>
-              {CULTURE_OPTIONS.map(c => (
+              {CULTURE_IDS.map(cid => (
                 <button
                   type="button"
-                  key={c.id}
-                  onClick={() => setTargetCulture(c.id)}
+                  key={cid}
+                  onClick={() => setTargetCulture(cid)}
                   style={{
-                    flex: 1, padding: '7px 4px', borderRadius: '8px', border: 'none', cursor: 'pointer',
-                    background: targetCulture === c.id ? 'rgba(251,191,36,0.2)' : 'var(--input-bg)',
-                    border: `1.5px solid ${targetCulture === c.id ? 'var(--neon-gold)' : 'var(--border-subtle)'}`,
-                    color: targetCulture === c.id ? 'var(--neon-gold)' : 'var(--text-secondary)',
+                    flex: 1, padding: '7px 4px', borderRadius: '8px', cursor: 'pointer',
+                    background: targetCulture === cid ? 'rgba(251,191,36,0.2)' : 'var(--input-bg)',
+                    border: `1.5px solid ${targetCulture === cid ? 'var(--neon-gold)' : 'var(--border-subtle)'}`,
+                    color: targetCulture === cid ? 'var(--neon-gold)' : 'var(--text-secondary)',
                     fontSize: '0.7rem', fontWeight: '600'
                   }}
                 >
-                  {c.label}
+                  {t(`auth.cultures.${cid}`)}
                 </button>
               ))}
             </div>
@@ -183,25 +169,25 @@ export default function ProfileEditModal({ user, onUpdate, onClose, onLogout }) 
           {/* Interests */}
           <div>
             <label style={{ display: 'block', fontSize: '0.72rem', fontFamily: 'var(--font-arcade)', color: 'var(--neon-emerald)', marginBottom: '6px' }}>
-              🎮 CHỦ ĐỀ YÊU THÍCH (AI ƯU TIÊN RA CÂU ĐỐ)
+              {t('profile.interestsLabel')}
             </label>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-              {INTEREST_OPTIONS.map(opt => {
-                const isSelected = selectedInterests.includes(opt.id);
+              {INTEREST_IDS.map(optId => {
+                const isSelected = selectedInterests.includes(optId);
                 return (
                   <button
                     type="button"
-                    key={opt.id}
-                    onClick={() => toggleInterest(opt.id)}
+                    key={optId}
+                    onClick={() => toggleInterest(optId)}
                     style={{
-                      padding: '6px 12px', borderRadius: '999px', border: 'none', cursor: 'pointer',
+                      padding: '6px 12px', borderRadius: '999px', cursor: 'pointer',
                       background: isSelected ? 'rgba(16,185,129,0.2)' : 'var(--input-bg)',
                       border: `1px solid ${isSelected ? 'var(--neon-emerald)' : 'var(--border-subtle)'}`,
                       color: isSelected ? 'var(--neon-emerald)' : 'var(--text-secondary)',
                       fontSize: '0.75rem', fontWeight: isSelected ? '700' : '500'
                     }}
                   >
-                    {opt.label}
+                    {t(`auth.interests.${optId}`)}
                   </button>
                 );
               })}
@@ -216,14 +202,14 @@ export default function ProfileEditModal({ user, onUpdate, onClose, onLogout }) 
               className="btn-arcade btn-cyan"
               style={{ flex: 1, padding: '12px', borderRadius: '10px', fontSize: '0.9rem', fontWeight: '700' }}
             >
-              {saving ? 'Đang lưu...' : '💾 LƯU THAY ĐỔI'}
+              {saving ? t('profile.savingBtn') : t('profile.saveBtn')}
             </button>
             <button
               onClick={onLogout}
               className="btn-arcade btn-rose"
               style={{ padding: '12px 16px', borderRadius: '10px', fontSize: '0.8rem' }}
             >
-              🚪 Đăng Xuất
+              {t('profile.logoutBtn')}
             </button>
           </div>
         </div>

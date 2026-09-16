@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Leaderboard, { saveScore } from '../Leaderboard.jsx';
+import { useLanguage } from '../../../context/LanguageContext.jsx';
 
-export default function GameOverModal({ score, coins, xp, activeSkin, user, onOpenAuth, onRestart, onClose }) {
+export default function GameOverModal({ score, coins, xp, activeSkin, user, onOpenAuth, onRestart, onClose, encounteredSlangs = [] }) {
+  const { t } = useLanguage();
   const [tab, setTab] = useState('stats'); // stats | leaderboard | flashcards
   const [flashcards, setFlashcards] = useState([]);
   const [rank, setRank] = useState(null);
@@ -21,16 +23,21 @@ export default function GameOverModal({ score, coins, xp, activeSkin, user, onOp
       } catch {}
     }
 
-    // Fetch random slangs for flashcard review
-    fetch('/api/slangs')
-      .then(r => r.json())
-      .then(d => {
-        if (d.data?.length) {
-          const shuffled = [...d.data].sort(() => Math.random() - 0.5);
-          setFlashcards(shuffled.slice(0, 3));
-        }
-      })
-      .catch(() => {});
+    // ✅ FIX: Use slangs the player actually encountered in this run
+    if (encounteredSlangs.length > 0) {
+      setFlashcards(encounteredSlangs.slice(0, 3));
+    } else {
+      // Fallback: fetch random slangs only if player had no diamond quizzes
+      fetch('/api/slangs')
+        .then(r => r.json())
+        .then(d => {
+          if (d.data?.length) {
+            const shuffled = [...d.data].sort(() => Math.random() - 0.5);
+            setFlashcards(shuffled.slice(0, 3));
+          }
+        })
+        .catch(() => {});
+    }
   }, []);
 
   const getRating = (s) => {
@@ -44,9 +51,9 @@ export default function GameOverModal({ score, coins, xp, activeSkin, user, onOp
   const rating = getRating(score || 0);
 
   const TABS = [
-    { id: 'stats', label: '📊 Stats' },
-    { id: 'leaderboard', label: '🏆 Board' },
-    { id: 'flashcards', label: '📚 Review' }
+    { id: 'stats', label: t('gameover.tabs.stats') },
+    { id: 'leaderboard', label: t('gameover.tabs.leaderboard') },
+    { id: 'flashcards', label: t('gameover.tabs.flashcards') }
   ];
 
   return (
@@ -69,11 +76,11 @@ export default function GameOverModal({ score, coins, xp, activeSkin, user, onOp
             {rating.label}
           </span>
           <h2 style={{ fontFamily: 'var(--font-arcade)', fontSize: '0.95rem', color: 'var(--text-primary)', letterSpacing: '0.08em' }}>
-            RUN COMPLETE
+            {t('gameover.runComplete')}
           </h2>
           {rank !== null && rank <= 2 && (
             <p style={{ fontSize: '0.75rem', color: 'var(--neon-gold)', marginTop: '4px', fontFamily: 'var(--font-arcade)' }}>
-              🎉 NEW TOP {rank + 1} SCORE!
+              {t('gameover.newHighscore', { rank: rank + 1 })}
             </p>
           )}
         </div>
@@ -81,9 +88,9 @@ export default function GameOverModal({ score, coins, xp, activeSkin, user, onOp
         {/* Quick stats row */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px', marginBottom: '16px' }}>
           {[
-            { label: 'SCORE', value: String(score || 0).padStart(5, '0'), color: 'var(--neon-cyan)' },
-            { label: 'COINS', value: `+${coins || 0}`, color: 'var(--neon-gold)' },
-            { label: 'XP', value: `+${xp || 0}`, color: 'var(--neon-emerald)' }
+            { label: t('gameover.score'), value: String(score || 0).padStart(5, '0'), color: 'var(--neon-cyan)' },
+            { label: t('gameover.coins'), value: `+${coins || 0}`, color: 'var(--neon-gold)' },
+            { label: t('gameover.xp'), value: `+${xp || 0}`, color: 'var(--neon-emerald)' }
           ].map(s => (
             <div key={s.label} style={{
               background: 'var(--bg-card)',
@@ -124,12 +131,11 @@ export default function GameOverModal({ score, coins, xp, activeSkin, user, onOp
                 borderRadius: '10px', padding: '12px 14px', marginBottom: '12px'
               }}>
                 <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
-                  💡 <strong style={{ color: 'var(--text-secondary)' }}>Tip:</strong> Touch 💎 Diamonds for slang quizzes.
-                  Answer correctly for +100 🪙. Use coins in the 🛍️ Skin Shop!
+                  💡 <strong style={{ color: 'var(--text-secondary)' }}>{t('gameover.tipTitle')}</strong> {t('gameover.tipText')}
                 </p>
               </div>
               <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textAlign: 'center' }}>
-                🆕 <strong style={{ color: 'var(--text-secondary)' }}>New:</strong> Double-tap Space to double jump! Watch out for 🐦 birds.
+                🆕 <strong style={{ color: 'var(--text-secondary)' }}>New:</strong> {t('gameover.doubleJumpTip')}
               </div>
             </div>
           )}
@@ -172,14 +178,14 @@ export default function GameOverModal({ score, coins, xp, activeSkin, user, onOp
             display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px'
           }}>
             <div style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', lineHeight: 1.4, fontWeight: '500' }}>
-              💡 <em>Đang ở Chế độ Khách.</em> Đăng ký để lưu điểm & mở khóa <strong>AI May Đo</strong>!
+              {t('gameover.guestPrompt')}
             </div>
             <button
               onClick={() => { onClose(); onOpenAuth(); }}
               className="btn-arcade btn-cyan"
               style={{ padding: '6px 12px', borderRadius: '8px', fontSize: '0.7rem', fontWeight: '700', whiteSpace: 'nowrap', cursor: 'pointer' }}
             >
-              ✨ Đăng Ký
+              {t('gameover.registerBtn')}
             </button>
           </div>
         )}
@@ -191,14 +197,14 @@ export default function GameOverModal({ score, coins, xp, activeSkin, user, onOp
             onClick={onRestart}
             style={{ flex: 1, fontSize: '0.9rem', padding: '13px', borderRadius: '10px' }}
           >
-            🔄 Play Again
+            {t('gameover.playAgainBtn')}
           </button>
           <button
             className="btn-arcade btn-ghost"
             onClick={onClose}
             style={{ padding: '13px 18px', borderRadius: '10px', fontSize: '0.82rem' }}
           >
-            🛍️ Shop
+            {t('gameover.shopBtn')}
           </button>
         </div>
       </div>

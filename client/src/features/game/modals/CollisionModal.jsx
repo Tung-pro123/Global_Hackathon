@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useLanguage } from '../../../context/LanguageContext.jsx';
 
 export default function CollisionModal({ onGiveUp, onTryMore, score, collisionType = 'cactus' }) {
+  const { t } = useLanguage();
   const [choice, setChoice] = useState(null);
   const icon = collisionType === 'bird' ? '🐦' : '💥';
-  const title = collisionType === 'bird' ? 'BIRD STRIKE!' : 'COLLISION DETECTED!';
+  const title = collisionType === 'bird' ? t('collision.birdTitle') : t('collision.title');
 
   return (
     <div className="modal-overlay">
@@ -31,7 +33,7 @@ export default function CollisionModal({ onGiveUp, onTryMore, score, collisionTy
         </h2>
 
         <p style={{ color: 'var(--text-secondary)', marginBottom: '6px', fontFamily: 'var(--font-heading)', fontWeight: '500' }}>
-          The cactus got you! What will you do?
+          {t('collision.cactusGotYou')}
         </p>
 
         {/* Score display */}
@@ -41,7 +43,7 @@ export default function CollisionModal({ onGiveUp, onTryMore, score, collisionTy
           border: '1px solid rgba(56, 189, 248, 0.2)',
           borderRadius: '8px', padding: '8px 20px', marginBottom: '28px'
         }}>
-          <span style={{ fontFamily: 'var(--font-arcade)', fontSize: '0.75rem', color: 'var(--text-muted)' }}>SCORE</span>
+          <span style={{ fontFamily: 'var(--font-arcade)', fontSize: '0.75rem', color: 'var(--text-muted)' }}>{t('collision.score')}</span>
           <span style={{ fontFamily: 'var(--font-arcade)', fontSize: '1.1rem', color: 'var(--neon-cyan)', fontWeight: '700' }}>
             {String(score || 0).padStart(5, '0')}
           </span>
@@ -67,8 +69,8 @@ export default function CollisionModal({ onGiveUp, onTryMore, score, collisionTy
           >
             <span style={{ fontSize: '1.3rem' }}>🔥</span>
             <div style={{ textAlign: 'left' }}>
-              <div style={{ fontWeight: '700' }}>Thử Thách Slang Để Hồi Sinh</div>
-              <div style={{ fontSize: '0.75rem', opacity: 0.8 }}>Answer correctly → Revive + 3s Shield 🛡️</div>
+              <div style={{ fontWeight: '700' }}>{t('collision.tryMore')}</div>
+              <div style={{ fontSize: '0.75rem', opacity: 0.8 }}>{t('collision.tryMoreSub')}</div>
             </div>
           </button>
 
@@ -89,12 +91,12 @@ export default function CollisionModal({ onGiveUp, onTryMore, score, collisionTy
             }}
           >
             <span>🏳️</span>
-            Give Up — End This Run
+            {t('collision.giveUp')}
           </button>
         </div>
 
         <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: '16px' }}>
-          🏅 Your score will be saved either way
+          {t('collision.scoreSaved')}
         </p>
       </div>
     </div>

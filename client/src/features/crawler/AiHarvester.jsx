@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useLanguage } from '../../context/LanguageContext.jsx';
 
 const LOG_COLORS = { info: '#38bdf8', success: '#10b981', error: '#f43f5e', warn: '#fbbf24' };
 
 export default function AiHarvester() {
+  const { t } = useLanguage();
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
   const [logs, setLogs] = useState([
@@ -46,11 +48,10 @@ export default function AiHarvester() {
       {/* Header */}
       <div>
         <h2 style={{ fontFamily: 'var(--font-arcade)', fontSize: '1rem', color: 'var(--neon-emerald)', letterSpacing: '0.1em', marginBottom: '4px' }}>
-          🤖 AI SLANG HARVESTER
+          {t('ai.title')}
         </h2>
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
-          Powered by <strong style={{ color: 'var(--text-primary)' }}>Groq + llama-3.3-70b-versatile</strong>.
-          Automatically discovers and ingests trending campus slangs from Singapore & Vietnam.
+          {t('ai.subtitle')}
         </p>
       </div>
 
@@ -64,10 +65,10 @@ export default function AiHarvester() {
       }}>
         <div style={{ flex: 1 }}>
           <h3 style={{ fontFamily: 'var(--font-heading)', fontWeight: '700', color: 'var(--text-primary)', marginBottom: '4px' }}>
-            Cultural Slang Intelligence Crawl
+            {t('ai.panelTitle')}
           </h3>
           <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
-            Scans 2024-2026 Singlish & Vietnamese university student slang, generating visual rebus quizzes automatically.
+            {t('ai.panelDesc')}
           </p>
         </div>
         <button
@@ -79,9 +80,9 @@ export default function AiHarvester() {
           {loading ? (
             <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <span style={{ animation: 'spin-slow 0.8s linear infinite', display: 'inline-block' }}>⚙️</span>
-              Harvesting...
+              {t('ai.harvestingBtn')}
             </span>
-          ) : '🤖 Run AI Harvest'}
+          ) : t('ai.runBtn')}
         </button>
       </div>
 

@@ -3,6 +3,7 @@ import DinoCanvas from './DinoCanvas.jsx';
 import SlangQuizModal from './modals/SlangQuizModal.jsx';
 import CollisionModal from './modals/CollisionModal.jsx';
 import GameOverModal from './modals/GameOverModal.jsx';
+import { useLanguage } from '../../context/LanguageContext.jsx';
 
 const DIFFICULTY_CONFIG = {
   easy: {
@@ -107,6 +108,7 @@ const FALLBACK_QUIZZES = [
 ];
 
 export default function DinoGameArena({ activeSkin, onPlayerUpdate, playerData, user, onOpenAuth, onOpenProfile }) {
+  const { t } = useLanguage();
   const [gameState, setGameState] = useState('idle'); // idle | playing | collision | quiz | gameover
   const [difficulty, setDifficulty] = useState('medium');
   const [showDiffPicker, setShowDiffPicker] = useState(false);
@@ -117,6 +119,7 @@ export default function DinoGameArena({ activeSkin, onPlayerUpdate, playerData, 
   const [sessionXp, setSessionXp] = useState(0);
   const [maxCombo, setMaxCombo] = useState(0);
   const [collisionType, setCollisionType] = useState('cactus');
+  const [encounteredSlangs, setEncounteredSlangs] = useState([]);
   const dinoRef = useRef(null);
 
   const fetchQuiz = async () => {
@@ -172,6 +175,11 @@ export default function DinoGameArena({ activeSkin, onPlayerUpdate, playerData, 
     setGameState('quiz');
     const quiz = await fetchQuiz();
     setQuizData(quiz);
+    // Track which slangs were encountered for post-game review
+    if (quiz) setEncounteredSlangs(prev => {
+      const already = prev.find(s => s.id === quiz.id || s.term === quiz.term);
+      return already ? prev : [...prev, quiz].slice(-6); // keep max 6
+    });
   }, []);
 
   const handleCollision = useCallback((type) => {
@@ -233,6 +241,7 @@ export default function DinoGameArena({ activeSkin, onPlayerUpdate, playerData, 
 
   const handleRestart = () => {
     setScore(0); setSessionCoins(0); setSessionXp(0); setMaxCombo(0);
+    setEncounteredSlangs([]);
     setGameState('idle');
     setTimeout(() => setGameState('playing'), 10);
   };
@@ -243,6 +252,9 @@ export default function DinoGameArena({ activeSkin, onPlayerUpdate, playerData, 
   };
 
   const diffCfg = DIFFICULTY_CONFIG[difficulty];
+  const diffLabel = t(`game.difficulty.${difficulty}.label`);
+  const diffDesc = t(`game.difficulty.${difficulty}.desc`);
+  const diffBadge = t(`game.difficulty.${difficulty}.badge`);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
@@ -287,16 +299,16 @@ export default function DinoGameArena({ activeSkin, onPlayerUpdate, playerData, 
               fontFamily:'var(--font-arcade)', fontSize:'1.5rem',
               color:'var(--neon-cyan)', letterSpacing:'0.1em',
               textShadow:'0 0 30px rgba(56,189,248,0.6)', textAlign:'center'
-            }}>DINO SLANG QUEST</h1>
+            }}>{t('game.title')}</h1>
 
             {/* Info pills */}
             <div style={{ display:'flex', gap:'10px', flexWrap:'wrap', justifyContent:'center' }}>
-              {['🪙 Collect coins', '💎 Diamond quizzes', '🐦 Dodge birds!', '↑↑ Double jump'].map(t => (
-                <span key={t} style={{
+              {[t('game.pills.coins'), t('game.pills.quizzes'), t('game.pills.birds'), t('game.pills.jump')].map(pill => (
+                <span key={pill} style={{
                   padding:'4px 12px', borderRadius:'999px', fontSize:'0.76rem',
                   background:'rgba(56,189,248,0.08)', border:'1px solid rgba(56,189,248,0.2)',
                   color:'var(--text-secondary)', fontFamily:'var(--font-heading)'
-                }}>{t}</span>
+                }}>{pill}</span>
               ))}
             </div>
 
@@ -311,7 +323,7 @@ export default function DinoGameArena({ activeSkin, onPlayerUpdate, playerData, 
               }}>
                 <span style={{ fontSize: '0.95rem' }}>✨</span>
                 <div style={{ fontSize: '0.72rem', color: '#e2e8f0', fontFamily: 'var(--font-heading)' }}>
-                  <strong style={{ color: 'var(--neon-cyan)' }}>{user.username}</strong> • AI may đo:{' '}
+                  <strong style={{ color: 'var(--neon-cyan)' }}>{user.username}</strong> • {t('game.aiBannerTitle')}{' '}
                   <span style={{ color: 'var(--neon-emerald)', fontWeight: '700' }}>
                     {user.interests?.[0]?.toUpperCase() || 'CAMPUS'}
                   </span>{' '}
@@ -327,9 +339,9 @@ export default function DinoGameArena({ activeSkin, onPlayerUpdate, playerData, 
                       background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.2)',
                       borderRadius: '6px', color: '#94a3b8', fontSize: '0.65rem', padding: '2px 8px', cursor: 'pointer'
                     }}
-                    title="Đổi sở thích hoặc trình độ tiếng Anh"
+                    title={t('game.changeProfile')}
                   >
-                    ⚙️ Đổi
+                    {t('game.changeProfile')}
                   </button>
                 )}
               </div>
@@ -343,7 +355,7 @@ export default function DinoGameArena({ activeSkin, onPlayerUpdate, playerData, 
               }}>
                 <span style={{ fontSize: '0.9rem' }}>⚡</span>
                 <span style={{ fontSize: '0.72rem', color: '#cbd5e1', fontFamily: 'var(--font-heading)' }}>
-                  Chế độ Khách (General Slang).
+                  {t('game.guestBannerTitle')}
                 </span>
                 {onOpenAuth && (
                   <button
@@ -353,7 +365,7 @@ export default function DinoGameArena({ activeSkin, onPlayerUpdate, playerData, 
                       padding: '4px 10px', borderRadius: '6px', fontSize: '0.68rem', fontWeight: '700', cursor: 'pointer'
                     }}
                   >
-                    ✨ Đăng nhập để AI may đo (+200🪙)
+                    {t('game.guestLoginBtn')}
                   </button>
                 )}
               </div>
@@ -362,7 +374,7 @@ export default function DinoGameArena({ activeSkin, onPlayerUpdate, playerData, 
             {/* Difficulty picker */}
             <div style={{ width:'100%', maxWidth:'380px' }}>
               <p style={{ fontFamily:'var(--font-arcade)', fontSize:'0.65rem', color:'var(--text-muted)', textAlign:'center', marginBottom:'10px', letterSpacing:'0.1em' }}>
-                CHỌN ĐỘ KHÓ
+                {t('game.selectDifficulty')}
               </p>
               <div style={{ display:'flex', gap:'8px' }}>
                 {Object.entries(DIFFICULTY_CONFIG).map(([key, cfg]) => (
@@ -370,7 +382,7 @@ export default function DinoGameArena({ activeSkin, onPlayerUpdate, playerData, 
                     key={key}
                     onClick={() => setDifficulty(key)}
                     style={{
-                      flex:1, padding:'10px 8px', borderRadius:'12px', border:'none', cursor:'pointer',
+                      flex:1, padding:'10px 8px', borderRadius:'12px', cursor:'pointer',
                       background: difficulty === key ? cfg.colorBg : 'rgba(13,20,36,0.7)',
                       border: `1.5px solid ${difficulty === key ? cfg.color : 'rgba(255,255,255,0.06)'}`,
                       color: difficulty === key ? cfg.color : 'var(--text-muted)',
@@ -380,9 +392,9 @@ export default function DinoGameArena({ activeSkin, onPlayerUpdate, playerData, 
                       boxShadow: difficulty === key ? `0 0 20px ${cfg.color}33` : 'none'
                     }}
                   >
-                    <span style={{ fontSize:'1.1rem' }}>{cfg.label}</span>
+                    <span style={{ fontSize:'1.1rem' }}>{t(`game.difficulty.${key}.label`)}</span>
                     <span style={{ fontSize:'0.62rem', opacity:0.7, fontWeight:'400', textAlign:'center', lineHeight:1.3 }}>
-                      {cfg.desc}
+                      {t(`game.difficulty.${key}.desc`)}
                     </span>
                     {difficulty === key && (
                       <span style={{
@@ -390,7 +402,7 @@ export default function DinoGameArena({ activeSkin, onPlayerUpdate, playerData, 
                         padding:'2px 8px', borderRadius:'4px',
                         background:`${cfg.color}22`, border:`1px solid ${cfg.color}44`,
                         color: cfg.color, letterSpacing:'0.1em'
-                      }}>{cfg.badge}</span>
+                      }}>{t(`game.difficulty.${key}.badge`)}</span>
                     )}
                   </button>
                 ))}
@@ -408,10 +420,10 @@ export default function DinoGameArena({ activeSkin, onPlayerUpdate, playerData, 
                 color:'#070a12', border:'none', cursor:'pointer',
                 boxShadow:`0 4px 20px ${diffCfg.color}55, 0 0 40px ${diffCfg.color}22`
               }}
-            >▶  BẮT ĐẦU CHƠI</button>
+            >{t('game.startBtn')}</button>
 
             <p style={{ fontSize:'0.65rem', color:'var(--text-muted)', fontFamily:'var(--font-arcade)', letterSpacing:'0.05em' }}>
-              SPACE / ↑ / TAP = JUMP  •  SPACE ×2 = DOUBLE JUMP
+              {t('game.controlsHint')}
             </p>
           </div>
         )}
@@ -430,10 +442,10 @@ export default function DinoGameArena({ activeSkin, onPlayerUpdate, playerData, 
           }}>{diffCfg.label}</span>
 
           {[
-            { label:'SCORE', value:String(score).padStart(5,'0'), color:'var(--neon-cyan)' },
-            { label:'COINS', value:`+${sessionCoins}`, color:'var(--neon-gold)' },
-            { label:'BEST COMBO', value:`x${maxCombo}`, color:'var(--neon-rose)' },
-            { label:'XP', value:`+${sessionXp}`, color:'var(--neon-emerald)' }
+            { label: t('game.stats.score'), value:String(score).padStart(5,'0'), color:'var(--neon-cyan)' },
+            { label: t('game.stats.coins'), value:`+${sessionCoins}`, color:'var(--neon-gold)' },
+            { label: t('game.stats.combo'), value:`x${maxCombo}`, color:'var(--neon-rose)' },
+            { label: t('game.stats.xp'), value:`+${sessionXp}`, color:'var(--neon-emerald)' }
           ].map(s => (
             <div key={s.label} style={{
               background:'var(--bg-card)', border:'1px solid var(--border-subtle)',
@@ -490,6 +502,7 @@ export default function DinoGameArena({ activeSkin, onPlayerUpdate, playerData, 
           onOpenAuth={onOpenAuth}
           onRestart={handleRestart}
           onClose={() => setGameState('idle')}
+          encounteredSlangs={encounteredSlangs}
         />
       )}
     </div>

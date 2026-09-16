@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLanguage } from '../../context/LanguageContext.jsx';
 
 const CULTURE_LABELS = { SG: '🇸🇬 Singlish', VN: '🇻🇳 Vietnamese', ALL: '🌏 All' };
 const CATEGORY_COLORS = {
@@ -8,6 +9,7 @@ const CATEGORY_COLORS = {
 };
 
 export default function SlangPokedex({ user }) {
+  const { t } = useLanguage();
   const [slangs, setSlangs] = useState([]);
   const [filter, setFilter] = useState('ALL');
   const [search, setSearch] = useState('');
@@ -62,10 +64,10 @@ export default function SlangPokedex({ user }) {
       {/* Header */}
       <div>
         <h2 style={{ fontFamily: 'var(--font-arcade)', fontSize: '1rem', color: 'var(--neon-cyan)', letterSpacing: '0.1em', marginBottom: '4px' }}>
-          📚 SLANG POKÉDEX
+          {t('pokedex.title')}
         </h2>
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', fontWeight: '500' }}>
-          Your campus slang encyclopedia. {slangs.length} entries and growing!
+          {t('pokedex.subtitle', { count: slangs.length })}
         </p>
       </div>
 
@@ -74,20 +76,24 @@ export default function SlangPokedex({ user }) {
         <div style={{ flex: 1, minWidth: '200px' }}>
           <input
             className="input-arcade"
-            placeholder="🔍 Search slang terms..."
+            placeholder={t('pokedex.searchPlaceholder')}
             value={search}
             onChange={e => setSearch(e.target.value)}
           />
         </div>
         <div style={{ display: 'flex', gap: '6px' }}>
-          {['ALL', 'SG', 'VN'].map(c => (
+          {[
+            { id: 'ALL', labelKey: 'pokedex.filterAll' },
+            { id: 'SG', labelKey: 'pokedex.filterSG' },
+            { id: 'VN', labelKey: 'pokedex.filterVN' }
+          ].map(c => (
             <button
-              key={c}
-              className={`btn-arcade ${filter === c ? 'btn-cyan' : 'btn-ghost'}`}
-              onClick={() => setFilter(c)}
+              key={c.id}
+              className={`btn-arcade ${filter === c.id ? 'btn-cyan' : 'btn-ghost'}`}
+              onClick={() => setFilter(c.id)}
               style={{ padding: '8px 14px', fontSize: '0.8rem', borderRadius: '8px' }}
             >
-              {c === 'ALL' ? '🌏' : c === 'SG' ? '🇸🇬' : '🇻🇳'} {c}
+              {t(c.labelKey)}
             </button>
           ))}
         </div>
@@ -97,12 +103,12 @@ export default function SlangPokedex({ user }) {
       {loading ? (
         <div style={{ textAlign: 'center', padding: '40px', color: 'var(--text-muted)' }}>
           <div style={{ fontSize: '2rem', animation: 'spin-slow 1s linear infinite', display: 'inline-block' }}>⚙️</div>
-          <p style={{ marginTop: '12px', fontFamily: 'var(--font-arcade)', fontSize: '0.8rem' }}>Loading slangs...</p>
+          <p style={{ marginTop: '12px', fontFamily: 'var(--font-arcade)', fontSize: '0.8rem' }}>{t('pokedex.loading')}</p>
         </div>
       ) : filtered.length === 0 ? (
         <div style={{ textAlign: 'center', padding: '40px', color: 'var(--text-muted)' }}>
           <p style={{ fontSize: '2rem' }}>🔎</p>
-          <p style={{ marginTop: '8px' }}>No slangs found. Try the AI Harvester to add more!</p>
+          <p style={{ marginTop: '8px' }}>{t('pokedex.noResults')}</p>
         </div>
       ) : (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '14px' }}>
@@ -150,7 +156,7 @@ export default function SlangPokedex({ user }) {
                   {slang.literal_translation && (
                     <div style={{ marginBottom: '10px' }}>
                       <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', display: 'block', marginBottom: '2px', fontFamily: 'var(--font-arcade)', letterSpacing: '0.08em' }}>
-                        LITERAL
+                        {t('pokedex.literal')}
                       </span>
                       <span style={{ fontSize: '0.82rem', color: 'var(--text-primary)', fontWeight: '500' }}>{slang.literal_translation}</span>
                     </div>
@@ -163,7 +169,7 @@ export default function SlangPokedex({ user }) {
                       borderRadius: '10px', padding: '10px 14px', marginBottom: '10px'
                     }}>
                       <span style={{ fontSize: '0.65rem', color: 'var(--neon-emerald)', display: 'block', marginBottom: '4px', fontFamily: 'var(--font-arcade)', letterSpacing: '0.08em', fontWeight: '700' }}>
-                        💬 WHATSAPP EXAMPLE
+                        {t('pokedex.whatsapp')}
                       </span>
                       <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', fontStyle: 'italic', lineHeight: 1.5 }}>
                         "{slang.whatsapp_example}"
@@ -193,7 +199,7 @@ export default function SlangPokedex({ user }) {
                     {!aiSentences[slang.id] ? (
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
                         <div style={{ fontSize: '0.74rem', color: 'var(--text-secondary)' }}>
-                          🤖 <strong>AI Skill: Cultural Crafter</strong> • May đo câu hội thoại chuẩn bối cảnh & kiểm duyệt an toàn
+                          {t('pokedex.aiCrafterDesc')}
                         </div>
                         <button
                           onClick={(e) => handleGenerateSentence(slang, e)}
@@ -201,21 +207,21 @@ export default function SlangPokedex({ user }) {
                           className="btn-arcade btn-cyan"
                           style={{ padding: '6px 12px', fontSize: '0.7rem', borderRadius: '8px', cursor: 'pointer' }}
                         >
-                          {generatingId === slang.id ? '⚙️ Đang tạo...' : '✨ May Đo Câu AI'}
+                          {generatingId === slang.id ? t('pokedex.tailoringBtn') : t('pokedex.tailorBtn')}
                         </button>
                       </div>
                     ) : (
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '6px' }}>
                           <span style={{ fontSize: '0.68rem', fontFamily: 'var(--font-arcade)', color: 'var(--neon-cyan)', letterSpacing: '0.08em', fontWeight: '700' }}>
-                            ✨ CÂU HỘI THOẠI AI MAY ĐO
+                            {t('pokedex.tailoredTitle')}
                           </span>
                           <span style={{
                             fontSize: '0.62rem', padding: '2px 8px', borderRadius: '4px',
                             background: 'rgba(16,185,129,0.15)', color: 'var(--neon-emerald)', border: '1px solid rgba(16,185,129,0.3)',
                             fontWeight: '700'
                           }}>
-                            🛡️ 100% TIÊU CHUẨN CỘNG ĐỒNG & PHÁP LUẬT
+                            {t('pokedex.safetyBadge')}
                           </span>
                         </div>
 
@@ -224,11 +230,11 @@ export default function SlangPokedex({ user }) {
                         </p>
 
                         <div style={{ fontSize: '0.78rem', color: 'var(--text-secondary)' }}>
-                          🇻🇳 <strong>Dịch:</strong> {aiSentences[slang.id].translation_vi}
+                          <strong>{t('pokedex.translationLabel')}</strong> {aiSentences[slang.id].translation_vi}
                         </div>
 
                         <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
-                          🎯 <strong>Bối cảnh:</strong> {aiSentences[slang.id].context_scenario}
+                          🎯 <strong>{t('pokedex.contextLabel')}</strong> {aiSentences[slang.id].context_scenario}
                         </div>
 
                         {/* Pragmatics matrix */}
@@ -238,14 +244,14 @@ export default function SlangPokedex({ user }) {
                             background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.25)',
                             fontSize: '0.7rem', color: 'var(--neon-emerald)', fontWeight: '600'
                           }}>
-                            ✅ <strong>NÊN DÙNG:</strong> {aiSentences[slang.id].pragmatics?.when_to_use}
+                            ✅ <strong>{t('pokedex.whenToUse')}</strong> {aiSentences[slang.id].pragmatics?.when_to_use}
                           </div>
                           <div style={{
                             padding: '6px 8px', borderRadius: '8px',
                             background: 'rgba(244,63,94,0.1)', border: '1px solid rgba(244,63,94,0.25)',
                             fontSize: '0.7rem', color: 'var(--neon-rose)', fontWeight: '600'
                           }}>
-                            ⚠️ <strong>TRÁNH DÙNG:</strong> {aiSentences[slang.id].pragmatics?.when_to_avoid}
+                            ⚠️ <strong>{t('pokedex.whenToAvoid')}</strong> {aiSentences[slang.id].pragmatics?.when_to_avoid}
                           </div>
                         </div>
 

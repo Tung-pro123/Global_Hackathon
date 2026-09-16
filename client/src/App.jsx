@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useLanguage } from './context/LanguageContext.jsx';
 import DinoGameArena from './features/game/DinoGameArena.jsx';
 import SkinShop from './features/shop/SkinShop.jsx';
 import SlangPokedex from './features/dictionary/SlangPokedex.jsx';
@@ -7,13 +8,14 @@ import AuthModal from './features/auth/AuthModal.jsx';
 import ProfileEditModal from './features/auth/ProfileEditModal.jsx';
 
 const TABS = [
-  { id: 'game', label: 'Dino Quest', icon: '🦖', short: 'Game' },
-  { id: 'shop', label: 'Skin Shop', icon: '🛍️', short: 'Shop' },
-  { id: 'dict', label: 'Slang Pokédex', icon: '📚', short: 'Dict' },
-  { id: 'ai', label: 'AI Harvester', icon: '🤖', short: 'AI' }
+  { id: 'game', labelKey: 'nav.tabs.game', icon: '🦖' },
+  { id: 'shop', labelKey: 'nav.tabs.shop', icon: '🛍️' },
+  { id: 'dict', labelKey: 'nav.tabs.dict', icon: '📚' },
+  { id: 'ai', labelKey: 'nav.tabs.ai', icon: '🤖' }
 ];
 
 export default function App() {
+  const { lang, toggleLanguage, t } = useLanguage();
   const [activeTab, setActiveTab] = useState('game');
   const [currentUser, setCurrentUser] = useState(() => {
     try {
@@ -122,7 +124,7 @@ export default function App() {
               CULTURSYNC
             </div>
             <div style={{ fontSize: '0.6rem', color: 'var(--text-muted)', fontFamily: 'var(--font-heading)', letterSpacing: '0.05em' }}>
-              SlangArena 2.0
+              {t('nav.logoSubtitle')}
             </div>
           </div>
         </div>
@@ -138,7 +140,7 @@ export default function App() {
               display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer',
               color: 'var(--text-primary)', fontSize: '0.76rem', fontFamily: 'var(--font-heading)'
             }}
-            title="Bấm để chỉnh sửa sở thích & trình độ"
+            title={t('nav.profileTitle')}
           >
             <span style={{ fontSize: '0.85rem' }}>👤</span>
             <strong style={{ color: 'var(--neon-cyan)' }}>{currentUser.username}</strong>
@@ -162,7 +164,7 @@ export default function App() {
             className="btn-arcade btn-cyan"
             style={{ padding: '6px 14px', borderRadius: '8px', fontSize: '0.75rem', fontWeight: '700' }}
           >
-            🔑 Đăng Nhập / Đăng Ký
+            {t('nav.login')}
           </button>
         )}
 
@@ -181,8 +183,29 @@ export default function App() {
           <div className="wallet-pill diamonds">💎 {diamonds}</div>
 
           {/* Theme Toggle */}
-          <button className="theme-toggle" onClick={toggleTheme} title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}>
+          <button className="theme-toggle" onClick={toggleTheme} title={theme === 'dark' ? t('nav.switchThemeDark') : t('nav.switchThemeLight')}>
             {theme === 'dark' ? '☀️' : '🌙'}
+          </button>
+
+          {/* Language Switcher */}
+          <button
+            className="theme-toggle"
+            onClick={toggleLanguage}
+            title={t('nav.switchLang')}
+            style={{
+              width: 'auto',
+              padding: '0 10px',
+              borderRadius: '999px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '4px',
+              fontFamily: 'var(--font-arcade)',
+              fontSize: '0.72rem',
+              fontWeight: '700'
+            }}
+          >
+            <span>{lang === 'vi' ? '🇻🇳' : '🇬🇧'}</span>
+            <span style={{ color: 'var(--neon-cyan)', letterSpacing: '0.05em' }}>{lang.toUpperCase()}</span>
           </button>
         </div>
       </header>
@@ -197,7 +220,7 @@ export default function App() {
               onClick={() => setActiveTab(tab.id)}
             >
               <span>{tab.icon}</span>
-              <span>{tab.short}</span>
+              <span>{t(tab.labelKey)}</span>
             </button>
           ))}
         </div>
@@ -250,7 +273,7 @@ export default function App() {
         fontSize: '0.68rem', fontFamily: 'var(--font-arcade)',
         letterSpacing: '0.05em', color: 'var(--text-muted)'
       }}>
-        🦖 CULTURSYNC SLANGARENA • TEAM 14 • GLOBAL HACKATHON 2026 • 🇸🇬 × 🇻🇳
+        {t('footer.tagline')}
       </footer>
     </div>
   );

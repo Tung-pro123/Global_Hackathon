@@ -1,26 +1,12 @@
 import React, { useState } from 'react';
+import { useLanguage } from '../../context/LanguageContext.jsx';
 
-const INTEREST_OPTIONS = [
-  { id: 'gaming', label: '🎮 Gaming & Esports' },
-  { id: 'campus', label: '📚 Campus & Deadline' },
-  { id: 'food', label: '☕ Food & Canteen' },
-  { id: 'social', label: '💬 Social & Dating' },
-  { id: 'career', label: '💼 Career & Internship' }
-];
-
-const LEVEL_OPTIONS = [
-  { id: 'beginner', label: '🟢 Explorer', desc: 'Mới bắt đầu — từ vựng ngắn, trực quan' },
-  { id: 'intermediate', label: '🔵 Connector', desc: 'Khá — tình huống hội thoại thực tế' },
-  { id: 'advanced', label: '🟣 Insider', desc: 'Chuyên sâu — ngữ cảnh văn hóa & bẫy ngữ dụng' }
-];
-
-const CULTURE_OPTIONS = [
-  { id: 'ALL', label: '🌏 Cả hai (Cross-Cultural)' },
-  { id: 'SG', label: '🇸🇬 Singlish (Singapore)' },
-  { id: 'VN', label: '🇻🇳 Tiếng Lóng Việt Nam' }
-];
+const INTEREST_IDS = ['gaming', 'campus', 'food', 'social', 'career'];
+const LEVEL_IDS = ['beginner', 'intermediate', 'advanced'];
+const CULTURE_IDS = ['ALL', 'SG', 'VN'];
 
 export default function AuthModal({ onLoginSuccess, onClose, canClose = true }) {
+  const { t } = useLanguage();
   const [tab, setTab] = useState('register'); // 'register' | 'login'
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -45,10 +31,10 @@ export default function AuthModal({ onLoginSuccess, onClose, canClose = true }) 
     setError('');
 
     if (!username.trim() || username.trim().length < 3) {
-      return setError('Tên người dùng phải có ít nhất 3 ký tự!');
+      return setError(t('auth.errorUserShort'));
     }
     if (!password || password.length < 4) {
-      return setError('Mật khẩu phải có ít nhất 4 ký tự!');
+      return setError(t('auth.errorPassShort'));
     }
 
     setLoading(true);
@@ -67,7 +53,7 @@ export default function AuthModal({ onLoginSuccess, onClose, canClose = true }) 
 
       const data = await res.json();
       if (!res.ok || !data.success) {
-        setError(data.error || 'Đăng ký không thành công!');
+        setError(data.error || t('auth.errorUserShort'));
       } else {
         localStorage.setItem('cultursync_user', JSON.stringify(data.user));
         onLoginSuccess(data.user);
@@ -100,7 +86,7 @@ export default function AuthModal({ onLoginSuccess, onClose, canClose = true }) 
     setError('');
 
     if (!username.trim() || !password) {
-      return setError('Vui lòng nhập Tên đăng nhập và Mật khẩu!');
+      return setError(t('auth.errorEmptyLogin'));
     }
 
     setLoading(true);
@@ -116,13 +102,13 @@ export default function AuthModal({ onLoginSuccess, onClose, canClose = true }) 
 
       const data = await res.json();
       if (!res.ok || !data.success) {
-        setError(data.error || 'Sai tên đăng nhập hoặc mật khẩu!');
+        setError(data.error || t('auth.errorEmptyLogin'));
       } else {
         localStorage.setItem('cultursync_user', JSON.stringify(data.user));
         onLoginSuccess(data.user);
       }
     } catch (err) {
-      setError('Lỗi kết nối máy chủ! Hãy thử lại.');
+      setError(t('auth.errorServer'));
     } finally {
       setLoading(false);
     }
@@ -205,10 +191,10 @@ export default function AuthModal({ onLoginSuccess, onClose, canClose = true }) 
             fontFamily: 'var(--font-arcade)', fontSize: '1.1rem',
             color: 'var(--neon-cyan)', letterSpacing: '0.1em', marginTop: '6px'
           }}>
-            CULTURSYNC IDENTITY
+            {t('auth.title')}
           </h2>
           <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginTop: '4px', fontWeight: '500' }}>
-            Đăng ký tài khoản để may đo câu đố AI theo đúng sở thích của bạn!
+            {t('auth.subtitle')}
           </p>
         </div>
 
@@ -223,14 +209,14 @@ export default function AuthModal({ onLoginSuccess, onClose, canClose = true }) 
             onClick={() => { setTab('register'); setError(''); }}
             style={{ flex: 1, padding: '9px', fontSize: '0.85rem', borderRadius: '8px' }}
           >
-            ✨ Đăng Ký Mới
+            {t('auth.registerTab')}
           </button>
           <button
             className={`btn-arcade ${tab === 'login' ? 'btn-cyan' : 'btn-ghost'}`}
             onClick={() => { setTab('login'); setError(''); }}
             style={{ flex: 1, padding: '9px', fontSize: '0.85rem', borderRadius: '8px' }}
           >
-            🔑 Đăng Nhập
+            {t('auth.loginTab')}
           </button>
         </div>
 
@@ -251,11 +237,11 @@ export default function AuthModal({ onLoginSuccess, onClose, canClose = true }) 
           <form onSubmit={handleRegister} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
             <div>
               <label style={{ display: 'block', fontSize: '0.75rem', fontFamily: 'var(--font-arcade)', color: 'var(--text-muted)', marginBottom: '5px' }}>
-                TÊN NGƯỜI CHƠI (USERNAME) *
+                {t('auth.usernameLabel')}
               </label>
               <input
                 className="input-arcade"
-                placeholder="ví dụ: tung_pro, alex_sg, linh_fpt..."
+                placeholder={t('auth.usernamePlaceholder')}
                 value={username}
                 onChange={e => setUsername(e.target.value)}
                 maxLength={20}
@@ -264,12 +250,12 @@ export default function AuthModal({ onLoginSuccess, onClose, canClose = true }) 
 
             <div>
               <label style={{ display: 'block', fontSize: '0.75rem', fontFamily: 'var(--font-arcade)', color: 'var(--text-muted)', marginBottom: '5px' }}>
-                MẬT KHẨU *
+                {t('auth.passwordLabel')}
               </label>
               <input
                 className="input-arcade"
                 type="password"
-                placeholder="Tối thiểu 4 ký tự"
+                placeholder={t('auth.passwordPlaceholder')}
                 value={password}
                 onChange={e => setPassword(e.target.value)}
               />
@@ -281,21 +267,21 @@ export default function AuthModal({ onLoginSuccess, onClose, canClose = true }) 
                 🎯 TRÌNH ĐỘ TIẾNG ANH (AI MAY ĐO ĐỘ KHÓ)
               </label>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '6px' }}>
-                {LEVEL_OPTIONS.map(lvl => (
+                {LEVEL_IDS.map(lvlId => (
                   <button
                     type="button"
-                    key={lvl.id}
-                    onClick={() => setEnglishLevel(lvl.id)}
+                    key={lvlId}
+                    onClick={() => setEnglishLevel(lvlId)}
                     style={{
-                      padding: '8px 4px', borderRadius: '10px', border: 'none', cursor: 'pointer',
-                      background: englishLevel === lvl.id ? 'rgba(56,189,248,0.18)' : 'var(--input-bg)',
-                      border: `1.5px solid ${englishLevel === lvl.id ? 'var(--neon-cyan)' : 'var(--border-subtle)'}`,
-                      color: englishLevel === lvl.id ? 'var(--neon-cyan)' : 'var(--text-secondary)',
+                      padding: '8px 4px', borderRadius: '10px', cursor: 'pointer',
+                      background: englishLevel === lvlId ? 'rgba(56,189,248,0.18)' : 'var(--input-bg)',
+                      border: `1.5px solid ${englishLevel === lvlId ? 'var(--neon-cyan)' : 'var(--border-subtle)'}`,
+                      color: englishLevel === lvlId ? 'var(--neon-cyan)' : 'var(--text-secondary)',
                       fontFamily: 'var(--font-heading)', fontSize: '0.76rem', fontWeight: '600',
                       transition: 'all 0.2s'
                     }}
                   >
-                    {lvl.label}
+                    {t(`auth.levels.${lvlId}.label`)}
                   </button>
                 ))}
               </div>
@@ -304,23 +290,23 @@ export default function AuthModal({ onLoginSuccess, onClose, canClose = true }) 
             {/* Target Culture */}
             <div>
               <label style={{ display: 'block', fontSize: '0.75rem', fontFamily: 'var(--font-arcade)', color: 'var(--neon-gold)', marginBottom: '6px' }}>
-                🌏 MỤC TIÊU VĂN HÓA
+                {t('auth.cultureLabel')}
               </label>
               <div style={{ display: 'flex', gap: '6px' }}>
-                {CULTURE_OPTIONS.map(c => (
+                {CULTURE_IDS.map(cid => (
                   <button
                     type="button"
-                    key={c.id}
-                    onClick={() => setTargetCulture(c.id)}
+                    key={cid}
+                    onClick={() => setTargetCulture(cid)}
                     style={{
-                      flex: 1, padding: '7px 4px', borderRadius: '8px', border: 'none', cursor: 'pointer',
-                      background: targetCulture === c.id ? 'rgba(251,191,36,0.18)' : 'var(--input-bg)',
-                      border: `1.5px solid ${targetCulture === c.id ? 'var(--neon-gold)' : 'var(--border-subtle)'}`,
-                      color: targetCulture === c.id ? 'var(--neon-gold)' : 'var(--text-secondary)',
+                      flex: 1, padding: '7px 4px', borderRadius: '8px', cursor: 'pointer',
+                      background: targetCulture === cid ? 'rgba(251,191,36,0.18)' : 'var(--input-bg)',
+                      border: `1.5px solid ${targetCulture === cid ? 'var(--neon-gold)' : 'var(--border-subtle)'}`,
+                      color: targetCulture === cid ? 'var(--neon-gold)' : 'var(--text-secondary)',
                       fontSize: '0.72rem', fontWeight: '600'
                     }}
                   >
-                    {c.label}
+                    {t(`auth.cultures.${cid}`)}
                   </button>
                 ))}
               </div>
@@ -329,18 +315,18 @@ export default function AuthModal({ onLoginSuccess, onClose, canClose = true }) 
             {/* Interests */}
             <div>
               <label style={{ display: 'block', fontSize: '0.75rem', fontFamily: 'var(--font-arcade)', color: 'var(--neon-emerald)', marginBottom: '6px' }}>
-                🎮 CHỦ ĐỀ YÊU THÍCH (CHỌN 1 HOẶC NHIỀU)
+                {t('auth.interestsLabel')}
               </label>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-                {INTEREST_OPTIONS.map(opt => {
-                  const isSelected = selectedInterests.includes(opt.id);
+                {INTEREST_IDS.map(optId => {
+                  const isSelected = selectedInterests.includes(optId);
                   return (
                     <button
                       type="button"
-                      key={opt.id}
-                      onClick={() => toggleInterest(opt.id)}
+                      key={optId}
+                      onClick={() => toggleInterest(optId)}
                       style={{
-                        padding: '6px 12px', borderRadius: '999px', border: 'none', cursor: 'pointer',
+                        padding: '6px 12px', borderRadius: '999px', cursor: 'pointer',
                         background: isSelected ? 'rgba(16,185,129,0.2)' : 'var(--input-bg)',
                         border: `1px solid ${isSelected ? 'var(--neon-emerald)' : 'var(--border-subtle)'}`,
                         color: isSelected ? 'var(--neon-emerald)' : 'var(--text-secondary)',
@@ -348,7 +334,7 @@ export default function AuthModal({ onLoginSuccess, onClose, canClose = true }) 
                         transition: 'all 0.2s'
                       }}
                     >
-                      {opt.label}
+                      {t(`auth.interests.${optId}`)}
                     </button>
                   );
                 })}
@@ -365,7 +351,7 @@ export default function AuthModal({ onLoginSuccess, onClose, canClose = true }) 
                 fontWeight: '700', letterSpacing: '0.05em', marginTop: '6px'
               }}
             >
-              {loading ? 'Đang tạo tài khoản...' : '🚀 TẠO TÀI KHOẢN & VÀO GAME (+200 🪙)'}
+            {loading ? t('auth.loadingRegister') : t('auth.submitRegister')}
             </button>
           </form>
         ) : (
@@ -373,11 +359,11 @@ export default function AuthModal({ onLoginSuccess, onClose, canClose = true }) 
           <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div>
               <label style={{ display: 'block', fontSize: '0.75rem', fontFamily: 'var(--font-arcade)', color: 'var(--text-muted)', marginBottom: '5px' }}>
-                TÊN ĐĂNG NHẬP
+                {t('auth.usernameLabel')}
               </label>
               <input
                 className="input-arcade"
-                placeholder="Nhập username của bạn..."
+                placeholder={t('auth.usernamePlaceholder')}
                 value={username}
                 onChange={e => setUsername(e.target.value)}
               />
@@ -385,12 +371,12 @@ export default function AuthModal({ onLoginSuccess, onClose, canClose = true }) 
 
             <div>
               <label style={{ display: 'block', fontSize: '0.75rem', fontFamily: 'var(--font-arcade)', color: 'var(--text-muted)', marginBottom: '5px' }}>
-                MẬT KHẨU
+                {t('auth.passwordLabel')}
               </label>
               <input
                 className="input-arcade"
                 type="password"
-                placeholder="Nhập mật khẩu..."
+                placeholder={t('auth.passwordPlaceholder')}
                 value={password}
                 onChange={e => setPassword(e.target.value)}
               />
@@ -405,7 +391,7 @@ export default function AuthModal({ onLoginSuccess, onClose, canClose = true }) 
                 fontWeight: '700', letterSpacing: '0.05em', marginTop: '6px'
               }}
             >
-              {loading ? 'Đang đăng nhập...' : '🔑 ĐĂNG NHẬP VÀO GAME'}
+            {loading ? t('auth.loadingLogin') : t('auth.submitLogin')}
             </button>
           </form>
         )}
@@ -420,7 +406,7 @@ export default function AuthModal({ onLoginSuccess, onClose, canClose = true }) 
               fontSize: '0.78rem', cursor: 'pointer', textDecoration: 'underline'
             }}
           >
-            Hoặc chơi nhanh với tư cách Khách (Play as Guest)
+            {t('auth.playAsGuest')}
           </button>
         </div>
       </div>

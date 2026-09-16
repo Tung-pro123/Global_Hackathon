@@ -54,16 +54,16 @@ export const SLANGS = [
     visual_caption: '😍 Person taking first bite of incredible food with eyes rolling back in pleasure'
   },
   {
-    id: 'sg_bao_ka_liao',
-    term: 'Bao Ka Liao',
+    id: 'sg_hao_lian',
+    term: 'Hao Lian',
     culture: 'SG',
-    phonetic: '/baʊ kɑː liːaʊ/',
-    literal_translation: 'Wrapped up everything (Hokkien)',
-    cultural_meaning: 'All-inclusive, covers everything. Used to describe someone who does all project roles or a solution that solves everything.',
-    whatsapp_example: "Don't worry, my teammate bao ka liao - he can design, code, and do the pitch!",
-    category: 'career',
-    visual_rebus_url: 'https://images.unsplash.com/photo-1484807352052-23338990c6c6?w=400',
-    visual_caption: '🎁 A single multi-tool knife that can do literally every job'
+    phonetic: '/haʊ liːæn/',
+    literal_translation: 'Boastful / Show-off (Hokkien)',
+    cultural_meaning: 'Describes someone who constantly brags, flexes, or shows off their achievements, wealth, or status. The Singaporean equivalent of being a "try-hard" or shameless self-promoter.',
+    whatsapp_example: 'Eh, he keep posting his A* results on Instagram. So hao lian lor!',
+    category: 'personality',
+    visual_rebus_url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400',
+    visual_caption: '🦚 Peacock spreading its feathers while others roll their eyes'
   },
   {
     id: 'sg_sian',
@@ -210,16 +210,101 @@ export const SLANGS = [
     visual_caption: '🏫 Empty classroom seat with lone notebook left unattended'
   },
   {
-    id: 'sg_gabra',
-    term: 'Gabra',
+    id: 'sg_lah_lor_leh',
+    term: 'Lah / Lor / Leh',
     culture: 'SG',
-    phonetic: '/ɡɑːbrɑː/',
-    literal_translation: 'Panic / Fluster (Hindustani/Malay)',
-    cultural_meaning: 'To panic, lose composure, or become thoroughly disoriented under sudden high pressure.',
-    whatsapp_example: 'When the projector died, I totally gabra on stage and forgot my lines!',
-    category: 'personality',
+    phonetic: '/lɑː/ /lɔːr/ /lɛ/',
+    literal_translation: 'Sentence-ending particles (Singlish)',
+    cultural_meaning: 'These are the hallmark particles that end almost every Singlish sentence. "Lah" adds casual emphasis or mild dismissal. "Lor" expresses resignation or "obviously". "Leh" softens a statement with a questioning or uncertain tone. e.g. "Lets go eat lor" = Let\'s just go eat (obvious choice).',
+    whatsapp_example: "Let's go eat lor. Not difficult lah. You don't know meh, we always go there one leh!",
+    category: 'expression',
+    visual_rebus_url: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400',
+    visual_caption: '💬 Speech bubbles floating with "lah", "lor", "leh" written in neon'
+  },
+  {
+    id: 'sg_wah_lau',
+    term: 'Wah Lau / Wah Piang',
+    culture: 'SG',
+    phonetic: '/wɑː laʊ/ /wɑː piːæŋ/',
+    literal_translation: 'Oh my gosh! / Omg! (Hokkien expression)',
+    cultural_meaning: 'A versatile exclamation expressing shock, disbelief, or exasperation. Both forms are interchangeable and used freely in any situation from mild annoyance to genuine amazement.',
+    whatsapp_example: 'Wah lau! You stayed up the whole night to finish the assignment? That is insane sia!',
+    category: 'expression',
     visual_rebus_url: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400',
-    visual_caption: '💥 Cartoonish head spinning in dizziness with question marks popping'
+    visual_caption: '😱 Person covering mouth in total shock with eyes wide open'
+  },
+  {
+    id: 'sg_siao',
+    term: 'Siao',
+    culture: 'SG',
+    phonetic: '/siːaʊ/',
+    literal_translation: 'Crazy / Insane (Hokkien)',
+    cultural_meaning: 'Used as a sarcastic or humorous reply when someone does something wild, impossible, or just plain dumb. Can be affectionate among friends. "Siao leh" softens it. "You siao ah?" = Are you crazy?',
+    whatsapp_example: 'You ate 3 bowls of rice and then McDonald\'s? Siao leh! How is your stomach not exploding?',
+    category: 'expression',
+    visual_rebus_url: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?w=400',
+    visual_caption: '🤪 Cartoon character spinning in dizzy loops with stars around head'
+  },
+  {
+    id: 'sg_kena',
+    term: 'Kena',
+    culture: 'SG',
+    phonetic: '/kɛnɑː/',
+    literal_translation: 'Got hit by / Suffered (Malay)',
+    cultural_meaning: 'Used when something bad happens to you — getting blamed, catching an illness, being punished, or receiving an unwanted task. Always has a negative connotation.',
+    whatsapp_example: 'Sian, I kena scolded by the prof for submitting 5 mins late. The deadline was so strict!',
+    category: 'campus',
+    visual_rebus_url: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400',
+    visual_caption: '💢 Person getting splashed by rain while everyone else has umbrellas'
+  },
+  {
+    id: 'sg_angmoh',
+    term: 'Angmoh',
+    culture: 'SG',
+    phonetic: '/ɑːŋmoʊ/',
+    literal_translation: 'Red hair (Hokkien)',
+    cultural_meaning: 'Refers to Westerners or fair-skinned foreigners. Generally not offensive in casual conversation — more of a neutral descriptor used daily by Singaporeans.',
+    whatsapp_example: 'That angmoh professor is actually quite nice lor, and his accent so cute!',
+    category: 'social',
+    visual_rebus_url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400',
+    visual_caption: '🌏 Diverse group of people at an international university campus'
+  },
+  {
+    id: 'sg_dabao',
+    term: 'Dabao',
+    culture: 'SG',
+    phonetic: '/dɑːbaʊ/',
+    literal_translation: 'Pack up / Takeaway (Cantonese)',
+    cultural_meaning: 'To order food as takeaway or pack a meal to go. Universally used at every hawker centre and food court as the standard way to say "I want to take away".',
+    whatsapp_example: 'Exam starting soon, no time to sit and eat. We just dabao and eat in the study room lor.',
+    category: 'food',
+    visual_rebus_url: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400',
+    visual_caption: '🥡 Hawker centre uncle packing styrofoam containers of food to go'
+  },
+  {
+    id: 'sg_alamak',
+    term: 'Alamak',
+    culture: 'SG',
+    phonetic: '/ɑːlɑːmɑːk/',
+    literal_translation: 'Oh my! (Malay expression)',
+    cultural_meaning: 'A classic Singaporean exclamation of surprise, dismay, or mild horror. Similar to "Oh my gosh!" or "Oh no!". Used when something unexpected or unfortunate happens.',
+    whatsapp_example: 'Alamak! I left my EZlink card at home and now I cannot take the MRT to school!',
+    category: 'expression',
+    visual_rebus_url: 'https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?w=400',
+    visual_caption: '😦 Person slapping forehead in disbelief after realizing a big mistake'
+  },
+
+  {
+    id: 'sg_blur_sotong',
+    term: 'Blur like Sotong',
+    culture: 'SG',
+    phonetic: '/blɜːr laɪk soʊtɒŋ/',
+    literal_translation: 'Confused like a squid',
+    cultural_meaning: 'Completely clueless, confused, or oblivious to what is going on, akin to a squid inking its own water.',
+    whatsapp_example: 'He did not read the project brief at all, during meeting blur like sotong.',
+    category: 'personality',
+    visual_rebus_url: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400',
+    visual_caption: '🦑 Squid in deep ocean releasing ink cloud looking utterly puzzled'
   },
   {
     id: 'sg_chiong',
@@ -233,18 +318,7 @@ export const SLANGS = [
     visual_rebus_url: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400',
     visual_caption: '🏃 Sprinter bursting out of starting blocks at maximum speed'
   },
-  {
-    id: 'sg_blur_sotong',
-    term: 'Blur like Sotong',
-    culture: 'SG',
-    phonetic: '/blɜːr laɪk soʊtɒŋ/',
-    literal_translation: 'Confused like a squid',
-    cultural_meaning: 'Completely clueless, confused, or oblivious to what is going on, akin to a squid inking its own water.',
-    whatsapp_example: 'He did not read the project brief at all, during meeting blur like sotong.',
-    category: 'personality',
-    visual_rebus_url: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400',
-    visual_caption: '🦑 Squid in deep ocean releasing ink cloud looking utterly puzzled'
-  },
+
 
   // =========================================================================
   // 🇻🇳 VIETNAM CAMPUS & YOUTH GEN Z SLANGS (20 ITEMS)

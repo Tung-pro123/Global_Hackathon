@@ -1,8 +1,10 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { useLanguage } from '../../context/LanguageContext.jsx';
 import { drawDino } from '../game/engine/DinoSprite.js';
 import { SKINS_DATA } from './skinsData.js';
 
 export default function SkinShop({ playerData, onPlayerUpdate }) {
+  const { t } = useLanguage();
   const [selectedSkin, setSelectedSkin] = useState(null);
   const [buyStatus, setBuyStatus] = useState({});
   const previewRef = useRef(null);
@@ -119,10 +121,10 @@ export default function SkinShop({ playerData, onPlayerUpdate }) {
       {/* Header */}
       <div>
         <h2 style={{ fontFamily: 'var(--font-arcade)', fontSize: '1rem', color: 'var(--neon-gold)', letterSpacing: '0.1em', marginBottom: '4px' }}>
-          🛍️ DINO SKIN WARDROBE
+          {t('shop.title')}
         </h2>
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', fontFamily: 'var(--font-heading)', fontWeight: '500' }}>
-          Unlock exclusive skins to customize your dino's appearance and unlock gameplay perks!
+          {t('shop.subtitle')}
         </p>
       </div>
 
@@ -138,7 +140,7 @@ export default function SkinShop({ playerData, onPlayerUpdate }) {
             boxShadow: '0 4px 20px rgba(0, 0, 0, 0.25)'
           }}>
             <p style={{ fontFamily: 'var(--font-arcade)', fontSize: '0.65rem', color: 'var(--neon-cyan)', letterSpacing: '0.12em', marginBottom: '8px', fontWeight: '700' }}>
-              LIVE PREVIEW
+              {t('shop.livePreview')}
             </p>
             <canvas ref={previewRef} width={200} height={200} style={{ width: '100%', height: 'auto' }} />
             <p style={{ fontFamily: 'var(--font-heading)', fontWeight: '700', fontSize: '0.9rem', color: '#f8fafc', marginTop: '8px' }}>
@@ -150,7 +152,7 @@ export default function SkinShop({ playerData, onPlayerUpdate }) {
                 onClick={() => handleEquip(selectedSkin.id)}
                 style={{ marginTop: '10px', width: '100%', borderRadius: '8px', fontSize: '0.8rem', padding: '8px' }}
               >
-                ⚡ Equip This Skin
+                {t('shop.equipThis')}
               </button>
             )}
           </div>
@@ -165,9 +167,9 @@ export default function SkinShop({ playerData, onPlayerUpdate }) {
             display: 'flex', flexDirection: 'column', gap: '8px',
             boxShadow: '0 4px 16px rgba(0, 0, 0, 0.2)'
           }}>
-            <p style={{ fontFamily: 'var(--font-arcade)', fontSize: '0.65rem', color: 'var(--neon-gold)', letterSpacing: '0.12em', fontWeight: '700' }}>YOUR WALLET</p>
-            <div className="wallet-pill coins" style={{ justifyContent: 'center' }}>🪙 {coins.toLocaleString()} Coins</div>
-            <div className="wallet-pill diamonds" style={{ justifyContent: 'center' }}>💎 {diamonds} Diamonds</div>
+            <p style={{ fontFamily: 'var(--font-arcade)', fontSize: '0.65rem', color: 'var(--neon-gold)', letterSpacing: '0.12em', fontWeight: '700' }}>{t('shop.yourWallet')}</p>
+            <div className="wallet-pill coins" style={{ justifyContent: 'center' }}>🪙 {coins.toLocaleString()} {t('shop.coinsLabel')}</div>
+            <div className="wallet-pill diamonds" style={{ justifyContent: 'center' }}>💎 {diamonds} {t('shop.diamondsLabel')}</div>
           </div>
         </div>
 
@@ -234,7 +236,7 @@ export default function SkinShop({ playerData, onPlayerUpdate }) {
                 {/* Price / Action */}
                 {skin.isFree ? (
                   <div style={{ fontSize: '0.78rem', color: 'var(--neon-emerald)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    ✅ Free starter skin
+                    {t('shop.freeStarter')}
                   </div>
                 ) : isOwned ? (
                   <button
@@ -242,7 +244,7 @@ export default function SkinShop({ playerData, onPlayerUpdate }) {
                     onClick={e => { e.stopPropagation(); if (!isActive) handleEquip(skin.id); }}
                     style={{ width: '100%', fontSize: '0.78rem', padding: '8px', borderRadius: '8px' }}
                   >
-                    {isActive ? '✅ Equipped' : '⚡ Equip'}
+                    {isActive ? t('shop.equipped') : t('shop.equip')}
                   </button>
                 ) : (
                   <div>
@@ -264,14 +266,14 @@ export default function SkinShop({ playerData, onPlayerUpdate }) {
                       disabled={!canAfford || status === 'loading'}
                       style={{ width: '100%', fontSize: '0.78rem', padding: '8px', borderRadius: '8px', fontWeight: '700' }}
                     >
-                      {status === 'loading' ? '⌛ Buying...' :
-                       status === 'success' ? '✅ Purchased!' :
-                       status === 'error' ? '❌ Failed' :
-                       canAfford ? '🛒 Buy Now' : '🔒 Not Enough'}
+                      {status === 'loading' ? t('shop.buying') :
+                       status === 'success' ? t('shop.purchased') :
+                       status === 'error' ? t('shop.failed') :
+                       canAfford ? t('shop.buyNow') : t('shop.notEnough')}
                     </button>
                     {!canAfford && (
                       <p style={{ fontSize: '0.68rem', color: 'var(--text-muted)', marginTop: '6px', textAlign: 'center' }}>
-                        Play & answer quizzes to earn coins!
+                        {t('shop.earnHint')}
                       </p>
                     )}
                   </div>

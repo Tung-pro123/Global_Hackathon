@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useLanguage } from '../../../context/LanguageContext.jsx';
 
 const OPTION_LABELS = ['A', 'B', 'C', 'D'];
 
 export default function SlangQuizModal({ quiz, onAnswer, onClose, quizType = 'diamond' }) {
+  const { t } = useLanguage();
   const [selected, setSelected] = useState(null);
   const [result, setResult] = useState(null);
   const [timeLeft, setTimeLeft] = useState(15);
@@ -111,10 +113,10 @@ export default function SlangQuizModal({ quiz, onAnswer, onClose, quizType = 'di
                 letterSpacing: '0.08em',
                 marginBottom: '2px'
               }}>
-                {quizType === 'diamond' ? 'MYSTERY DIAMOND QUIZ' : 'REVIVAL CHALLENGE'}
+                {quizType === 'diamond' ? t('quiz.diamondTitle') : t('quiz.reviveTitle')}
               </h2>
               <p style={{ fontSize: '0.75rem', color: '#64748b' }}>
-                {quizType === 'diamond' ? 'Identify the slang to earn rewards!' : 'Answer correctly to revive!'}
+                {quizType === 'diamond' ? t('quiz.diamondSubtitle') : t('quiz.reviveSubtitle')}
               </p>
             </div>
           </div>
@@ -145,7 +147,7 @@ export default function SlangQuizModal({ quiz, onAnswer, onClose, quizType = 'di
             fontSize: '0.72rem', color: 'var(--neon-cyan)', fontFamily: 'var(--font-heading)',
             boxShadow: '0 0 15px rgba(56,189,248,0.08)'
           }}>
-            <span>✨ AI May Đo Cho Bạn:</span>
+            <span>✨ {t('quiz.aiPersonalized')}</span>
             <span style={{ color: 'var(--text-primary)', fontWeight: '700' }}>
               {quiz.personalized_info.interests?.[0]?.toUpperCase()} • {quiz.personalized_info.level?.toUpperCase()}
             </span>
@@ -158,7 +160,7 @@ export default function SlangQuizModal({ quiz, onAnswer, onClose, quizType = 'di
             borderRadius: '999px', padding: '3px 12px', marginBottom: '12px',
             fontSize: '0.7rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-heading)'
           }}>
-            <span>🌐 Thử Thách Tiếng Lóng Tổng Quát (Chế Độ Khách)</span>
+            <span>🌐 {t('quiz.guestChallenge').replace('🌐 ', '')}</span>
           </div>
         )}
 
@@ -176,7 +178,7 @@ export default function SlangQuizModal({ quiz, onAnswer, onClose, quizType = 'di
             color: 'var(--text-secondary)',
             letterSpacing: '0.05em'
           }}>
-            ✅ Correct answer: {rewards}
+            {t('quiz.rewardNotice')} {quizType === 'diamond' ? t('quiz.diamondRewards') : t('quiz.reviveRewards')}
           </div>
         )}
 
@@ -248,9 +250,9 @@ export default function SlangQuizModal({ quiz, onAnswer, onClose, quizType = 'di
               color: result.is_correct ? 'var(--neon-emerald)' : 'var(--neon-rose)',
               marginBottom: '6px'
             }}>
-              {result.is_correct ? '🎉 Correct!' : '❌ Wrong!'}{' '}
-              {result.is_correct && quizType === 'diamond' && <span style={{ fontFamily: 'var(--font-arcade)', fontSize: '0.75rem' }}>+100 🪙 +1 💎 +50 ⭐</span>}
-              {result.is_correct && quizType !== 'diamond' && <span style={{ fontFamily: 'var(--font-arcade)', fontSize: '0.75rem' }}>+80 🪙 +25 ⭐ 🛡️</span>}
+              {result.is_correct ? t('quiz.correct') : t('quiz.wrong')}{' '}
+              {result.is_correct && quizType === 'diamond' && <span style={{ fontFamily: 'var(--font-arcade)', fontSize: '0.75rem' }}>{t('quiz.diamondRewards')}</span>}
+              {result.is_correct && quizType !== 'diamond' && <span style={{ fontFamily: 'var(--font-arcade)', fontSize: '0.75rem' }}>{t('quiz.reviveRewards')}</span>}
             </p>
             <p style={{ fontSize: '0.84rem', color: 'var(--text-secondary)', lineHeight: 1.5, fontWeight: '500' }}>
               {result.explanation}

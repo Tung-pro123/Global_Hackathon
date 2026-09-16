@@ -519,6 +519,110 @@
       "visual_rebus_url": "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400",
       "visual_caption": "🧊 Ice statue of a person frozen in mid-sentence with jaw dropped",
       "created_at": "2026-09-16T13:18:30.709Z"
+    },
+    {
+      "id": "sg_hao_lian",
+      "term": "Hao Lian",
+      "culture": "SG",
+      "phonetic": "/haʊ liːæn/",
+      "literal_translation": "Boastful / Show-off (Hokkien)",
+      "cultural_meaning": "Describes someone who constantly brags, flexes, or shows off their achievements, wealth, or status. The Singaporean equivalent of being a \"try-hard\" or shameless self-promoter.",
+      "whatsapp_example": "Eh, he keep posting his A* results on Instagram. So hao lian lor!",
+      "category": "personality",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
+      "visual_caption": "🦚 Peacock spreading its feathers while others roll their eyes",
+      "created_at": "2026-09-16T16:37:43.979Z"
+    },
+    {
+      "id": "sg_lah_lor_leh",
+      "term": "Lah / Lor / Leh",
+      "culture": "SG",
+      "phonetic": "/lɑː/ /lɔːr/ /lɛ/",
+      "literal_translation": "Sentence-ending particles (Singlish)",
+      "cultural_meaning": "These are the hallmark particles that end almost every Singlish sentence. \"Lah\" adds casual emphasis or mild dismissal. \"Lor\" expresses resignation or \"obviously\". \"Leh\" softens a statement with a questioning or uncertain tone. e.g. \"Lets go eat lor\" = Let's just go eat (obvious choice).",
+      "whatsapp_example": "Let's go eat lor. Not difficult lah. You don't know meh, we always go there one leh!",
+      "category": "expression",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400",
+      "visual_caption": "💬 Speech bubbles floating with \"lah\", \"lor\", \"leh\" written in neon",
+      "created_at": "2026-09-16T16:37:43.981Z"
+    },
+    {
+      "id": "sg_wah_lau",
+      "term": "Wah Lau / Wah Piang",
+      "culture": "SG",
+      "phonetic": "/wɑː laʊ/ /wɑː piːæŋ/",
+      "literal_translation": "Oh my gosh! / Omg! (Hokkien expression)",
+      "cultural_meaning": "A versatile exclamation expressing shock, disbelief, or exasperation. Both forms are interchangeable and used freely in any situation from mild annoyance to genuine amazement.",
+      "whatsapp_example": "Wah lau! You stayed up the whole night to finish the assignment? That is insane sia!",
+      "category": "expression",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400",
+      "visual_caption": "😱 Person covering mouth in total shock with eyes wide open",
+      "created_at": "2026-09-16T16:37:43.984Z"
+    },
+    {
+      "id": "sg_siao",
+      "term": "Siao",
+      "culture": "SG",
+      "phonetic": "/siːaʊ/",
+      "literal_translation": "Crazy / Insane (Hokkien)",
+      "cultural_meaning": "Used as a sarcastic or humorous reply when someone does something wild, impossible, or just plain dumb. Can be affectionate among friends. \"Siao leh\" softens it. \"You siao ah?\" = Are you crazy?",
+      "whatsapp_example": "You ate 3 bowls of rice and then McDonald's? Siao leh! How is your stomach not exploding?",
+      "category": "expression",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1517849845537-4d257902454a?w=400",
+      "visual_caption": "🤪 Cartoon character spinning in dizzy loops with stars around head",
+      "created_at": "2026-09-16T16:37:43.985Z"
+    },
+    {
+      "id": "sg_kena",
+      "term": "Kena",
+      "culture": "SG",
+      "phonetic": "/kɛnɑː/",
+      "literal_translation": "Got hit by / Suffered (Malay)",
+      "cultural_meaning": "Used when something bad happens to you — getting blamed, catching an illness, being punished, or receiving an unwanted task. Always has a negative connotation.",
+      "whatsapp_example": "Sian, I kena scolded by the prof for submitting 5 mins late. The deadline was so strict!",
+      "category": "campus",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400",
+      "visual_caption": "💢 Person getting splashed by rain while everyone else has umbrellas",
+      "created_at": "2026-09-16T16:37:43.987Z"
+    },
+    {
+      "id": "sg_angmoh",
+      "term": "Angmoh",
+      "culture": "SG",
+      "phonetic": "/ɑːŋmoʊ/",
+      "literal_translation": "Red hair (Hokkien)",
+      "cultural_meaning": "Refers to Westerners or fair-skinned foreigners. Generally not offensive in casual conversation — more of a neutral descriptor used daily by Singaporeans.",
+      "whatsapp_example": "That angmoh professor is actually quite nice lor, and his accent so cute!",
+      "category": "social",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400",
+      "visual_caption": "🌏 Diverse group of people at an international university campus",
+      "created_at": "2026-09-16T16:37:43.988Z"
+    },
+    {
+      "id": "sg_dabao",
+      "term": "Dabao",
+      "culture": "SG",
+      "phonetic": "/dɑːbaʊ/",
+      "literal_translation": "Pack up / Takeaway (Cantonese)",
+      "cultural_meaning": "To order food as takeaway or pack a meal to go. Universally used at every hawker centre and food court as the standard way to say \"I want to take away\".",
+      "whatsapp_example": "Exam starting soon, no time to sit and eat. We just dabao and eat in the study room lor.",
+      "category": "food",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400",
+      "visual_caption": "🥡 Hawker centre uncle packing styrofoam containers of food to go",
+      "created_at": "2026-09-16T16:37:43.990Z"
+    },
+    {
+      "id": "sg_alamak",
+      "term": "Alamak",
+      "culture": "SG",
+      "phonetic": "/ɑːlɑːmɑːk/",
+      "literal_translation": "Oh my! (Malay expression)",
+      "cultural_meaning": "A classic Singaporean exclamation of surprise, dismay, or mild horror. Similar to \"Oh my gosh!\" or \"Oh no!\". Used when something unexpected or unfortunate happens.",
+      "whatsapp_example": "Alamak! I left my EZlink card at home and now I cannot take the MRT to school!",
+      "category": "expression",
+      "visual_rebus_url": "https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?w=400",
+      "visual_caption": "😦 Person slapping forehead in disbelief after realizing a big mistake",
+      "created_at": "2026-09-16T16:37:43.991Z"
     }
   ],
   "challenges": [
@@ -1241,6 +1345,150 @@
       "cultural_explanation": "Being struck utterly speechless, frozen in shock or awkward silence by unexpected plot twists or comments.",
       "stage_level": 1,
       "created_at": "2026-09-16T13:18:30.710Z"
+    },
+    {
+      "id": "challenge_sg_hao_lian",
+      "slang_id": "sg_hao_lian",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"🦚 Peacock spreading its feathers while others roll their eyes\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Hao Lian",
+        "Jio",
+        "Chope",
+        "Kiasu"
+      ],
+      "options_json": "[\"Hao Lian\",\"Jio\",\"Chope\",\"Kiasu\"]",
+      "correct_index": 0,
+      "cultural_explanation": "Describes someone who constantly brags, flexes, or shows off their achievements, wealth, or status. The Singaporean equivalent of being a \"try-hard\" or shameless self-promoter.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T16:37:43.980Z"
+    },
+    {
+      "id": "challenge_sg_lah_lor_leh",
+      "slang_id": "sg_lah_lor_leh",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"💬 Speech bubbles floating with \"lah\", \"lor\", \"leh\" written in neon\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Chiong",
+        "Alamak",
+        "Lah / Lor / Leh",
+        "Lobang"
+      ],
+      "options_json": "[\"Chiong\",\"Alamak\",\"Lah / Lor / Leh\",\"Lobang\"]",
+      "correct_index": 2,
+      "cultural_explanation": "These are the hallmark particles that end almost every Singlish sentence. \"Lah\" adds casual emphasis or mild dismissal. \"Lor\" expresses resignation or \"obviously\". \"Leh\" softens a statement with a questioning or uncertain tone. e.g. \"Lets go eat lor\" = Let's just go eat (obvious choice).",
+      "stage_level": 1,
+      "created_at": "2026-09-16T16:37:43.982Z"
+    },
+    {
+      "id": "challenge_sg_wah_lau",
+      "slang_id": "sg_wah_lau",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"😱 Person covering mouth in total shock with eyes wide open\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Zai",
+        "Lobang",
+        "Wah Lau / Wah Piang",
+        "Chope"
+      ],
+      "options_json": "[\"Zai\",\"Lobang\",\"Wah Lau / Wah Piang\",\"Chope\"]",
+      "correct_index": 2,
+      "cultural_explanation": "A versatile exclamation expressing shock, disbelief, or exasperation. Both forms are interchangeable and used freely in any situation from mild annoyance to genuine amazement.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T16:37:43.985Z"
+    },
+    {
+      "id": "challenge_sg_siao",
+      "slang_id": "sg_siao",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"🤪 Cartoon character spinning in dizzy loops with stars around head\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Shiok",
+        "Chop-Chop",
+        "Chope",
+        "Siao"
+      ],
+      "options_json": "[\"Shiok\",\"Chop-Chop\",\"Chope\",\"Siao\"]",
+      "correct_index": 3,
+      "cultural_explanation": "Used as a sarcastic or humorous reply when someone does something wild, impossible, or just plain dumb. Can be affectionate among friends. \"Siao leh\" softens it. \"You siao ah?\" = Are you crazy?",
+      "stage_level": 1,
+      "created_at": "2026-09-16T16:37:43.986Z"
+    },
+    {
+      "id": "challenge_sg_kena",
+      "slang_id": "sg_kena",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"💢 Person getting splashed by rain while everyone else has umbrellas\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Kena",
+        "Siao",
+        "Makan",
+        "Blur like Sotong"
+      ],
+      "options_json": "[\"Kena\",\"Siao\",\"Makan\",\"Blur like Sotong\"]",
+      "correct_index": 0,
+      "cultural_explanation": "Used when something bad happens to you — getting blamed, catching an illness, being punished, or receiving an unwanted task. Always has a negative connotation.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T16:37:43.988Z"
+    },
+    {
+      "id": "challenge_sg_angmoh",
+      "slang_id": "sg_angmoh",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"🌏 Diverse group of people at an international university campus\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Wah Lau / Wah Piang",
+        "Chope",
+        "Can Lah",
+        "Angmoh"
+      ],
+      "options_json": "[\"Wah Lau / Wah Piang\",\"Chope\",\"Can Lah\",\"Angmoh\"]",
+      "correct_index": 3,
+      "cultural_explanation": "Refers to Westerners or fair-skinned foreigners. Generally not offensive in casual conversation — more of a neutral descriptor used daily by Singaporeans.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T16:37:43.989Z"
+    },
+    {
+      "id": "challenge_sg_dabao",
+      "slang_id": "sg_dabao",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"🥡 Hawker centre uncle packing styrofoam containers of food to go\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Dabao",
+        "Blur like Sotong",
+        "Chope",
+        "Steady"
+      ],
+      "options_json": "[\"Dabao\",\"Blur like Sotong\",\"Chope\",\"Steady\"]",
+      "correct_index": 0,
+      "cultural_explanation": "To order food as takeaway or pack a meal to go. Universally used at every hawker centre and food court as the standard way to say \"I want to take away\".",
+      "stage_level": 1,
+      "created_at": "2026-09-16T16:37:43.991Z"
+    },
+    {
+      "id": "challenge_sg_alamak",
+      "slang_id": "sg_alamak",
+      "challenge_type": "visual_rebus",
+      "scenario_context": "You collected a mystery diamond! 💎 Solve this slang rebus to earn rewards!",
+      "question": "Look at this clue: \"😦 Person slapping forehead in disbelief after realizing a big mistake\"\n\nWhat campus slang does this represent?",
+      "options": [
+        "Alamak",
+        "Zai",
+        "Steady",
+        "Shiok"
+      ],
+      "options_json": "[\"Alamak\",\"Zai\",\"Steady\",\"Shiok\"]",
+      "correct_index": 0,
+      "cultural_explanation": "A classic Singaporean exclamation of surprise, dismay, or mild horror. Similar to \"Oh my gosh!\" or \"Oh no!\". Used when something unexpected or unfortunate happens.",
+      "stage_level": 1,
+      "created_at": "2026-09-16T16:37:43.992Z"
     }
   ],
   "players": [
