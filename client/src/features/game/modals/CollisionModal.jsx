@@ -30,7 +30,7 @@ export default function CollisionModal({ onGiveUp, onTryMore, score, collisionTy
           {title}
         </h2>
 
-        <p style={{ color: '#94a3b8', marginBottom: '6px', fontFamily: 'var(--font-heading)' }}>
+        <p style={{ color: 'var(--text-secondary)', marginBottom: '6px', fontFamily: 'var(--font-heading)', fontWeight: '500' }}>
           The cactus got you! What will you do?
         </p>
 
@@ -41,7 +41,7 @@ export default function CollisionModal({ onGiveUp, onTryMore, score, collisionTy
           border: '1px solid rgba(56, 189, 248, 0.2)',
           borderRadius: '8px', padding: '8px 20px', marginBottom: '28px'
         }}>
-          <span style={{ fontFamily: 'var(--font-arcade)', fontSize: '0.75rem', color: '#64748b' }}>SCORE</span>
+          <span style={{ fontFamily: 'var(--font-arcade)', fontSize: '0.75rem', color: 'var(--text-muted)' }}>SCORE</span>
           <span style={{ fontFamily: 'var(--font-arcade)', fontSize: '1.1rem', color: 'var(--neon-cyan)', fontWeight: '700' }}>
             {String(score || 0).padStart(5, '0')}
           </span>
@@ -93,7 +93,7 @@ export default function CollisionModal({ onGiveUp, onTryMore, score, collisionTy
           </button>
         </div>
 
-        <p style={{ fontSize: '0.72rem', color: '#475569', marginTop: '16px' }}>
+        <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: '16px' }}>
           🏅 Your score will be saved either way
         </p>
       </div>

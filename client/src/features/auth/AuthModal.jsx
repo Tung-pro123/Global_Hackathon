@@ -20,7 +20,7 @@ const CULTURE_OPTIONS = [
   { id: 'VN', label: '🇻🇳 Tiếng Lóng Việt Nam' }
 ];
 
-export default function AuthModal({ onLoginSuccess, onClose, canClose = false }) {
+export default function AuthModal({ onLoginSuccess, onClose, canClose = true }) {
   const [tab, setTab] = useState('register'); // 'register' | 'login'
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -147,30 +147,59 @@ export default function AuthModal({ onLoginSuccess, onClose, canClose = false })
     onLoginSuccess(guestUser);
   };
 
+  React.useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && canClose) {
+        onClose?.();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [canClose, onClose]);
+
   return (
-    <div className="modal-overlay">
+    <div
+      className="modal-overlay"
+      onClick={(e) => {
+        if (e.target === e.currentTarget && canClose) {
+          onClose?.();
+        }
+      }}
+    >
       <div className="modal-content glass animate-bounce-in" style={{
         padding: '28px',
         borderRadius: '24px',
         border: '1.5px solid rgba(56,189,248,0.4)',
         boxShadow: '0 0 80px rgba(56,189,248,0.15)',
         width: '92%',
-        maxWidth: '500px'
+        maxWidth: '500px',
+        position: 'relative'
       }}>
-        {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: '20px', position: 'relative' }}>
-          {canClose && (
-            <button
-              onClick={onClose}
-              style={{
-                position: 'absolute', top: '-10px', right: '-10px',
-                background: 'rgba(255,255,255,0.08)', border: 'none',
-                color: 'var(--text-muted)', width: '32px', height: '32px',
-                borderRadius: '50%', cursor: 'pointer', fontSize: '1.1rem'
-              }}
-            >×</button>
-          )}
+        {/* Close Button */}
+        {canClose && (
+          <button
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              onClose?.();
+            }}
+            style={{
+              position: 'absolute', top: '16px', right: '16px', zIndex: 9999,
+              background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)',
+              color: '#e2e8f0', width: '36px', height: '36px',
+              borderRadius: '50%', cursor: 'pointer', fontSize: '1.25rem',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              boxShadow: '0 2px 10px rgba(0,0,0,0.3)',
+              transition: 'all 0.2s',
+              lineHeight: 1
+            }}
+            title="Đóng (Esc)"
+          >×</button>
+        )}
 
+        {/* Header */}
+        <div style={{ textAlign: 'center', marginBottom: '20px' }}>
           <div style={{ fontSize: '2.8rem', animation: 'float 2s ease-in-out infinite' }}>🦖</div>
           <h2 style={{
             fontFamily: 'var(--font-arcade)', fontSize: '1.1rem',
@@ -178,7 +207,7 @@ export default function AuthModal({ onLoginSuccess, onClose, canClose = false })
           }}>
             CULTURSYNC IDENTITY
           </h2>
-          <p style={{ fontSize: '0.78rem', color: '#94a3b8', marginTop: '4px' }}>
+          <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginTop: '4px', fontWeight: '500' }}>
             Đăng ký tài khoản để may đo câu đố AI theo đúng sở thích của bạn!
           </p>
         </div>
@@ -186,7 +215,7 @@ export default function AuthModal({ onLoginSuccess, onClose, canClose = false })
         {/* Tab Switcher */}
         <div style={{
           display: 'flex', gap: '6px', padding: '4px',
-          background: 'rgba(13,20,36,0.8)', borderRadius: '12px',
+          background: 'var(--tab-bg)', borderRadius: '12px',
           border: '1px solid var(--border-subtle)', marginBottom: '18px'
         }}>
           <button
@@ -259,9 +288,9 @@ export default function AuthModal({ onLoginSuccess, onClose, canClose = false })
                     onClick={() => setEnglishLevel(lvl.id)}
                     style={{
                       padding: '8px 4px', borderRadius: '10px', border: 'none', cursor: 'pointer',
-                      background: englishLevel === lvl.id ? 'rgba(56,189,248,0.18)' : 'rgba(15,23,42,0.6)',
-                      border: `1.5px solid ${englishLevel === lvl.id ? 'var(--neon-cyan)' : 'rgba(255,255,255,0.06)'}`,
-                      color: englishLevel === lvl.id ? 'var(--neon-cyan)' : 'var(--text-muted)',
+                      background: englishLevel === lvl.id ? 'rgba(56,189,248,0.18)' : 'var(--input-bg)',
+                      border: `1.5px solid ${englishLevel === lvl.id ? 'var(--neon-cyan)' : 'var(--border-subtle)'}`,
+                      color: englishLevel === lvl.id ? 'var(--neon-cyan)' : 'var(--text-secondary)',
                       fontFamily: 'var(--font-heading)', fontSize: '0.76rem', fontWeight: '600',
                       transition: 'all 0.2s'
                     }}
@@ -285,9 +314,9 @@ export default function AuthModal({ onLoginSuccess, onClose, canClose = false })
                     onClick={() => setTargetCulture(c.id)}
                     style={{
                       flex: 1, padding: '7px 4px', borderRadius: '8px', border: 'none', cursor: 'pointer',
-                      background: targetCulture === c.id ? 'rgba(251,191,36,0.18)' : 'rgba(15,23,42,0.6)',
-                      border: `1.5px solid ${targetCulture === c.id ? 'var(--neon-gold)' : 'rgba(255,255,255,0.06)'}`,
-                      color: targetCulture === c.id ? 'var(--neon-gold)' : 'var(--text-muted)',
+                      background: targetCulture === c.id ? 'rgba(251,191,36,0.18)' : 'var(--input-bg)',
+                      border: `1.5px solid ${targetCulture === c.id ? 'var(--neon-gold)' : 'var(--border-subtle)'}`,
+                      color: targetCulture === c.id ? 'var(--neon-gold)' : 'var(--text-secondary)',
                       fontSize: '0.72rem', fontWeight: '600'
                     }}
                   >
@@ -312,8 +341,8 @@ export default function AuthModal({ onLoginSuccess, onClose, canClose = false })
                       onClick={() => toggleInterest(opt.id)}
                       style={{
                         padding: '6px 12px', borderRadius: '999px', border: 'none', cursor: 'pointer',
-                        background: isSelected ? 'rgba(16,185,129,0.2)' : 'rgba(255,255,255,0.05)',
-                        border: `1px solid ${isSelected ? 'var(--neon-emerald)' : 'rgba(255,255,255,0.1)'}`,
+                        background: isSelected ? 'rgba(16,185,129,0.2)' : 'var(--input-bg)',
+                        border: `1px solid ${isSelected ? 'var(--neon-emerald)' : 'var(--border-subtle)'}`,
                         color: isSelected ? 'var(--neon-emerald)' : 'var(--text-secondary)',
                         fontSize: '0.75rem', fontWeight: isSelected ? '700' : '500',
                         transition: 'all 0.2s'

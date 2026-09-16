@@ -121,7 +121,7 @@ export default function SkinShop({ playerData, onPlayerUpdate }) {
         <h2 style={{ fontFamily: 'var(--font-arcade)', fontSize: '1rem', color: 'var(--neon-gold)', letterSpacing: '0.1em', marginBottom: '4px' }}>
           🛍️ DINO SKIN WARDROBE
         </h2>
-        <p style={{ color: '#64748b', fontSize: '0.85rem', fontFamily: 'var(--font-heading)' }}>
+        <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', fontFamily: 'var(--font-heading)', fontWeight: '500' }}>
           Unlock exclusive skins to customize your dino's appearance and unlock gameplay perks!
         </p>
       </div>
@@ -130,17 +130,18 @@ export default function SkinShop({ playerData, onPlayerUpdate }) {
         {/* Live Preview Chamber */}
         <div style={{ position: 'sticky', top: '16px' }}>
           <div style={{
-            background: 'rgba(13, 20, 36, 0.9)',
-            border: '1px solid rgba(56, 189, 248, 0.2)',
+            background: 'rgba(13, 20, 36, 0.95)',
+            border: '1.5px solid rgba(56, 189, 248, 0.3)',
             borderRadius: '16px',
             padding: '16px',
-            textAlign: 'center'
+            textAlign: 'center',
+            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.25)'
           }}>
-            <p style={{ fontFamily: 'var(--font-arcade)', fontSize: '0.6rem', color: '#475569', letterSpacing: '0.12em', marginBottom: '8px' }}>
+            <p style={{ fontFamily: 'var(--font-arcade)', fontSize: '0.65rem', color: 'var(--neon-cyan)', letterSpacing: '0.12em', marginBottom: '8px', fontWeight: '700' }}>
               LIVE PREVIEW
             </p>
             <canvas ref={previewRef} width={200} height={200} style={{ width: '100%', height: 'auto' }} />
-            <p style={{ fontFamily: 'var(--font-heading)', fontWeight: '600', fontSize: '0.85rem', color: '#e2e8f0', marginTop: '8px' }}>
+            <p style={{ fontFamily: 'var(--font-heading)', fontWeight: '700', fontSize: '0.9rem', color: '#f8fafc', marginTop: '8px' }}>
               {SKINS_DATA.find(s => s.id === previewSkin)?.name || 'Classic Emerald Dino'}
             </p>
             {(selectedSkin && selectedSkin.id !== activeSkin && ownedSkins.includes(selectedSkin.id)) && (
@@ -157,13 +158,14 @@ export default function SkinShop({ playerData, onPlayerUpdate }) {
           {/* Wallet */}
           <div style={{
             marginTop: '12px',
-            background: 'rgba(13, 20, 36, 0.9)',
-            border: '1px solid rgba(56, 189, 248, 0.1)',
+            background: 'rgba(13, 20, 36, 0.95)',
+            border: '1.5px solid rgba(251, 191, 36, 0.25)',
             borderRadius: '12px',
             padding: '12px',
-            display: 'flex', flexDirection: 'column', gap: '8px'
+            display: 'flex', flexDirection: 'column', gap: '8px',
+            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.2)'
           }}>
-            <p style={{ fontFamily: 'var(--font-arcade)', fontSize: '0.6rem', color: '#475569', letterSpacing: '0.12em' }}>YOUR WALLET</p>
+            <p style={{ fontFamily: 'var(--font-arcade)', fontSize: '0.65rem', color: 'var(--neon-gold)', letterSpacing: '0.12em', fontWeight: '700' }}>YOUR WALLET</p>
             <div className="wallet-pill coins" style={{ justifyContent: 'center' }}>🪙 {coins.toLocaleString()} Coins</div>
             <div className="wallet-pill diamonds" style={{ justifyContent: 'center' }}>💎 {diamonds} Diamonds</div>
           </div>
@@ -211,36 +213,47 @@ export default function SkinShop({ playerData, onPlayerUpdate }) {
                 </div>
 
                 {/* Name */}
-                <h3 style={{ fontFamily: 'var(--font-heading)', fontWeight: '700', fontSize: '0.85rem', color: '#e2e8f0', marginBottom: '4px' }}>
+                <h3 style={{ fontFamily: 'var(--font-heading)', fontWeight: '700', fontSize: '0.9rem', color: 'var(--text-primary)', marginBottom: '6px' }}>
                   {skin.name}
                 </h3>
 
                 {/* Perk */}
-                <p style={{ fontSize: '0.72rem', color: skin.color, marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  {skin.perkIcon} {skin.perk}
+                <p style={{
+                  fontSize: '0.74rem',
+                  color: 'var(--text-secondary)',
+                  fontWeight: '600',
+                  marginBottom: '12px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px'
+                }}>
+                  <span style={{ fontSize: '0.9rem' }}>{skin.perkIcon}</span>
+                  <span>{skin.perk}</span>
                 </p>
 
                 {/* Price / Action */}
                 {skin.isFree ? (
-                  <div style={{ fontSize: '0.75rem', color: '#64748b' }}>✅ Free starter skin</div>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--neon-emerald)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    ✅ Free starter skin
+                  </div>
                 ) : isOwned ? (
                   <button
                     className={`btn-arcade ${isActive ? 'btn-emerald' : 'btn-ghost'}`}
                     onClick={e => { e.stopPropagation(); if (!isActive) handleEquip(skin.id); }}
-                    style={{ width: '100%', fontSize: '0.75rem', padding: '8px', borderRadius: '8px' }}
+                    style={{ width: '100%', fontSize: '0.78rem', padding: '8px', borderRadius: '8px' }}
                   >
                     {isActive ? '✅ Equipped' : '⚡ Equip'}
                   </button>
                 ) : (
                   <div>
-                    <div style={{ display: 'flex', gap: '6px', marginBottom: '8px', flexWrap: 'wrap' }}>
+                    <div style={{ display: 'flex', gap: '8px', marginBottom: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
                       {skin.price_coins > 0 && (
-                        <span style={{ fontSize: '0.75rem', color: 'var(--neon-gold)', fontFamily: 'var(--font-arcade)' }}>
+                        <span style={{ fontSize: '0.78rem', color: 'var(--neon-gold)', fontFamily: 'var(--font-arcade)', fontWeight: '700' }}>
                           🪙 {skin.price_coins}
                         </span>
                       )}
                       {skin.price_diamonds > 0 && (
-                        <span style={{ fontSize: '0.75rem', color: 'var(--neon-cyan)', fontFamily: 'var(--font-arcade)' }}>
+                        <span style={{ fontSize: '0.78rem', color: 'var(--neon-cyan)', fontFamily: 'var(--font-arcade)', fontWeight: '700' }}>
                           💎 {skin.price_diamonds}
                         </span>
                       )}
@@ -249,7 +262,7 @@ export default function SkinShop({ playerData, onPlayerUpdate }) {
                       className={`btn-arcade ${canAfford ? 'btn-gold' : 'btn-ghost'}`}
                       onClick={e => { e.stopPropagation(); if (canAfford) handleBuy(skin); }}
                       disabled={!canAfford || status === 'loading'}
-                      style={{ width: '100%', fontSize: '0.75rem', padding: '8px', borderRadius: '8px' }}
+                      style={{ width: '100%', fontSize: '0.78rem', padding: '8px', borderRadius: '8px', fontWeight: '700' }}
                     >
                       {status === 'loading' ? '⌛ Buying...' :
                        status === 'success' ? '✅ Purchased!' :
@@ -257,7 +270,7 @@ export default function SkinShop({ playerData, onPlayerUpdate }) {
                        canAfford ? '🛒 Buy Now' : '🔒 Not Enough'}
                     </button>
                     {!canAfford && (
-                      <p style={{ fontSize: '0.65rem', color: '#475569', marginTop: '6px', textAlign: 'center' }}>
+                      <p style={{ fontSize: '0.68rem', color: 'var(--text-muted)', marginTop: '6px', textAlign: 'center' }}>
                         Play & answer quizzes to earn coins!
                       </p>
                     )}

@@ -171,7 +171,7 @@ export default function GameOverModal({ score, coins, xp, activeSkin, user, onOp
             background: 'rgba(56,189,248,0.06)', border: '1px dashed rgba(56,189,248,0.3)',
             display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px'
           }}>
-            <div style={{ fontSize: '0.72rem', color: '#cbd5e1', lineHeight: 1.4 }}>
+            <div style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', lineHeight: 1.4, fontWeight: '500' }}>
               💡 <em>Đang ở Chế độ Khách.</em> Đăng ký để lưu điểm & mở khóa <strong>AI May Đo</strong>!
             </div>
             <button

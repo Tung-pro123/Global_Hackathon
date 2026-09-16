@@ -48,24 +48,25 @@ export default function AiHarvester() {
         <h2 style={{ fontFamily: 'var(--font-arcade)', fontSize: '1rem', color: 'var(--neon-emerald)', letterSpacing: '0.1em', marginBottom: '4px' }}>
           🤖 AI SLANG HARVESTER
         </h2>
-        <p style={{ color: '#64748b', fontSize: '0.85rem' }}>
-          Powered by <strong style={{ color: '#94a3b8' }}>Groq + llama-3.3-70b-versatile</strong>.
+        <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
+          Powered by <strong style={{ color: 'var(--text-primary)' }}>Groq + llama-3.3-70b-versatile</strong>.
           Automatically discovers and ingests trending campus slangs from Singapore & Vietnam.
         </p>
       </div>
 
       {/* Control Panel */}
       <div style={{
-        background: 'rgba(13, 20, 36, 0.9)',
-        border: '1px solid rgba(16, 185, 129, 0.2)',
+        background: 'var(--bg-card)',
+        border: '1.5px solid var(--border-glow)',
         borderRadius: '16px', padding: '20px',
-        display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap'
+        display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap',
+        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.05)'
       }}>
         <div style={{ flex: 1 }}>
-          <h3 style={{ fontFamily: 'var(--font-heading)', fontWeight: '700', color: '#e2e8f0', marginBottom: '4px' }}>
+          <h3 style={{ fontFamily: 'var(--font-heading)', fontWeight: '700', color: 'var(--text-primary)', marginBottom: '4px' }}>
             Cultural Slang Intelligence Crawl
           </h3>
-          <p style={{ fontSize: '0.8rem', color: '#64748b' }}>
+          <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
             Scans 2024-2026 Singlish & Vietnamese university student slang, generating visual rebus quizzes automatically.
           </p>
         </div>
@@ -138,21 +139,21 @@ export default function AiHarvester() {
                 }}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                  <span style={{ fontFamily: 'var(--font-heading)', fontWeight: '700', color: '#e2e8f0', fontSize: '1rem' }}>
+                  <span style={{ fontFamily: 'var(--font-heading)', fontWeight: '700', color: 'var(--text-primary)', fontSize: '1rem' }}>
                     {slang.term}
                   </span>
                   <span style={{ fontSize: '1.2rem' }}>{slang.culture === 'SG' ? '🇸🇬' : '🇻🇳'}</span>
                 </div>
                 {slang.phonetic && (
-                  <p style={{ fontSize: '0.72rem', color: '#64748b', fontStyle: 'italic', marginBottom: '6px' }}>
+                  <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontStyle: 'italic', marginBottom: '6px' }}>
                     {slang.phonetic}
                   </p>
                 )}
-                <p style={{ fontSize: '0.8rem', color: '#94a3b8', lineHeight: 1.5, marginBottom: '8px' }}>
+                <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '8px' }}>
                   {slang.cultural_meaning}
                 </p>
                 {slang.whatsapp_example && (
-                  <p style={{ fontSize: '0.75rem', color: '#10b981', fontStyle: 'italic', borderTop: '1px solid rgba(16, 185, 129, 0.1)', paddingTop: '8px' }}>
+                  <p style={{ fontSize: '0.75rem', color: 'var(--neon-emerald)', fontStyle: 'italic', borderTop: '1px solid rgba(16, 185, 129, 0.1)', paddingTop: '8px', fontWeight: '500' }}>
                     💬 "{slang.whatsapp_example}"
                   </p>
                 )}
@@ -160,8 +161,9 @@ export default function AiHarvester() {
                   marginTop: '8px', display: 'inline-block',
                   fontSize: '0.62rem', padding: '2px 8px', borderRadius: '4px',
                   background: 'rgba(16, 185, 129, 0.1)',
-                  color: '#10b981',
-                  border: '1px solid rgba(16, 185, 129, 0.2)'
+                  color: 'var(--neon-emerald)',
+                  border: '1px solid rgba(16, 185, 129, 0.2)',
+                  fontWeight: '700'
                 }}>
                   🆕 Just Harvested
                 </span>
@@ -180,15 +182,16 @@ export default function AiHarvester() {
           { icon: '💾', title: 'SQLite Sync', desc: 'All harvested slangs are instantly added to the playable game database' }
         ].map((card, i) => (
           <div key={i} style={{
-            background: 'rgba(13, 20, 36, 0.6)',
-            border: '1px solid rgba(56, 189, 248, 0.1)',
-            borderRadius: '12px', padding: '14px'
+            background: 'var(--bg-card)',
+            border: '1px solid var(--border-subtle)',
+            borderRadius: '12px', padding: '14px',
+            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)'
           }}>
             <div style={{ fontSize: '1.5rem', marginBottom: '6px' }}>{card.icon}</div>
-            <h4 style={{ fontFamily: 'var(--font-heading)', fontWeight: '700', color: '#e2e8f0', fontSize: '0.85rem', marginBottom: '4px' }}>
+            <h4 style={{ fontFamily: 'var(--font-heading)', fontWeight: '700', color: 'var(--text-primary)', fontSize: '0.85rem', marginBottom: '4px' }}>
               {card.title}
             </h4>
-            <p style={{ fontSize: '0.75rem', color: '#64748b', lineHeight: 1.5 }}>{card.desc}</p>
+            <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>{card.desc}</p>
           </div>
         ))}
       </div>

@@ -64,7 +64,7 @@ export default function SlangPokedex({ user }) {
         <h2 style={{ fontFamily: 'var(--font-arcade)', fontSize: '1rem', color: 'var(--neon-cyan)', letterSpacing: '0.1em', marginBottom: '4px' }}>
           📚 SLANG POKÉDEX
         </h2>
-        <p style={{ color: '#64748b', fontSize: '0.85rem' }}>
+        <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', fontWeight: '500' }}>
           Your campus slang encyclopedia. {slangs.length} entries and growing!
         </p>
       </div>
@@ -95,12 +95,12 @@ export default function SlangPokedex({ user }) {
 
       {/* Slang Grid */}
       {loading ? (
-        <div style={{ textAlign: 'center', padding: '40px', color: '#64748b' }}>
+        <div style={{ textAlign: 'center', padding: '40px', color: 'var(--text-muted)' }}>
           <div style={{ fontSize: '2rem', animation: 'spin-slow 1s linear infinite', display: 'inline-block' }}>⚙️</div>
           <p style={{ marginTop: '12px', fontFamily: 'var(--font-arcade)', fontSize: '0.8rem' }}>Loading slangs...</p>
         </div>
       ) : filtered.length === 0 ? (
-        <div style={{ textAlign: 'center', padding: '40px', color: '#64748b' }}>
+        <div style={{ textAlign: 'center', padding: '40px', color: 'var(--text-muted)' }}>
           <p style={{ fontSize: '2rem' }}>🔎</p>
           <p style={{ marginTop: '8px' }}>No slangs found. Try the AI Harvester to add more!</p>
         </div>
@@ -116,11 +116,11 @@ export default function SlangPokedex({ user }) {
               {/* Top row */}
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
                 <div>
-                  <h3 style={{ fontFamily: 'var(--font-heading)', fontWeight: '700', fontSize: '1.05rem', color: '#e2e8f0' }}>
+                  <h3 style={{ fontFamily: 'var(--font-heading)', fontWeight: '700', fontSize: '1.05rem', color: 'var(--text-primary)' }}>
                     {slang.term}
                   </h3>
                   {slang.phonetic && (
-                    <span style={{ fontSize: '0.75rem', color: '#94a3b8', fontStyle: 'italic' }}>{slang.phonetic}</span>
+                    <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontStyle: 'italic' }}>{slang.phonetic}</span>
                   )}
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', alignItems: 'flex-end' }}>
@@ -129,7 +129,7 @@ export default function SlangPokedex({ user }) {
                     <span style={{
                       fontSize: '0.62rem', padding: '2px 8px', borderRadius: '4px',
                       background: `${CATEGORY_COLORS[slang.category]}22`,
-                      color: CATEGORY_COLORS[slang.category] || '#64748b',
+                      color: CATEGORY_COLORS[slang.category] || 'var(--text-muted)',
                       border: `1px solid ${CATEGORY_COLORS[slang.category]}44`,
                       fontFamily: 'var(--font-heading)', fontWeight: '600', letterSpacing: '0.05em'
                     }}>
@@ -140,7 +140,7 @@ export default function SlangPokedex({ user }) {
               </div>
 
               {/* Meaning preview */}
-              <p style={{ fontSize: '0.82rem', color: '#94a3b8', lineHeight: 1.5, marginBottom: '10px' }}>
+              <p style={{ fontSize: '0.84rem', color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '10px' }}>
                 {expanded === slang.id ? slang.cultural_meaning : (slang.cultural_meaning?.slice(0, 80) + (slang.cultural_meaning?.length > 80 ? '...' : ''))}
               </p>
 
@@ -149,23 +149,23 @@ export default function SlangPokedex({ user }) {
                 <div style={{ animation: 'slide-up 0.3s ease-out' }}>
                   {slang.literal_translation && (
                     <div style={{ marginBottom: '10px' }}>
-                      <span style={{ fontSize: '0.7rem', color: '#475569', display: 'block', marginBottom: '2px', fontFamily: 'var(--font-arcade)', letterSpacing: '0.08em' }}>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', display: 'block', marginBottom: '2px', fontFamily: 'var(--font-arcade)', letterSpacing: '0.08em' }}>
                         LITERAL
                       </span>
-                      <span style={{ fontSize: '0.82rem', color: '#cbd5e1' }}>{slang.literal_translation}</span>
+                      <span style={{ fontSize: '0.82rem', color: 'var(--text-primary)', fontWeight: '500' }}>{slang.literal_translation}</span>
                     </div>
                   )}
 
                   {slang.whatsapp_example && (
                     <div style={{
-                      background: 'rgba(16, 185, 129, 0.06)',
-                      border: '1px solid rgba(16, 185, 129, 0.15)',
+                      background: 'rgba(16, 185, 129, 0.08)',
+                      border: '1px solid rgba(16, 185, 129, 0.2)',
                       borderRadius: '10px', padding: '10px 14px', marginBottom: '10px'
                     }}>
-                      <span style={{ fontSize: '0.65rem', color: '#10b981', display: 'block', marginBottom: '4px', fontFamily: 'var(--font-arcade)', letterSpacing: '0.08em' }}>
+                      <span style={{ fontSize: '0.65rem', color: 'var(--neon-emerald)', display: 'block', marginBottom: '4px', fontFamily: 'var(--font-arcade)', letterSpacing: '0.08em', fontWeight: '700' }}>
                         💬 WHATSAPP EXAMPLE
                       </span>
-                      <p style={{ fontSize: '0.82rem', color: '#94a3b8', fontStyle: 'italic', lineHeight: 1.5 }}>
+                      <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', fontStyle: 'italic', lineHeight: 1.5 }}>
                         "{slang.whatsapp_example}"
                       </p>
                     </div>
@@ -192,7 +192,7 @@ export default function SlangPokedex({ user }) {
                   }}>
                     {!aiSentences[slang.id] ? (
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
-                        <div style={{ fontSize: '0.72rem', color: '#94a3b8' }}>
+                        <div style={{ fontSize: '0.74rem', color: 'var(--text-secondary)' }}>
                           🤖 <strong>AI Skill: Cultural Crafter</strong> • May đo câu hội thoại chuẩn bối cảnh & kiểm duyệt an toàn
                         </div>
                         <button
@@ -207,7 +207,7 @@ export default function SlangPokedex({ user }) {
                     ) : (
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '6px' }}>
-                          <span style={{ fontSize: '0.68rem', fontFamily: 'var(--font-arcade)', color: 'var(--neon-cyan)', letterSpacing: '0.08em' }}>
+                          <span style={{ fontSize: '0.68rem', fontFamily: 'var(--font-arcade)', color: 'var(--neon-cyan)', letterSpacing: '0.08em', fontWeight: '700' }}>
                             ✨ CÂU HỘI THOẠI AI MAY ĐO
                           </span>
                           <span style={{
@@ -219,15 +219,15 @@ export default function SlangPokedex({ user }) {
                           </span>
                         </div>
 
-                        <p style={{ fontSize: '0.85rem', color: '#f8fafc', fontWeight: '600', fontStyle: 'italic', margin: '2px 0', lineHeight: 1.4 }}>
+                        <p style={{ fontSize: '0.88rem', color: 'var(--text-primary)', fontWeight: '700', fontStyle: 'italic', margin: '2px 0', lineHeight: 1.4 }}>
                           "{aiSentences[slang.id].authentic_sentence}"
                         </p>
 
-                        <div style={{ fontSize: '0.76rem', color: '#94a3b8' }}>
+                        <div style={{ fontSize: '0.78rem', color: 'var(--text-secondary)' }}>
                           🇻🇳 <strong>Dịch:</strong> {aiSentences[slang.id].translation_vi}
                         </div>
 
-                        <div style={{ fontSize: '0.73rem', color: '#cbd5e1' }}>
+                        <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
                           🎯 <strong>Bối cảnh:</strong> {aiSentences[slang.id].context_scenario}
                         </div>
 
@@ -235,21 +235,21 @@ export default function SlangPokedex({ user }) {
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginTop: '4px' }}>
                           <div style={{
                             padding: '6px 8px', borderRadius: '8px',
-                            background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.2)',
-                            fontSize: '0.68rem', color: '#86efac'
+                            background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.25)',
+                            fontSize: '0.7rem', color: 'var(--neon-emerald)', fontWeight: '600'
                           }}>
                             ✅ <strong>NÊN DÙNG:</strong> {aiSentences[slang.id].pragmatics?.when_to_use}
                           </div>
                           <div style={{
                             padding: '6px 8px', borderRadius: '8px',
-                            background: 'rgba(244,63,94,0.08)', border: '1px solid rgba(244,63,94,0.2)',
-                            fontSize: '0.68rem', color: '#fca5a5'
+                            background: 'rgba(244,63,94,0.1)', border: '1px solid rgba(244,63,94,0.25)',
+                            fontSize: '0.7rem', color: 'var(--neon-rose)', fontWeight: '600'
                           }}>
                             ⚠️ <strong>TRÁNH DÙNG:</strong> {aiSentences[slang.id].pragmatics?.when_to_avoid}
                           </div>
                         </div>
 
-                        <div style={{ fontSize: '0.65rem', color: '#64748b', textAlign: 'right', marginTop: '2px' }}>
+                        <div style={{ fontSize: '0.65rem', color: 'var(--text-muted)', textAlign: 'right', marginTop: '2px' }}>
                           Audit: {aiSentences[slang.id].safety_verification?.safety_audit_notes}
                         </div>
                       </div>

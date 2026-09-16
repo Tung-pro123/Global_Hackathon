@@ -71,8 +71,23 @@ export default function ProfileEditModal({ user, onUpdate, onClose, onLogout }) 
     }, 900);
   };
 
+  React.useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        onClose?.();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
+
   return (
-    <div className="modal-overlay">
+    <div
+      className="modal-overlay"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose?.();
+      }}
+    >
       <div className="modal-content glass animate-bounce-in" style={{
         padding: '26px',
         borderRadius: '24px',
@@ -88,8 +103,8 @@ export default function ProfileEditModal({ user, onUpdate, onClose, onLogout }) 
               <h2 style={{ fontFamily: 'var(--font-arcade)', fontSize: '0.95rem', color: 'var(--neon-cyan)' }}>
                 HỒ SƠ CÁ NHÂN HÓA
               </h2>
-              <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
-                Học viên: <strong style={{ color: '#e2e8f0' }}>{user.username}</strong>
+              <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
+                Học viên: <strong style={{ color: 'var(--text-primary)' }}>{user.username}</strong>
               </p>
             </div>
           </div>
@@ -98,7 +113,8 @@ export default function ProfileEditModal({ user, onUpdate, onClose, onLogout }) 
             style={{
               background: 'rgba(255,255,255,0.06)', border: 'none',
               color: 'var(--text-muted)', width: '32px', height: '32px',
-              borderRadius: '50%', cursor: 'pointer', fontSize: '1.1rem'
+              borderRadius: '50%', cursor: 'pointer', fontSize: '1rem',
+              display: 'flex', alignItems: 'center', justifyContent: 'center'
             }}
           >×</button>
         </div>
@@ -127,9 +143,9 @@ export default function ProfileEditModal({ user, onUpdate, onClose, onLogout }) 
                   onClick={() => setEnglishLevel(lvl.id)}
                   style={{
                     padding: '8px 4px', borderRadius: '8px', border: 'none', cursor: 'pointer',
-                    background: englishLevel === lvl.id ? 'rgba(56,189,248,0.2)' : 'rgba(15,23,42,0.6)',
-                    border: `1.5px solid ${englishLevel === lvl.id ? 'var(--neon-cyan)' : 'rgba(255,255,255,0.06)'}`,
-                    color: englishLevel === lvl.id ? 'var(--neon-cyan)' : 'var(--text-muted)',
+                    background: englishLevel === lvl.id ? 'rgba(56,189,248,0.2)' : 'var(--input-bg)',
+                    border: `1.5px solid ${englishLevel === lvl.id ? 'var(--neon-cyan)' : 'var(--border-subtle)'}`,
+                    color: englishLevel === lvl.id ? 'var(--neon-cyan)' : 'var(--text-secondary)',
                     fontFamily: 'var(--font-heading)', fontSize: '0.75rem', fontWeight: '600'
                   }}
                 >
@@ -152,9 +168,9 @@ export default function ProfileEditModal({ user, onUpdate, onClose, onLogout }) 
                   onClick={() => setTargetCulture(c.id)}
                   style={{
                     flex: 1, padding: '7px 4px', borderRadius: '8px', border: 'none', cursor: 'pointer',
-                    background: targetCulture === c.id ? 'rgba(251,191,36,0.2)' : 'rgba(15,23,42,0.6)',
-                    border: `1.5px solid ${targetCulture === c.id ? 'var(--neon-gold)' : 'rgba(255,255,255,0.06)'}`,
-                    color: targetCulture === c.id ? 'var(--neon-gold)' : 'var(--text-muted)',
+                    background: targetCulture === c.id ? 'rgba(251,191,36,0.2)' : 'var(--input-bg)',
+                    border: `1.5px solid ${targetCulture === c.id ? 'var(--neon-gold)' : 'var(--border-subtle)'}`,
+                    color: targetCulture === c.id ? 'var(--neon-gold)' : 'var(--text-secondary)',
                     fontSize: '0.7rem', fontWeight: '600'
                   }}
                 >
@@ -179,8 +195,8 @@ export default function ProfileEditModal({ user, onUpdate, onClose, onLogout }) 
                     onClick={() => toggleInterest(opt.id)}
                     style={{
                       padding: '6px 12px', borderRadius: '999px', border: 'none', cursor: 'pointer',
-                      background: isSelected ? 'rgba(16,185,129,0.2)' : 'rgba(255,255,255,0.05)',
-                      border: `1px solid ${isSelected ? 'var(--neon-emerald)' : 'rgba(255,255,255,0.1)'}`,
+                      background: isSelected ? 'rgba(16,185,129,0.2)' : 'var(--input-bg)',
+                      border: `1px solid ${isSelected ? 'var(--neon-emerald)' : 'var(--border-subtle)'}`,
                       color: isSelected ? 'var(--neon-emerald)' : 'var(--text-secondary)',
                       fontSize: '0.75rem', fontWeight: isSelected ? '700' : '500'
                     }}

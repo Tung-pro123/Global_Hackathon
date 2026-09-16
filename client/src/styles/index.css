@@ -45,34 +45,34 @@
 
 /* ── Light Theme ── */
 [data-theme="light"] {
-  --bg-dark: #f0f4ff;
+  --bg-dark: #f1f5f9;
   --bg-card: #ffffff;
   --bg-card-hover: #f8faff;
-  --bg-surface: #e8eeff;
+  --bg-surface: #e2e8f0;
   --text-primary: #0f172a;
-  --text-secondary: #334155;
-  --text-muted: #64748b;
-  --border-subtle: rgba(14, 165, 233, 0.15);
-  --border-glow: rgba(14, 165, 233, 0.4);
+  --text-secondary: #1e293b;
+  --text-muted: #475569;
+  --border-subtle: rgba(14, 165, 233, 0.2);
+  --border-glow: rgba(14, 165, 233, 0.5);
 
   --neon-cyan: #0284c7;
   --neon-cyan-glow: rgba(2, 132, 199, 0.25);
   --neon-emerald: #059669;
   --neon-emerald-glow: rgba(5, 150, 105, 0.25);
-  --neon-gold: #d97706;
-  --neon-gold-glow: rgba(217, 119, 6, 0.25);
+  --neon-gold: #b45309;
+  --neon-gold-glow: rgba(180, 83, 9, 0.25);
   --neon-rose: #e11d48;
   --neon-rose-glow: rgba(225, 29, 72, 0.25);
   --neon-violet: #7c3aed;
   --neon-violet-glow: rgba(124, 58, 237, 0.25);
 
-  --glass-bg: rgba(255, 255, 255, 0.8);
-  --glass-border: rgba(2, 132, 199, 0.2);
-  --navbar-bg: rgba(255, 255, 255, 0.95);
-  --tab-bg: rgba(240, 244, 255, 0.9);
-  --modal-overlay: rgba(15, 23, 42, 0.6);
-  --input-bg: rgba(248, 250, 255, 0.95);
-  --terminal-bg: #1e293b;
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(14, 165, 233, 0.25);
+  --navbar-bg: rgba(255, 255, 255, 0.98);
+  --tab-bg: #e2e8f0;
+  --modal-overlay: rgba(15, 23, 42, 0.65);
+  --input-bg: #ffffff;
+  --terminal-bg: #0f172a;
   --scrollbar-color: #0284c7;
 }
 
@@ -197,6 +197,11 @@ body {
 .badge-epic { background: rgba(139,92,246,0.1); color: var(--neon-violet); border: 1px solid rgba(139,92,246,0.3); }
 .badge-legendary { background: rgba(251,191,36,0.1); color: var(--neon-gold); border: 1px solid rgba(251,191,36,0.3); }
 
+[data-theme="light"] .badge-common { background: #e2e8f0; color: #334155; border-color: #cbd5e1; font-weight: 700; }
+[data-theme="light"] .badge-rare { background: #e0f2fe; color: #0284c7; border-color: #7dd3fc; font-weight: 700; }
+[data-theme="light"] .badge-epic { background: #f3e8ff; color: #7c3aed; border-color: #c084fc; font-weight: 700; }
+[data-theme="light"] .badge-legendary { background: #fef3c7; color: #b45309; border-color: #fcd34d; font-weight: 700; }
+
 /* ── Animations ── */
 @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
 @keyframes pulse-glow { 0%,100%{opacity:1} 50%{opacity:0.6} }
@@ -306,6 +311,11 @@ body {
 .wallet-pill.xp { color:var(--neon-emerald); border-color:rgba(16,185,129,0.3); }
 .wallet-pill.bump { animation:bounce-in 0.4s ease; }
 
+[data-theme="light"] .wallet-pill { background: #ffffff; border-color: #cbd5e1; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+[data-theme="light"] .wallet-pill.coins { color: #b45309; border-color: #fcd34d; background: #fffbeb; }
+[data-theme="light"] .wallet-pill.diamonds { color: #0284c7; border-color: #bae6fd; background: #f0f9ff; }
+[data-theme="light"] .wallet-pill.xp { color: #059669; border-color: #a7f3d0; background: #ecfdf5; }
+
 /* ── Combo flash ── */
 .combo-text {
   position:absolute; left:50%; top:20%;
@@ -335,9 +345,20 @@ body {
   border:1px solid rgba(56,189,248,0.3);
   box-shadow:0 0 15px rgba(56,189,248,0.12);
 }
+[data-theme="light"] .tab-btn {
+  color: #475569;
+  font-weight: 600;
+}
+[data-theme="light"] .tab-btn:not(.active):hover {
+  color: #0f172a;
+  background: rgba(0, 0, 0, 0.05);
+}
 [data-theme="light"] .tab-btn.active {
-  background:linear-gradient(135deg,rgba(2,132,199,0.12),rgba(2,132,199,0.06));
-  box-shadow:0 2px 12px rgba(2,132,199,0.15);
+  background: #ffffff;
+  color: #0284c7;
+  border: 1px solid rgba(2, 132, 199, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  font-weight: 700;
 }
 .tab-btn:not(.active):hover { color:var(--text-secondary); background:rgba(255,255,255,0.04); }
 

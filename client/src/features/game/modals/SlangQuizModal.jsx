@@ -146,7 +146,7 @@ export default function SlangQuizModal({ quiz, onAnswer, onClose, quizType = 'di
             boxShadow: '0 0 15px rgba(56,189,248,0.08)'
           }}>
             <span>✨ AI May Đo Cho Bạn:</span>
-            <span style={{ color: '#e2e8f0', fontWeight: '600' }}>
+            <span style={{ color: 'var(--text-primary)', fontWeight: '700' }}>
               {quiz.personalized_info.interests?.[0]?.toUpperCase()} • {quiz.personalized_info.level?.toUpperCase()}
             </span>
           </div>
@@ -156,7 +156,7 @@ export default function SlangQuizModal({ quiz, onAnswer, onClose, quizType = 'di
             background: 'rgba(255,255,255,0.04)',
             border: '1px solid rgba(255,255,255,0.1)',
             borderRadius: '999px', padding: '3px 12px', marginBottom: '12px',
-            fontSize: '0.7rem', color: '#94a3b8', fontFamily: 'var(--font-heading)'
+            fontSize: '0.7rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-heading)'
           }}>
             <span>🌐 Thử Thách Tiếng Lóng Tổng Quát (Chế Độ Khách)</span>
           </div>
@@ -165,15 +165,15 @@ export default function SlangQuizModal({ quiz, onAnswer, onClose, quizType = 'di
         {/* Reward preview */}
         {!result && (
           <div style={{
-            background: 'rgba(56, 189, 248, 0.05)',
-            border: '1px solid rgba(56, 189, 248, 0.15)',
+            background: 'rgba(56, 189, 248, 0.08)',
+            border: '1px solid rgba(56, 189, 248, 0.2)',
             borderRadius: '10px',
             padding: '10px 16px',
             marginBottom: '16px',
             textAlign: 'center',
             fontFamily: 'var(--font-arcade)',
-            fontSize: '0.7rem',
-            color: '#94a3b8',
+            fontSize: '0.72rem',
+            color: 'var(--text-secondary)',
             letterSpacing: '0.05em'
           }}>
             ✅ Correct answer: {rewards}
@@ -189,14 +189,14 @@ export default function SlangQuizModal({ quiz, onAnswer, onClose, quizType = 'di
               style={{ width: '100%', height: '160px', objectFit: 'cover', display: 'block' }}
               onError={e => { e.target.style.display = 'none'; }}
             />
-            <p style={{ padding: '10px 14px', fontSize: '0.8rem', color: '#94a3b8', fontStyle: 'italic', background: 'rgba(13, 20, 36, 0.8)' }}>
+            <p style={{ padding: '10px 14px', fontSize: '0.8rem', color: 'var(--text-secondary)', fontStyle: 'italic', background: 'var(--bg-surface)' }}>
               🖼️ {quiz.visual_caption || 'What slang does this image represent?'}
             </p>
           </div>
         )}
 
         {/* Question */}
-        <p style={{ fontSize: '0.95rem', color: '#e2e8f0', marginBottom: '16px', lineHeight: 1.5, fontFamily: 'var(--font-heading)', fontWeight: '500' }}>
+        <p style={{ fontSize: '0.98rem', color: 'var(--text-primary)', marginBottom: '16px', lineHeight: 1.5, fontFamily: 'var(--font-heading)', fontWeight: '700' }}>
           {quiz.question || 'What campus slang does this image represent?'}
         </p>
 
@@ -252,7 +252,7 @@ export default function SlangQuizModal({ quiz, onAnswer, onClose, quizType = 'di
               {result.is_correct && quizType === 'diamond' && <span style={{ fontFamily: 'var(--font-arcade)', fontSize: '0.75rem' }}>+100 🪙 +1 💎 +50 ⭐</span>}
               {result.is_correct && quizType !== 'diamond' && <span style={{ fontFamily: 'var(--font-arcade)', fontSize: '0.75rem' }}>+80 🪙 +25 ⭐ 🛡️</span>}
             </p>
-            <p style={{ fontSize: '0.82rem', color: '#94a3b8', lineHeight: 1.5 }}>
+            <p style={{ fontSize: '0.84rem', color: 'var(--text-secondary)', lineHeight: 1.5, fontWeight: '500' }}>
               {result.explanation}
             </p>
           </div>
